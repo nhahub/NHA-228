@@ -8,7 +8,6 @@ ThemeData appTheme() {
     // primaryColor: Color(0xffFFFFFF),
     textTheme: TextTheme(
       titleLarge: TextStyle(
-        fontFamily: 'Otama.ep',
         fontSize: 38.sp,
         fontWeight: FontWeight.w400,
         color: AppColors.textprimary,
