@@ -94,4 +94,27 @@ class AppStrings {
   static const gender = "Gender";
   static const dateOfBirth = "Date of Birth";
   static const save = "save";
+
+   static const String fieldRequired = "This field is required";
+
+  // Email
+  static const String emailEmpty = "Please enter your email";
+  static const String emailInvalid = "Enter a valid email address";
+
+  // Password
+  static const String passwordEmpty = "Please enter your password";
+  static const String passwordTooShort = "Password must be at least 6 characters";
+
+  // Confirm Password
+  static const String confirmPasswordEmpty = "Please confirm your password";
+  static const String passwordsDoNotMatch = "Passwords do not match";
+
+  // First Name
+  static const String firstNameEmpty = "Please enter your first name";
+  static const String firstNameTooShort = "First name must be at least 2 characters";
+
+  // Last Name
+  static const String lastNameEmpty = "Please enter your last name";
+  static const String lastNameTooShort = "Last name must be at least 2 characters";
+
 }

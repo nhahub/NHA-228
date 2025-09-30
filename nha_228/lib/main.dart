@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:krakibak/core/theme/app_theme.dart';
-import 'package:krakibak/features/auth/screens/register.dart';
+import 'package:nha_228/core/theme/app_theme.dart';
+import 'package:nha_228/features/auth/screens/register.dart';
+import 'package:nha_228/features/splash/screens/splash_screen.dart';
 
 void main() {
   runApp(const Krakibak());
@@ -18,7 +19,7 @@ class Krakibak extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
-          home: RegisterScreen(),
+          home: SplashScreen(),
           debugShowCheckedModeBanner: false,
           theme: appTheme(),
         );
