@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nha_228/core/theme/app_theme.dart';
-import 'package:nha_228/features/splash/screens/splash_screen.dart';
+import 'package:nha_228/core/utils/app_routers.dart';
 import 'package:nha_228/firebase_options.dart';
 
 void main() async {
@@ -21,8 +21,8 @@ class Krakibak extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
-          home: const SplashScreen(),
+        return MaterialApp.router(
+          routerConfig: AppRouter.router,
           debugShowCheckedModeBanner: false,
           theme: appTheme(),
         );

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nha_228/core/constants/app_assets.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/core/constants/app_values.dart';
+import 'package:nha_228/core/utils/app_routers.dart';
 import 'package:nha_228/core/utils/validators.dart';
 import 'package:nha_228/core/widgets/custom_botton.dart';
 import 'package:nha_228/features/auth/cubit/register%20cubit/register_cubit.dart';
-import 'package:nha_228/features/auth/screens/login_screen.dart';
 import 'package:nha_228/features/auth/widgets/auth_redirect_text.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';
@@ -41,6 +42,7 @@ class RegisterScreen extends StatelessWidget {
               "Account created successfully!",
               backgroundColor: Colors.green,
             );
+            context.go(AppRouter.loginScreen);
           } else if (state is RegisterFailure) {
             CustomSnackBar.show(
               context,
@@ -105,9 +107,10 @@ class RegisterScreen extends StatelessWidget {
                         controller: confirmPasswordController,
                         hintText: AppStrings.confirmPassword,
                         isPassword: true,
-                        validator: (value) => value.validateConfirmPassword(
-                          passwordController.text,
-                        ),
+                        validator:
+                            (value) => value.validateConfirmPassword(
+                              passwordController.text,
+                            ),
                       ),
                       SizedBox(height: AppValues.h10 * 1.5),
 
@@ -130,12 +133,7 @@ class RegisterScreen extends StatelessWidget {
                         message: "Already have an account?",
                         actionText: 'log in',
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginScreen(),
-                            ),
-                          );
+                          context.go(AppRouter.loginScreen);
                         },
                       ),
                     ],
