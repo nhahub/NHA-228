@@ -7,6 +7,7 @@ import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/core/utils/validators.dart';
 import 'package:nha_228/core/widgets/custom_botton.dart';
 import 'package:nha_228/features/auth/cubit/register%20cubit/register_cubit.dart';
+import 'package:nha_228/features/auth/screens/login_screen.dart';
 import 'package:nha_228/features/auth/widgets/auth_redirect_text.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';
@@ -73,14 +74,14 @@ class RegisterScreen extends StatelessWidget {
                       CustomTextField(
                         controller: firstNameController,
                         hintText: AppStrings.firstName,
-                        validator: (value) => Validators.firstName(value),
+                        validator: (value) => value.validateFirstName(),
                       ),
                       SizedBox(height: AppValues.h16),
 
                       CustomTextField(
                         controller: lastNameController,
                         hintText: AppStrings.lastName,
-                        validator: (value) => Validators.lastName(value),
+                        validator: (value) => value.validateLastName(),
                       ),
                       SizedBox(height: AppValues.h16),
 
@@ -88,7 +89,7 @@ class RegisterScreen extends StatelessWidget {
                         controller: emailController,
                         hintText: AppStrings.email,
                         keyboardType: TextInputType.emailAddress,
-                        validator: (value) => Validators.email(value),
+                        validator: (value) => value.validateEmail(),
                       ),
                       SizedBox(height: AppValues.h16),
 
@@ -96,7 +97,7 @@ class RegisterScreen extends StatelessWidget {
                         controller: passwordController,
                         hintText: AppStrings.password,
                         isPassword: true,
-                        validator: (value) => Validators.password(value),
+                        validator: (value) => value.validatePassword(),
                       ),
                       SizedBox(height: AppValues.h10),
 
@@ -104,8 +105,7 @@ class RegisterScreen extends StatelessWidget {
                         controller: confirmPasswordController,
                         hintText: AppStrings.confirmPassword,
                         isPassword: true,
-                        validator: (value) => Validators.confirmPassword(
-                          value,
+                        validator: (value) => value.validateConfirmPassword(
                           passwordController.text,
                         ),
                       ),
@@ -126,7 +126,18 @@ class RegisterScreen extends StatelessWidget {
                       ),
 
                       SizedBox(height: AppValues.h10),
-                      const AuthRedirectText(),
+                      AuthRedirectText(
+                        message: "Already have an account?",
+                        actionText: 'log in',
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            ),
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ),

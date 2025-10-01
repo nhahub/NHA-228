@@ -1,37 +1,61 @@
-class Validators {
-  static String? requiredField(String? value, String message) {
-    if (value == null || value.isEmpty) return message;
-    return null;
-  }
 
-  static String? email(String? value) {
-    if (value == null || value.isEmpty) return 'Please enter your email';
-    if (!value.contains('@')) return 'Enter a valid email';
-    return null;
-  }
+import 'package:nha_228/core/constants/app_strings.dart';
 
-  static String? password(String? value) {
-    if (value == null || value.length < 6) {
-      return 'Password must be at least 6 chars';
+extension AppValidators on String? {
+  String? validateRequired(String message) {
+    if (this == null || this!.isEmpty) {
+      return message;
     }
     return null;
   }
 
-  static String? confirmPassword(String? value, String password) {
-    if (value == null || value.isEmpty) return 'Please confirm password';
-    if (value != password) return 'Passwords do not match';
+  String? validateEmail() {
+    if (this == null || this!.isEmpty) {
+      return AppStrings.emailEmpty;
+    }
+    if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}$').hasMatch(this!)) {
+      return AppStrings.emailInvalid;
+    }
     return null;
   }
 
-  static String? firstName(String? value) {
-    if (value == null || value.isEmpty) return 'Please enter your first name';
-    if (value.length < 2) return 'First name must be at least 2 characters';
+  String? validatePassword() {
+    if (this == null || this!.isEmpty) {
+      return AppStrings.passwordEmpty;
+    }
+    if (this!.length < 6) {
+      return AppStrings.passwordTooShort;
+    }
     return null;
   }
 
-  static String? lastName(String? value) {
-    if (value == null || value.isEmpty) return 'Please enter your last name';
-    if (value.length < 2) return 'Last name must be at least 2 characters';
+  String? validateConfirmPassword(String password) {
+    if (this == null || this!.isEmpty) {
+      return AppStrings.confirmPasswordEmpty;
+    }
+    if (this != password) {
+      return AppStrings.passwordsDoNotMatch;
+    }
+    return null;
+  }
+
+  String? validateFirstName() {
+    if (this == null || this!.isEmpty) {
+      return AppStrings.firstNameEmpty;
+    }
+    if (this!.length < 2) {
+      return AppStrings.firstNameTooShort;
+    }
+    return null;
+  }
+
+  String? validateLastName() {
+    if (this == null || this!.isEmpty) {
+      return AppStrings.lastNameEmpty;
+    }
+    if (this!.length < 2) {
+      return AppStrings.lastNameTooShort;
+    }
     return null;
   }
 }
