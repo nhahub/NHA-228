@@ -1,9 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:krakibak/core/theme/app_theme.dart';
-import 'package:krakibak/features/auth/screens/register.dart';
+import 'package:nha_228/core/theme/app_theme.dart';
+import 'package:nha_228/features/auth/screens/register_screen.dart';
+import 'package:nha_228/firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const Krakibak());
 }
 

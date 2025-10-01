@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "841915266947",
+    "project_id": "krakibak-5a0de",
+    "storage_bucket": "krakibak-5a0de.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841915266947:android:3c0bc231887c3ebd4f68b6",
+        "android_client_info": {
+          "package_name": "com.example.nha_228"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzSv-lhreqGtuxwa03vpqCMhvN59XWiPY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
