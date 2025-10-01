@@ -8,4 +8,11 @@ class AppValues {
   static double sp14 = 14.sp;
   static double r8 = 8.r;
   static double w18 = 18.w;
+   static double padding = 18.w;
+  static double buttonHeight = 44.h;
+  static double splashSpacing = 10.h;
+  static double fieldSpacing = 16.h;
+  static double titleFontSize = 38.sp;
+  static double subtitleFontSize = 14.sp;
+  static double fieldBoarderRadius=16.r;
 }

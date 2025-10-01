@@ -9,4 +9,8 @@ class AppAssets {
   static const String onboardingRecycling = "$_path/onboarding_recycling.svg";
   static const String picture = "$_path/picture.svg";
   static const String triangleArrow = "$_path/Triangle_Arrow.svg";
+
+    static const String firstOnboard = '$_path/illustation.png';
+  static const String secondOnboard = '$_path/illustation (1).png';
+  static const String thirdOnboard = '$_path/Frame.png';
 }
