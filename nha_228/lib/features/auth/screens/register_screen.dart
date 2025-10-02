@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nha_228/core/constants/app_assets.dart';
+import 'package:nha_228/core/constants/app_colors.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
@@ -40,14 +41,14 @@ class RegisterScreen extends StatelessWidget {
             CustomSnackBar.show(
               context,
               "Account created successfully!",
-              backgroundColor: Colors.green,
+              backgroundColor: AppColors.success,
             );
             context.go(AppRouter.loginScreen);
           } else if (state is RegisterFailure) {
             CustomSnackBar.show(
               context,
               state.errorMessage,
-              backgroundColor: Colors.red,
+              backgroundColor: AppColors.error,
             );
           }
         },
@@ -130,8 +131,8 @@ class RegisterScreen extends StatelessWidget {
 
                       SizedBox(height: AppValues.h10),
                       AuthRedirectText(
-                        message: "Already have an account?",
-                        actionText: 'log in',
+                        message: AppStrings.alreadyHaveAccount,
+                        actionText: AppStrings.login,
                         onTap: () {
                           context.go(AppRouter.loginScreen);
                         },

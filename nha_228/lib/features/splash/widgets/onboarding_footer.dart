@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:nha_228/core/constants/app_colors.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
@@ -22,7 +23,7 @@ class OnboardingFooter extends StatelessWidget {
         children: [
           TextButton(
             onPressed: () {
-              Navigator.pushNamed(context, AppRouter.loginScreen);
+              context.go(AppRouter.loginScreen);
             },
             child: Text(
               AppStrings.skip,

@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:nha_228/features/auth/screens/login_screen.dart';
 import 'package:nha_228/features/auth/screens/register_screen.dart';
 import 'package:nha_228/features/home/screens/home_screen.dart';
+import 'package:nha_228/features/splash/screens/onboard_screen.dart';
 import 'package:nha_228/features/splash/screens/splash_screen.dart';
 
 abstract class AppRouter {
@@ -9,11 +10,12 @@ abstract class AppRouter {
   static const searchScreen = '/SearchScreen';
   static const loginScreen = '/LoginScreen';
   static const registerScreen = '/RegisterScreen';
-
+  static const onboardScreen='/OnboardScreen';
   static final router = GoRouter(
     routes: [
       GoRoute(path: '/', builder: (context, state) => const SplashScreen()),
       GoRoute(path: loginScreen, builder: (context, state) => LoginScreen()),
+      GoRoute(path: onboardScreen,builder: (context, state) => OnboardScreen(),),
       GoRoute(
         path: registerScreen,
         builder: (context, state) => RegisterScreen(),
