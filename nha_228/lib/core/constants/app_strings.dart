@@ -119,4 +119,8 @@ class AppStrings {
   static const String lastNameEmpty = "Please enter your last name";
   static const String lastNameTooShort =
       "Last name must be at least 2 characters";
+
+  static const String loginSuccess = "Login successful ";
+  static const String noAccount = "Don't have an account?";
+  static const String alreadyHaveAccount = "Already have an account?";
 }
