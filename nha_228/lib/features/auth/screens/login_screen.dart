@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nha_228/core/constants/app_assets.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/core/constants/app_values.dart';
+import 'package:nha_228/core/utils/app_routers.dart';
 import 'package:nha_228/features/auth/screens/register_screen.dart';
 import 'package:nha_228/features/auth/widgets/auth_redirect_text.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';
-import 'package:nha_228/features/home/screens/home_screen.dart';
 import 'package:nha_228/core/utils/validators.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -54,11 +54,9 @@ class LoginScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.pushReplacement(
+                          Navigator.pushReplacementNamed(
                             context,
-                            MaterialPageRoute(
-                              builder: (context) => HomeScreen(),
-                            ),
+                            AppRouter.homeScreen,
                           );
                         }
                       },

@@ -42,7 +42,7 @@ class AppStrings {
   static const String confirmOtp = 'Confirm';
   static const String resendCode = 'Resend Code in 00:59';
 
-  static const String resetPasswordTitle = 'Create New Password';
+  static const String createNewPassword = 'Create New Password';
   static const String newPassword = 'New Password';
   static const String submit = 'Submit';
 
@@ -95,7 +95,7 @@ class AppStrings {
   static const dateOfBirth = "Date of Birth";
   static const save = "save";
 
-   static const String fieldRequired = "This field is required";
+  static const String fieldRequired = "This field is required";
 
   // Email
   static const String emailEmpty = "Please enter your email";
@@ -103,7 +103,8 @@ class AppStrings {
 
   // Password
   static const String passwordEmpty = "Please enter your password";
-  static const String passwordTooShort = "Password must be at least 6 characters";
+  static const String passwordTooShort =
+      "Password must be at least 6 characters";
 
   // Confirm Password
   static const String confirmPasswordEmpty = "Please confirm your password";
@@ -111,10 +112,11 @@ class AppStrings {
 
   // First Name
   static const String firstNameEmpty = "Please enter your first name";
-  static const String firstNameTooShort = "First name must be at least 2 characters";
+  static const String firstNameTooShort =
+      "First name must be at least 2 characters";
 
   // Last Name
   static const String lastNameEmpty = "Please enter your last name";
-  static const String lastNameTooShort = "Last name must be at least 2 characters";
-
+  static const String lastNameTooShort =
+      "Last name must be at least 2 characters";
 }
