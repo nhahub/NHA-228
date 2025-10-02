@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_values.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -19,7 +21,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           InkWell(
             onTap: () => Navigator.pop(context),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
+              padding: EdgeInsets.symmetric(horizontal: AppValues.h4),
               child: Icon(
                 isRtl ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
                 color: Colors.black,
@@ -30,7 +32,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           Text(
             title,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              color: Colors.black,
+              color: AppColors.textprimary,
               fontFamily: 'otama.ep',
             ),
           ),
