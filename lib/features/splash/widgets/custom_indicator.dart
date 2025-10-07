@@ -4,6 +4,7 @@ import 'package:nha_228/core/constants/app_colors.dart';
 
 class CustomIndicator extends StatelessWidget {
   const CustomIndicator({super.key, required this.active});
+
   final bool active;
 
   @override
@@ -15,9 +16,7 @@ class CustomIndicator extends StatelessWidget {
       duration: const Duration(milliseconds: 250),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100.r),
-        color: active
-            ? AppColors.activeIndcator
-            : AppColors.nonactiveIndcator,
+        color: active ? AppColors.activeIndcator : AppColors.nonactiveIndcator,
       ),
     );
   }

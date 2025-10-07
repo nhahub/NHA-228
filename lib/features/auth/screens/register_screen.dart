@@ -68,9 +68,9 @@ class RegisterScreen extends StatelessWidget {
 
                       Text(
                         AppStrings.signUpTitle,
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontSize: AppValues.sp38,
-                        ),
+                        style: Theme.of(
+                          context,
+                        ).textTheme.titleLarge?.copyWith(fontSize: AppValues.sp38),
                       ),
                       SizedBox(height: AppValues.h10 * 2),
 
@@ -109,9 +109,8 @@ class RegisterScreen extends StatelessWidget {
                         hintText: AppStrings.confirmPassword,
                         isPassword: true,
                         validator:
-                            (value) => value.validateConfirmPassword(
-                              passwordController.text,
-                            ),
+                            (value) =>
+                                value.validateConfirmPassword(passwordController.text),
                       ),
                       SizedBox(height: AppValues.h10 * 1.5),
 

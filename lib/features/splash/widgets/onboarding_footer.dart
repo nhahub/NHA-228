@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 import 'package:nha_228/core/constants/app_colors.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
 import 'package:nha_228/features/auth/screens/login_screen.dart';
 
 class OnboardingFooter extends StatelessWidget {
-  const OnboardingFooter({
-    super.key,
-    required this.controller,
-    required this.index,
-  });
+  const OnboardingFooter({super.key, required this.controller, required this.index});
+
   final PageController controller;
   final int index;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,16 +22,10 @@ class OnboardingFooter extends StatelessWidget {
             onPressed: () {
               context.go(AppRouter.loginScreen);
             },
-            child: Text(
-              AppStrings.skip,
-              style: Theme.of(context).textTheme.labelSmall,
-            ),
+            child: Text(AppStrings.skip, style: Theme.of(context).textTheme.labelSmall),
           ),
           Container(
-            decoration: BoxDecoration(
-              color: AppColors.secondary,
-              shape: BoxShape.circle,
-            ),
+            decoration: BoxDecoration(color: AppColors.secondary, shape: BoxShape.circle),
             child:
                 index < 2
                     ? IconButton(
@@ -45,10 +36,7 @@ class OnboardingFooter extends StatelessWidget {
                           curve: Curves.easeOut,
                         );
                       },
-                      icon: Icon(
-                        Icons.arrow_forward_ios,
-                        color: AppColors.whiteColor,
-                      ),
+                      icon: Icon(Icons.arrow_forward_ios, color: AppColors.whiteColor),
                     )
                     : InkWell(
                       onTap: () {
