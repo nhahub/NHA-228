@@ -13,4 +13,5 @@ class AppAssets {
   static const String firstOnboard = '$_path/illustation.png';
   static const String secondOnboard = '$_path/illustation (1).png';
   static const String thirdOnboard = '$_path/Frame.png';
+  static const String plus = '$_path/plus.png';
 }

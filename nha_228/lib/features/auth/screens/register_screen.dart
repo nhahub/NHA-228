@@ -35,7 +35,7 @@ class RegisterScreen extends StatelessWidget {
             CustomSnackBar.show(
               context,
               "Creating your account...",
-              backgroundColor: Colors.blue,
+              backgroundColor: AppColors.success,
             );
           } else if (state is RegisterSuccess) {
             CustomSnackBar.show(
