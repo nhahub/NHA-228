@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_values.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 
 class CustomSearchfield extends StatelessWidget {
   final String hintText;
@@ -27,15 +27,15 @@ class CustomSearchfield extends StatelessWidget {
         prefixIcon: const Icon(Icons.search),
         prefixIconColor: AppColors.secondary,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppValues.r10),
+          borderRadius: BorderRadius.circular(AppSizes.r10),
           borderSide: BorderSide(color: AppColors.boarderColor),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppValues.r10),
+          borderRadius: BorderRadius.circular(AppSizes.r10),
           borderSide:  BorderSide(color: AppColors.boarderColor),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppValues.r10),
+          borderRadius: BorderRadius.circular(AppSizes.r10),
           borderSide:  BorderSide(color: AppColors.focusedBorderColor),
         ),
       ),

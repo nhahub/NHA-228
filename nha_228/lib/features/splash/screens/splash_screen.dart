@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:nha_228/core/constants/app_assets.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/constants/app_values.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -84,11 +84,11 @@ class _SplashScreenState extends State<SplashScreen>
                 AppStrings.appName,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
-              SizedBox(height: AppValues.splashSpacing),
+              SizedBox(height: AppSizes.splashSpacing),
               Text(
                 AppStrings.splashSubtitle,
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  fontSize: AppValues.subtitleFontSize,
+                  fontSize: AppSizes.subtitleFontSize,
                 ),
               ),
             ],

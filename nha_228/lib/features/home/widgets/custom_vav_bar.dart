@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_values.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
 import 'package:nha_228/features/home/screens/home_screen.dart';
 import 'package:nha_228/features/profile/screens/profile_screen.dart';
@@ -58,7 +58,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
         shape: const CircleBorder(),
         child: Icon(
           Icons.add,
-          size: AppValues.sp32,
+          size: AppSizes.sp32,
           color: AppColors.whiteColor,
         ),
       ),
@@ -66,8 +66,8 @@ class _CustomNavBarState extends State<CustomNavBar> {
 
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
-        notchMargin: AppValues.h8,
-        height: AppValues.h60,
+        notchMargin: AppSizes.h8,
+        height: AppSizes.h60,
         color: AppColors.navbarColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -82,7 +82,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
               ),
               onPressed: () => _onItemTapped(0),
             ),
-            SizedBox(width: AppValues.w18),
+            SizedBox(width: AppSizes.w18),
             IconButton(
               icon: Icon(
                 Icons.person,

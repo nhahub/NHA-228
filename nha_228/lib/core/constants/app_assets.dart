@@ -14,4 +14,10 @@ class AppAssets {
   static const String secondOnboard = '$_path/illustation (1).png';
   static const String thirdOnboard = '$_path/Frame.png';
   static const String plus = '$_path/plus.png';
+  static const String metal = '$_path/metal.png';
+  static const String plastic = '$_path/plastic.png';
+  static const String oil = '$_path/oil.png';
+  static const String electronic = '$_path/electronic.png';
+  static const String paper = '$_path/paper.png';
+  static const String carton = '$_path/carton.png';
 }

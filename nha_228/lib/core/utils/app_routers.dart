@@ -10,7 +10,7 @@ import 'package:nha_228/features/splash/screens/onboard_screen.dart';
 import 'package:nha_228/features/splash/screens/splash_screen.dart';
 
 abstract class AppRouter {
-  static const homeScreen = '/HomeScreen';
+  static const homeScreen = '/';
   static const searchScreen = '/SearchScreen';
   static const loginScreen = '/LoginScreen';
   static const registerScreen = '/RegisterScreen';

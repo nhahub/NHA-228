@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/constants/app_values.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/features/home/widgets/custom_search_field.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -27,7 +27,7 @@ class _SearchScreenState extends State<SearchScreen> {
         preferredSize: Size.fromHeight(60),
         child: SafeArea(
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: AppValues.h16, vertical: AppValues.h10),
+            padding:  EdgeInsets.symmetric(horizontal: AppSizes.h16, vertical: AppSizes.h10),
             child: Row(
               children: [
                 Icon(Icons.arrow_back_ios),

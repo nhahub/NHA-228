@@ -23,20 +23,21 @@ class CustomElevatedItemBotton extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+           mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(
-                width: 116.w,
-                child: Text(
-                  item.title,
-                  maxLines: 2,
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600,
+              
+                 Expanded(
+                  child: Text(
+                    item.title,
+                    maxLines: 2,
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
-              ),
+              
               Icon(Icons.arrow_forward_ios, color: Colors.white),
             ],
           ),
