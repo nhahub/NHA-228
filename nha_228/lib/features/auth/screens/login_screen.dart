@@ -73,7 +73,7 @@ class LoginScreen extends StatelessWidget {
                         SizedBox(height: AppValues.h61),
                         SizedBox(
                           width: double.infinity,
-                          height:AppValues.h44,
+                          height: AppValues.h44,
                           child: ElevatedButton(
                             onPressed:() {
                               if (_formKey.currentState!.validate()) {

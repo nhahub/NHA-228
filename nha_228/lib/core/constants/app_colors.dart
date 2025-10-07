@@ -16,6 +16,8 @@ class AppColors {
   static final nonactiveIndcator = Color(0x4D66AA00);
   static final onboardtextColor = Color(0xff646464);
   static final skipbuttonColor = Color(0xff8F8F8F);
-  static final error =Colors.red;
-  static final success =Colors.green;
+  static final navbarColor = Color(0xff9DD549);
+  static final error = Colors.red;
+  static final success = Colors.green;
+  static final shadoo = Colors.black26;
 }
