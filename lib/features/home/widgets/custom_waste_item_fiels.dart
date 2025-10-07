@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/features/home/models/waste_item_model.dart';
 import 'package:nha_228/features/home/widgets/custom_elevated_item_botton.dart';
 
@@ -18,26 +19,25 @@ class CustomWasteItemFiels extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Expanded(child: Image.asset(item.imagePath, width: 148.w, height: 200.h)),
-          SizedBox(height: 8.h),
+          Expanded(child: Image.asset(item.imagePath, width: AppValues.w148, height: AppValues.h200)),
+          SizedBox(height: AppValues.h8),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppValues.w8,
+                  vertical: AppValues.h2,
+                ),
                 child: Text(
                   item.price,
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    color: Color(0XFFA7A7A780),
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ),
             ],
           ),
 
-          SizedBox(height: 4.h),
+          SizedBox(height: AppValues.h4),
           CustomElevatedItemBotton(item: item),
         ],
       ),

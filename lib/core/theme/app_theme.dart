@@ -42,6 +42,11 @@ ThemeData appTheme() {
         fontWeight: FontWeight.w500,
         color: AppColors.skipbuttonColor,
       ),
+      bodyMedium: TextStyle(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w600,
+        color: AppColors.skipbuttonColor,
+      ),
     ),
 
     progressIndicatorTheme: const ProgressIndicatorThemeData(

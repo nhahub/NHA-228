@@ -24,10 +24,10 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       appBar: 
        PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: Size.fromHeight(AppValues.h60),
         child: SafeArea(
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: AppValues.h16, vertical: AppValues.h10),
+            padding:  EdgeInsets.symmetric(horizontal: AppValues.w16, vertical: AppValues.h10),
             child: Row(
               children: [
                 Icon(Icons.arrow_back_ios),
@@ -44,10 +44,10 @@ class _SearchScreenState extends State<SearchScreen> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding:  EdgeInsets.symmetric(horizontal: AppValues.w16),
           child: Column(
             children: [
-              SizedBox(height: 10,),
+              SizedBox(height: AppValues.h10,),
              Align(
               alignment: Alignment.topLeft,
               child: Text('Results',style: Theme.of(context).textTheme.bodyMedium,),
