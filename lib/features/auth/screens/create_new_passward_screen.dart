@@ -1,15 +1,15 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
+import 'package:nha_228/core/utils/validators.dart';
 import 'package:nha_228/core/widgets/custom_app_bar.dart';
 import 'package:nha_228/core/widgets/custom_botton.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';
-import 'package:nha_228/core/utils/validators.dart';
 
 class CreateNewPasswordScreen extends StatelessWidget {
   CreateNewPasswordScreen({super.key});
@@ -52,9 +52,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
                 hintText: AppStrings.confirmPassword,
                 isPassword: true,
                 validator:
-                    (value) => value.validateConfirmPassword(
-                      newPasswordController.text,
-                    ),
+                    (value) => value.validateConfirmPassword(newPasswordController.text),
               ),
               SizedBox(height: AppValues.h24),
               CustomButton(
@@ -65,9 +63,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
                       User? user = FirebaseAuth.instance.currentUser;
 
                       if (user != null) {
-                        await user.updatePassword(
-                          newPasswordController.text.trim(),
-                        );
+                        await user.updatePassword(newPasswordController.text.trim());
                         CustomSnackBar.show(
                           context,
                           "Password updated successfully",

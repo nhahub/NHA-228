@@ -13,8 +13,9 @@ class OnboardScreen extends StatefulWidget {
 }
 
 class _OnboardScreenState extends State<OnboardScreen> {
- final _controller = PageController();
+  final _controller = PageController();
   int index = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +43,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
             ),
             SizedBox(height: 40),
             OnboardingFooter(controller: _controller, index: index),
-            SizedBox(height: 20,)
+            SizedBox(height: 20),
           ],
         ),
       ),

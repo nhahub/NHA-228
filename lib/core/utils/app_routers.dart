@@ -17,23 +17,14 @@ abstract class AppRouter {
     routes: [
       GoRoute(path: '/', builder: (context, state) => CustomNavBar()),
       GoRoute(path: loginScreen, builder: (context, state) => LoginScreen()),
-      GoRoute(
-        path: onboardScreen,
-        builder: (context, state) => OnboardScreen(),
-      ),
-      GoRoute(
-        path: registerScreen,
-        builder: (context, state) => RegisterScreen(),
-      ),
+      GoRoute(path: onboardScreen, builder: (context, state) => OnboardScreen()),
+      GoRoute(path: registerScreen, builder: (context, state) => RegisterScreen()),
       //   GoRoute(
       //     path: searchScreen,
       //     builder: (context, state) => const SearchScreen(),
       //   ),
       GoRoute(path: homeScreen, builder: (context, state) => CustomNavBar()),
-      GoRoute(
-        path: newPostScreen,
-        builder: (context, state) => NewPostScreen(),
-      ),
+      GoRoute(path: newPostScreen, builder: (context, state) => NewPostScreen()),
     ],
   );
 }

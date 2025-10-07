@@ -13,8 +13,7 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _slideAnimation;
   late Animation<double> _scaleAnimation;
@@ -24,10 +23,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    );
+    _controller = AnimationController(vsync: this, duration: const Duration(seconds: 2));
 
     _slideAnimation = Tween<Offset>(
       begin: const Offset(0, 1),
@@ -45,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     _controller.forward();
     Future.delayed(const Duration(seconds: 3), () {
-     context.go(AppRouter.onboardScreen);
+      context.go(AppRouter.onboardScreen);
     });
   }
 
@@ -71,25 +67,19 @@ class _SplashScreenState extends State<SplashScreen>
                   return Transform.rotate(
                     angle: _rotationAnimation.value * 2 * 3.14,
 
-                    child: Transform.scale(
-                      scale: _scaleAnimation.value,
-                      child: child,
-                    ),
+                    child: Transform.scale(scale: _scaleAnimation.value, child: child),
                   );
                 },
                 child: Image.asset(AppAssets.splash),
               ),
 
-              Text(
-                AppStrings.appName,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
+              Text(AppStrings.appName, style: Theme.of(context).textTheme.titleMedium),
               SizedBox(height: AppValues.splashSpacing),
               Text(
                 AppStrings.splashSubtitle,
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  fontSize: AppValues.subtitleFontSize,
-                ),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium!.copyWith(fontSize: AppValues.subtitleFontSize),
               ),
             ],
           ),

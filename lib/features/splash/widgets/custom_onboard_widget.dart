@@ -4,11 +4,7 @@ class CustomOnboardingWidget extends StatelessWidget {
   final String imagePath;
   final String text;
 
-  const CustomOnboardingWidget({
-    super.key,
-    required this.imagePath,
-    required this.text,
-  });
+  const CustomOnboardingWidget({super.key, required this.imagePath, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +16,10 @@ class CustomOnboardingWidget extends StatelessWidget {
           Image.asset(imagePath),
           const SizedBox(height: 40),
           Text(
-              text,
-              textAlign: TextAlign.center,              
-              style:Theme.of(context).textTheme.titleSmall,
-            ),         
+            text,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.titleSmall,
+          ),
         ],
       ),
     );

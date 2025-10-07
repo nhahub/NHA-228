@@ -37,10 +37,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (widget.hintText != null)
-          Text(
-            widget.hintText!,
-            style: Theme.of(context).textTheme.labelMedium,
-          ),
+          Text(widget.hintText!, style: Theme.of(context).textTheme.labelMedium),
         const SizedBox(height: 6),
         TextFormField(
           controller: widget.controller,
@@ -62,25 +59,23 @@ class _CustomTextFieldState extends State<CustomTextField> {
               borderRadius: BorderRadius.circular(AppValues.r8),
               borderSide: BorderSide(color: AppColors.focusedBorderColor),
             ),
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 12,
-            ),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             fillColor: AppColors.textFieldfillColor,
             filled: true,
-            suffixIcon: widget.isPassword
-                ? IconButton(
-                    icon: Icon(
-                      _obscure ? Icons.visibility_off : Icons.visibility,
-                      color: Colors.grey,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _obscure = !_obscure;
-                      });
-                    },
-                  )
-                : null,
+            suffixIcon:
+                widget.isPassword
+                    ? IconButton(
+                      icon: Icon(
+                        _obscure ? Icons.visibility_off : Icons.visibility,
+                        color: Colors.grey,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _obscure = !_obscure;
+                        });
+                      },
+                    )
+                    : null,
           ),
         ),
       ],

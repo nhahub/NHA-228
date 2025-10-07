@@ -10,7 +10,7 @@ class CustomNavBar extends StatefulWidget {
   const CustomNavBar({super.key});
 
   @override
-  _CustomNavBarState createState() => _CustomNavBarState();
+  State<CustomNavBar> createState() => _CustomNavBarState();
 }
 
 class _CustomNavBarState extends State<CustomNavBar> {
@@ -35,7 +35,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
             opacity: animation,
             child: SlideTransition(
               position: Tween<Offset>(
-                begin: const Offset(0.05, 0), //عشان يطلع من اليمين
+                begin: const Offset(0.05, 0),
                 end: Offset.zero,
               ).animate(animation),
               child: child,
@@ -43,7 +43,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
           );
         },
         child: IndexedStack(
-          key: ValueKey<int>(_selectedIndex), // عشان AnimatedSwitcher يعرف يغير
+          key: ValueKey<int>(_selectedIndex),
           index: _selectedIndex,
           children: _screens,
         ),
@@ -56,11 +56,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
         backgroundColor: AppColors.navbarColor,
         elevation: 0,
         shape: const CircleBorder(),
-        child: Icon(
-          Icons.add,
-          size: AppValues.sp32,
-          color: AppColors.whiteColor,
-        ),
+        child: Icon(Icons.add, size: AppValues.sp32, color: AppColors.whiteColor),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
