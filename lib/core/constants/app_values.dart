@@ -1,7 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppValues {
-  static double h61 = 61.h;
+static double h61 = 61.h;
   static double h44 = 44.h;
   static double h10 = 10.h;
   static double h16 = 16.h;
@@ -19,6 +19,7 @@ class AppValues {
   static double sp26 = 26.sp;
   static double r6 = 6.r;
   static double r8 = 8.r;
+  static double r10=10.r;
   static double fieldBoarderRadius = 16.r;
   static double w18 = 18.w;
   static double padding = 18.w;
