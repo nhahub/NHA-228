@@ -16,7 +16,7 @@ class CustomNavBar extends StatefulWidget {
 class _CustomNavBarState extends State<CustomNavBar> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = [const HomeScreen(), const ProfileScreen()];
+  final List<Widget> _screens = [ HomeScreen(), const ProfileScreen()];
 
   void _onItemTapped(int index) {
     if (index == _selectedIndex) return;
