@@ -20,4 +20,5 @@ class AppColors {
   static final error = Colors.red;
   static final success = Colors.green;
   static final shadoo = Colors.black26;
+  static final categoryContaineBackGroundColor = Color(0xffECF7DD);
 }
