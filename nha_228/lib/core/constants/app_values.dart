@@ -14,7 +14,9 @@ class AppValues {
   static double titleFontSize = 38.sp;
   static double subtitleFontSize = 14.sp;
   static double r8 = 8.r;
+  static double r10=10.r;
   static double fieldBoarderRadius = 16.r;
   static double w18 = 18.w;
   static double padding = 18.w;
+
 }
