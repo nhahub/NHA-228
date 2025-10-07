@@ -20,4 +20,5 @@ class AppColors {
   static final error = Colors.red;
   static final success = Colors.green;
   static final shadoo = Colors.black26;
+  static final otpVerificationScreenTextColor = Color(0xff04332D);  
 }
