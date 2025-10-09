@@ -120,4 +120,5 @@ class AppStrings {
   static const String loginSuccess = "Login successful ";
   static const String noAccount = "Don't have an account?";
   static const String alreadyHaveAccount = "Already have an account?";
+  static const String results='Results';
 }

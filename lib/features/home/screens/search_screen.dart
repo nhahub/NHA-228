@@ -50,7 +50,7 @@ class _SearchScreenState extends State<SearchScreen> {
               SizedBox(height: AppValues.h10,),
              Align(
               alignment: Alignment.topLeft,
-              child: Text('Results',style: Theme.of(context).textTheme.bodyMedium,),
+              child: Text(AppStrings.results,style: Theme.of(context).textTheme.bodyMedium,),
              )
               
             ],
