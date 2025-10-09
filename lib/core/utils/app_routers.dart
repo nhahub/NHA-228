@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:nha_228/features/auth/screens/forget_passward_screen.dart';
 import 'package:nha_228/features/auth/screens/login_screen.dart';
 import 'package:nha_228/features/auth/screens/register_screen.dart';
 import 'package:nha_228/features/home/widgets/custom_vav_bar.dart';
@@ -12,10 +13,11 @@ abstract class AppRouter {
   static const registerScreen = '/RegisterScreen';
   static const onboardScreen = '/OnboardScreen';
   static const newPostScreen = '/NewPostScreen';
+  static const forgetPasswordScreen = '/ForgetPasswordScreen';
 
   static final router = GoRouter(
     routes: [
-      GoRoute(path: '/', builder: (context, state) => CustomNavBar()),
+      GoRoute(path: '/', builder: (context, state) => ForgetPasswordScreen()),
       GoRoute(path: loginScreen, builder: (context, state) => LoginScreen()),
       GoRoute(path: onboardScreen, builder: (context, state) => OnboardScreen()),
       GoRoute(path: registerScreen, builder: (context, state) => RegisterScreen()),
@@ -25,6 +27,10 @@ abstract class AppRouter {
       //   ),
       GoRoute(path: homeScreen, builder: (context, state) => CustomNavBar()),
       GoRoute(path: newPostScreen, builder: (context, state) => NewPostScreen()),
+      GoRoute(
+        path: forgetPasswordScreen,
+        builder: (context, state) => ForgetPasswordScreen(),
+      ),
     ],
   );
 }

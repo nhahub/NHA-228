@@ -17,6 +17,7 @@ class AppValues {
   static double sp32 = 32.sp;
   static double subtitleFontSize = 14.sp;
   static double sp26 = 26.sp;
+  static double sp22 = 22.sp;
   static double r6 = 6.r;
   static double r8 = 8.r;
   static double fieldBoarderRadius = 16.r;

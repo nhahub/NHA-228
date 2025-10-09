@@ -28,30 +28,30 @@ ThemeData appTheme() {
         color: AppColors.hintTextColor,
       ),
       headlineMedium: TextStyle(
-        fontSize: 16,
+        fontSize: 16.sp,
         fontWeight: FontWeight.w500,
         color: AppColors.whiteColor,
       ),
       titleSmall: TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.w400,
+        fontSize: 14.sp,
+        fontWeight: FontWeight.bold,
         color: AppColors.onboardtextColor,
       ),
       labelSmall: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w400,
         color: AppColors.skipbuttonColor,
       ),
     ),
 
-    progressIndicatorTheme: const ProgressIndicatorThemeData(
-      color: Colors.white,
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      color: AppColors.whiteColor,
       circularTrackColor: Colors.transparent,
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        backgroundColor: WidgetStatePropertyAll(Color(0xff009639)),
+        backgroundColor: WidgetStatePropertyAll(AppColors.focusedBorderColor),
         foregroundColor: WidgetStatePropertyAll(AppColors.whiteColor),
         shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.r)),

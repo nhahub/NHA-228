@@ -2,6 +2,8 @@ class AppStrings {
   static const String login = 'Log In';
   static const String email = 'Email';
   static const String emailHint = 'Enter your email address';
+  static const String number = 'Phone Number';
+  static const String numberHint = 'Enter your phone number';
   static const String password = 'Password';
   static const String passwordHint = 'Enter your password';
   static const String loginButton = 'Log in';
@@ -32,7 +34,7 @@ class AppStrings {
 
   static const String forgotPasswordTitle = 'Forget Your Password ?';
   static const String forgotPasswordSubtitle =
-      "Please enter the email address associated with your account, and we'll send you OTP to reset your password.";
+      "Please enter the phone number associated with your account, and we'll send you OTP to reset your password.";
   static const String sendCodeButton = 'Send Code';
 
   static const String cancel = 'Cancel';
