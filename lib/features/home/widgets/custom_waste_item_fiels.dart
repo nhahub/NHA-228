@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
 import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/features/home/models/waste_item_model.dart';
 import 'package:nha_228/features/home/widgets/custom_elevated_item_botton.dart';
 
 class CustomWasteItemFiels extends StatelessWidget {
-  final WasteItem item;
+   final WasteItem item;
 
   const CustomWasteItemFiels({super.key, required this.item});
 
