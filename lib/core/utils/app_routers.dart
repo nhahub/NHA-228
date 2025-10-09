@@ -6,6 +6,7 @@ import 'package:nha_228/features/home/screens/home_screen.dart';
 import 'package:nha_228/features/home/screens/search_screen.dart';
 import 'package:nha_228/features/home/widgets/custom_vav_bar.dart';
 import 'package:nha_228/features/post/screens/new_post_screen.dart';
+import 'package:nha_228/features/profile/screens/edit_profile_screen.dart';
 import 'package:nha_228/features/splash/screens/onboard_screen.dart';
 import 'package:nha_228/features/splash/screens/splash_screen.dart';
 
@@ -16,6 +17,7 @@ abstract class AppRouter {
   static const registerScreen = '/RegisterScreen';
   static const onboardScreen = '/OnboardScreen';
   static const newPostScreen = '/NewPostScreen';
+  static const editProfileScreen = '/EditProfileScreen';
 
   static final router = GoRouter(
     routes: [
@@ -44,6 +46,7 @@ abstract class AppRouter {
       ),
       GoRoute(path: homeScreen, builder: (context, state) => CustomNavBar()),
       GoRoute(path: newPostScreen, builder: (context, state) => NewPostScreen()),
+      GoRoute(path: editProfileScreen, builder: (context, state) => EditProfileScreen()),
     ],
   );
 }

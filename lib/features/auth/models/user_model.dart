@@ -1,6 +1,8 @@
-import 'package:hive_ce/hive.dart';
-part 'user_model.g.dart';
+// import 'package:hive_ce/hive.dart';
+// //part 'user_model.g.dart';
 
-class UserModel {
-  @HiveType(typeId: 0)
-}
+// @HiveType(typeId: 0)
+// class UserModel {
+//   st
+
+// }
