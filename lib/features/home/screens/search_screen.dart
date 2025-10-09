@@ -22,12 +22,14 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: 
-       PreferredSize(
+      appBar: PreferredSize(
         preferredSize: Size.fromHeight(AppValues.h60),
         child: SafeArea(
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: AppValues.w16, vertical: AppValues.h10),
+            padding: EdgeInsets.symmetric(
+              horizontal: AppValues.w16,
+              vertical: AppValues.h10,
+            ),
             child: Row(
               children: [
                 Icon(Icons.arrow_back_ios),
@@ -44,15 +46,17 @@ class _SearchScreenState extends State<SearchScreen> {
       ),
       body: SafeArea(
         child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: AppValues.w16),
+          padding: EdgeInsets.symmetric(horizontal: AppValues.w16),
           child: Column(
             children: [
-              SizedBox(height: AppValues.h10,),
-             Align(
-              alignment: Alignment.topLeft,
-              child: Text(AppStrings.results,style: Theme.of(context).textTheme.bodyMedium,),
-             )
-              
+              SizedBox(height: AppValues.h10),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  AppStrings.results,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ),
             ],
           ),
         ),

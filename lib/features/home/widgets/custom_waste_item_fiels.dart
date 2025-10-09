@@ -5,7 +5,7 @@ import 'package:nha_228/features/home/models/waste_item_model.dart';
 import 'package:nha_228/features/home/widgets/custom_elevated_item_botton.dart';
 
 class CustomWasteItemFiels extends StatelessWidget {
-   final WasteItem item;
+  final WasteItem item;
 
   const CustomWasteItemFiels({super.key, required this.item});
 
@@ -18,7 +18,13 @@ class CustomWasteItemFiels extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Expanded(child: Image.asset(item.imagePath, width: AppValues.w148, height: AppValues.h200)),
+          Expanded(
+            child: Image.asset(
+              item.imagePath,
+              width: AppValues.w148,
+              height: AppValues.h200,
+            ),
+          ),
           SizedBox(height: AppValues.h8),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -28,10 +34,7 @@ class CustomWasteItemFiels extends StatelessWidget {
                   horizontal: AppValues.w8,
                   vertical: AppValues.h2,
                 ),
-                child: Text(
-                  item.price,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
+                child: Text(item.price, style: Theme.of(context).textTheme.bodyMedium),
               ),
             ],
           ),
