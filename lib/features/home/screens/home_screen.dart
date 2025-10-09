@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      return Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(AppValues.h16),
@@ -26,17 +26,17 @@ class HomeScreen extends StatelessWidget {
                   }
                 },
               ),
-              SizedBox(height: AppValues.h24,),
+              SizedBox(height: AppValues.h24),
               Expanded(
                 child: GridView.count(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 44,
-                          mainAxisSpacing: 21,
-                          childAspectRatio: 0.9,
-                          children: List.generate(CategoryValues.wasteItems.length, (index) {
-                            return CustomWasteItemFiels(item: CategoryValues.wasteItems[index]);
-                          }),
-                        ),
+                  crossAxisCount: 2,
+                  crossAxisSpacing: AppValues.w44,
+                  mainAxisSpacing: AppValues.h21,
+                  childAspectRatio: 0.9,
+                  children: List.generate(CategoryValues.wasteItems.length, (index) {
+                    return CustomWasteItemFiels(item: CategoryValues.wasteItems[index]);
+                  }),
+                ),
               ),
             ],
           ),
