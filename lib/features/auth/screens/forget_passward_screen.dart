@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
+import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/core/widgets/custom_app_bar.dart';
 import 'package:nha_228/core/widgets/custom_botton.dart';
 import 'package:nha_228/features/auth/cubit/cubit/forget_passward_cubit.dart';
@@ -30,7 +30,7 @@ class ForgetPasswordScreen extends StatelessWidget {
             Navigator.pop(context);
             CustomSnackBar.show(
               context,
-              'Code sent successfully!',
+              AppStrings.codeSent,
               backgroundColor: AppColors.success,
             );
             //context.push(AppRouter.otpScreen, extra: state.verificationId);
@@ -53,7 +53,10 @@ class ForgetPasswordScreen extends StatelessWidget {
             ),
             body: SafeArea(
               child: SingleChildScrollView(
-                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppValues.w20,
+                  vertical: AppValues.h20,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -61,32 +64,31 @@ class ForgetPasswordScreen extends StatelessWidget {
                       AppStrings.forgotPasswordTitle,
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontFamily: 'otama.ep',
-                        fontSize: 32.sp,
+                        fontSize: AppValues.sp32,
                         color: AppColors.appbar,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    SizedBox(height: 12.h),
+                    SizedBox(height: AppValues.h10),
                     Text(
                       AppStrings.forgotPasswordSubtitle,
                       style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        fontSize: 14.sp,
+                        fontSize: AppValues.sp14,
                         color: AppColors.subtitle,
-                        height: 1.5,
                       ),
                     ),
-                    SizedBox(height: 50.h),
+                    SizedBox(height: AppValues.h50),
                     CustomTextField(
                       controller: phoneController,
                       hintText: AppStrings.number,
                       keyboardType: TextInputType.phone,
                     ),
-                    SizedBox(height: 30.h),
+                    SizedBox(height: AppValues.h30),
                     Center(
                       child: CustomButton(
                         title:
                             state is ForgetPasswordLoading
-                                ? "Sending..."
+                                ? AppStrings.sending
                                 : AppStrings.sendCodeButton,
                         onPressed:
                             state is ForgetPasswordLoading

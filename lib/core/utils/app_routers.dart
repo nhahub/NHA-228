@@ -5,6 +5,7 @@ import 'package:nha_228/features/auth/screens/register_screen.dart';
 import 'package:nha_228/features/home/widgets/custom_vav_bar.dart';
 import 'package:nha_228/features/post/screens/new_post_screen.dart';
 import 'package:nha_228/features/splash/screens/onboard_screen.dart';
+import 'package:nha_228/features/splash/screens/splash_screen.dart';
 
 abstract class AppRouter {
   static const homeScreen = '/HomeScreen';
@@ -17,7 +18,7 @@ abstract class AppRouter {
 
   static final router = GoRouter(
     routes: [
-      GoRoute(path: '/', builder: (context, state) => ForgetPasswordScreen()),
+      GoRoute(path: '/', builder: (context, state) => SplashScreen()),
       GoRoute(path: loginScreen, builder: (context, state) => LoginScreen()),
       GoRoute(path: onboardScreen, builder: (context, state) => OnboardScreen()),
       GoRoute(path: registerScreen, builder: (context, state) => RegisterScreen()),
