@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class AppColors {
@@ -23,4 +22,5 @@ class AppColors {
   static final error = Colors.red;
   static final success = Colors.green;
   static final shadoo = Colors.black26;
+  static final camerabackground=Color(0xff86C627);
 }

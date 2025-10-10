@@ -53,6 +53,7 @@ ThemeData appTheme() {
         fontWeight: FontWeight.w600,
       ),
     ),
+    
 
     progressIndicatorTheme: const ProgressIndicatorThemeData(
       color: Colors.white,

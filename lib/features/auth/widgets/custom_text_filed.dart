@@ -61,10 +61,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 borderRadius: BorderRadius.circular(AppValues.r8),
                 borderSide: BorderSide(color: AppColors.focusedBorderColor),
               ),
-              contentPadding: EdgeInsets.symmetric(
-                vertical: AppValues.h20,
-                horizontal: AppValues.w16,
-              ),
+
               fillColor: AppColors.textFieldfillColor,
               filled: true,
               suffixIcon:

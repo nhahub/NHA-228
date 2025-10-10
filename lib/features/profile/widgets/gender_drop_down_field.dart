@@ -32,17 +32,13 @@ class _GenderDropdownFieldState extends State<GenderDropdownField> {
                     .map(
                       (e) => DropdownMenuItem(
                         value: e,
-                        child: Text(
-                          e,
-                          style: Theme.of(context).textTheme.labelMedium,
-                        ),
+                        child: Text(e, style: Theme.of(context).textTheme.labelMedium),
                       ),
                     )
                     .toList(),
             onChanged: (v) => setState(() => gender = v),
 
             buttonStyleData: ButtonStyleData(
-              height: AppValues.h61,
               padding: EdgeInsets.symmetric(horizontal: AppValues.w8),
               decoration: BoxDecoration(
                 color: AppColors.textFieldfillColor,
