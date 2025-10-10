@@ -34,13 +34,23 @@ ThemeData appTheme() {
       ),
       titleSmall: TextStyle(
         fontSize: 14.sp,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w400,
         color: AppColors.onboardtextColor,
       ),
       labelSmall: TextStyle(
         fontSize: 16.sp,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w500,
         color: AppColors.skipbuttonColor,
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w600,
+        color: AppColors.skipbuttonColor,
+      ),
+      displaySmall: TextStyle(
+        fontSize: 12.sp,
+        color: AppColors.textprimary,
+        fontWeight: FontWeight.w600,
       ),
     ),
 
