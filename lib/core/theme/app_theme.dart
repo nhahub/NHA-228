@@ -54,14 +54,14 @@ ThemeData appTheme() {
       ),
     ),
 
-    progressIndicatorTheme: const ProgressIndicatorThemeData(
-      color: Colors.white,
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      color: AppColors.whiteColor,
       circularTrackColor: Colors.transparent,
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        backgroundColor: WidgetStatePropertyAll(Color(0xff009639)),
+        backgroundColor: WidgetStatePropertyAll(AppColors.focusedBorderColor),
         foregroundColor: WidgetStatePropertyAll(AppColors.whiteColor),
         shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.r)),
