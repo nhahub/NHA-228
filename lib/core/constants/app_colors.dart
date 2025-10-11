@@ -23,4 +23,6 @@ class AppColors {
   static final success = Colors.green;
   static final shadoo = Colors.black26;
   static final camerabackground=Color(0xff86C627);
+  static final appbar = Color(0xff04332D);
+  static final subtitle = Color(0xff696969);
 }

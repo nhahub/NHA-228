@@ -1,4 +1,6 @@
 import 'package:go_router/go_router.dart';
+import 'package:nha_228/features/auth/screens/forget_passward_screen.dart';
+import 'package:nha_228/core/services/auth_service.dart';
 import 'package:nha_228/features/auth/screens/login_screen.dart';
 import 'package:nha_228/features/auth/screens/register_screen.dart';
 import 'package:nha_228/features/home/screens/search_screen.dart';
@@ -17,6 +19,7 @@ abstract class AppRouter {
   static const onboardScreen = '/OnboardScreen';
   static const newPostScreen = '/NewPostScreen';
   static const editProfileScreen = '/EditProfileScreen';
+  static const forgetPasswordScreen = '/ForgetPasswordScreen';
 
   static final router = GoRouter(
     initialLocation: '/',
@@ -25,21 +28,11 @@ abstract class AppRouter {
         path: '/',
         builder: (context, state) => const SplashScreen(),
       ),
-     // GoRoute(
-      //   path: '/',
-      //   builder: (context, state) {
-      //     final isLoggedIn = AuthService.isUserLoggedIn();
-      //     if (isLoggedIn) {
-      //       return const CustomNavBar();
-      //     } else {
-      //       return const SplashScreen();
-      //     }
-      //   },
-      // ),
+
       GoRoute(path: loginScreen, builder: (context, state) => LoginScreen()),
       GoRoute(path: onboardScreen, builder: (context, state) => OnboardScreen()),
       GoRoute(path: registerScreen, builder: (context, state) => RegisterScreen()),
-     // GoRoute(path: homeScreen, builder: (context, state) => HomeScreen()),
+     
       GoRoute(path: homeScreen, builder: (context, state) => CustomNavBar()),
       GoRoute(
         path: searchScreen,
@@ -48,9 +41,13 @@ abstract class AppRouter {
           return SearchScreen(searchWord: searchWord);
         },
       ),
-     // GoRoute(path: homeScreen, builder: (context, state) => CustomNavBar()),
+  
       GoRoute(path: newPostScreen, builder: (context, state) => NewPostScreen()),
       GoRoute(path: editProfileScreen, builder: (context, state) => EditProfileScreen()),
+      GoRoute(
+        path: forgetPasswordScreen,
+        builder: (context, state) => ForgetPasswordScreen(),
+      ),
     ],
   );
 }

@@ -24,16 +24,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               padding: EdgeInsets.symmetric(horizontal: AppValues.h4),
               child: Icon(
                 isRtl ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
-                color: Colors.black,
-                size: 22,
+                color: AppColors.appbar,
+                size: AppValues.sp26,
               ),
             ),
           ),
           Text(
             title,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              color: AppColors.textprimary,
+              color: AppColors.appbar,
               fontFamily: 'otama.ep',
+              fontWeight: FontWeight.bold,
             ),
           ),
         ],
