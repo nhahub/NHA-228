@@ -123,4 +123,7 @@ class AppStrings {
   static const String male = "Male";
   static const String female = "Female";
   static const String results='Results';
+  //hive keys
+  static const String seenOnboarding = 'seenOnboarding';
+  static const String isLoggedIn = 'isLoggedIn';
 }

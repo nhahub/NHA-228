@@ -3,8 +3,8 @@ import 'package:nha_228/core/constants/app_assets.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/features/splash/widgets/custom_onboard_widget.dart';
 
-class FirstScreen extends StatelessWidget {
-  const FirstScreen({super.key});
+class RecyclingOnboard extends StatelessWidget {
+  const RecyclingOnboard({super.key});
 
   @override
   Widget build(BuildContext context) {
