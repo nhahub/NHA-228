@@ -10,11 +10,17 @@ class AppValues {
   static double h24 = 24.h;
   static double h70 = 70.h;
   static double h60 = 60.h;
+  static double h48 = 48.h;
+  static double h40 = 40.h;
+  static double h54 = 54.h;
   static double splashSpacing = 10.h;
   static double fieldSpacing = 16.h;
   static double sp38 = 38.sp;
   static double sp14 = 14.sp;
   static double sp32 = 32.sp;
+  static double sp24 = 24.sp;
+  static double sp18 = 18.sp;
+  static double sp20 = 20.sp;
   static double subtitleFontSize = 14.sp;
   static double sp26 = 26.sp;
   static double r6 = 6.r;
@@ -24,4 +30,7 @@ class AppValues {
   static double padding = 18.w;
   static double w40 = 40.w;
   static double w60 = 60.w;
+  static double w8 = 8.w;
+  static double w2 = 2.w;
+  static double w54 = 54.w;
 }

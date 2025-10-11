@@ -1,6 +1,6 @@
 part of 'otp_cubit.dart';
 
-// حالات OTP
+
 abstract class PhoneOtpState {}
 
 class PhoneOtpInitial extends PhoneOtpState {}

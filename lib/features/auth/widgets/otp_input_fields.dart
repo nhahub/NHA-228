@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/core/constants/otp_constants.dart';
 
 class OtpInputFields extends StatefulWidget {
@@ -49,31 +49,31 @@ class _OtpInputFieldsState extends State<OtpInputFields> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: List.generate(otpConstants.otpLength, (index) {
         return SizedBox(
-          width: 53.w,
-          height: 54.h,
+          width: AppValues.w54,
+          height: AppValues.h54,
           child: TextField(
             controller: _controllers[index],
             focusNode: _focusNodes[index],
             textAlign: TextAlign.center,
             keyboardType: TextInputType.number,
             maxLength: 1,
-            cursorColor: Colors.black,
+            cursorColor: AppColors.textprimary,
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             onChanged: (value) => _onChanged(value, index),
             decoration: InputDecoration(
-              counterText: '', // الغاء العداد الافتراضي (0/6)
+              counterText: '',
               filled: true,
-              fillColor: Colors.white,
+              fillColor: AppColors.whiteColor,
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8.r),
-                borderSide: const BorderSide(color: Colors.grey),
+                borderRadius: BorderRadius.circular(AppValues.w8),
+                borderSide: BorderSide(color: AppColors.borderSide),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8.r),
-                borderSide: BorderSide(color: AppColors.focusedBorderColor, width: 2.w),
+                borderRadius: BorderRadius.circular(AppValues.r8),
+                borderSide: BorderSide(color: AppColors.focusedBorderColor, width: AppValues.w2),
               ),
             ),
-            style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: AppValues.sp20, fontWeight: FontWeight.bold),
           ),
         );
       }),

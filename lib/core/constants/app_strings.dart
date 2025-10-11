@@ -36,7 +36,7 @@ class AppStrings {
   static const String sendCodeButton = 'Send Code';
 
   static const String cancel = 'Cancel';
-  static const String otpTitle = 'OTP Verification';
+  static const String otpVerification = 'OTP Verification';
   static const String otpSubtitle =
       'Please enter the 5 digit code sent to your phone number';
   static const String confirmOtp = 'Confirm';
