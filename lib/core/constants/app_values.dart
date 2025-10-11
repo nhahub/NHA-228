@@ -19,6 +19,7 @@ class AppValues {
   static double splashSpacing = 10.h;
   static double fieldSpacing = 16.h;
   static double h33=33.h;
+  static double h25=25.h;
   static double sp38 = 38.sp;
   static double sp14 = 14.sp;
   static double sp32 = 32.sp;
@@ -43,4 +44,5 @@ class AppValues {
   static double w148 = 148.w;
   static double w12=12.w;
   static double w44=44.w;
+  static double w25 =25.w;
 }

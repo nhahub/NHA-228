@@ -25,4 +25,5 @@ class AppColors {
   static final camerabackground=Color(0xff86C627);
   static final appbar = Color(0xff04332D);
   static final subtitle = Color(0xff696969);
+   static final blue=Colors.blue;
 }

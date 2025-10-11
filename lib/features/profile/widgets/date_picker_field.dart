@@ -30,13 +30,13 @@ class _DatePickerFieldState extends State<DatePickerField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      padding:  EdgeInsets.symmetric(vertical: AppValues.h10),
 
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(AppStrings.dateOfBirth, style: Theme.of(context).textTheme.labelMedium),
-          const SizedBox(height: 6),
+           SizedBox(height: AppValues.h8),
           TextField(
             controller:dateController ,
             readOnly: true,

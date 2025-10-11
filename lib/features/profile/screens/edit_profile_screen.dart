@@ -55,11 +55,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             });
                           },
                           child: Container(
-                            width: 25,
-                            height: 25,
+                            width: AppValues.w25,
+                            height: AppValues.h25,
                             decoration: BoxDecoration(
                               color: AppColors.camerabackground,
-                              borderRadius: BorderRadius.circular(40),
+                              borderRadius: BorderRadius.circular(AppValues.r40),
                             ),
                             child: Center(child: SvgPicture.asset(AppAssets.camera)),
                           ),
@@ -83,28 +83,27 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       ),
     );
   }
- 
 
   void showImageSourceDialog(BuildContext context, Function(XFile) selectedFile) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return Dialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppValues.r18)),
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding:  EdgeInsets.all(AppValues.w20),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'Choose Image Source',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  AppStrings.chooseImage,
+                  style:Theme.of(context).textTheme.displayMedium,
                 ),
-                const SizedBox(height: 20),
+                 SizedBox(height: AppValues.h20),
 
                 ListTile(
-                  leading: Icon(Icons.camera_alt, color: Colors.blue),
-                  title: Text("Camera"),
+                  leading: Icon(Icons.camera_alt, color: AppColors.blue,),
+                  title: Text(AppStrings.camera),
                   onTap: () async {
                     Navigator.pop(context);
                     final image = await ImagePicker().pickImage(
@@ -116,8 +115,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 const Divider(),
 
                 ListTile(
-                  leading: Icon(Icons.photo_library, color: Colors.green),
-                  title: Text("Gallery"),
+                  leading: Icon(Icons.photo_library, color:AppColors.success),
+                  title: Text(AppStrings.gallery),
                   onTap: () async {
                     Navigator.pop(context);
                     final image = await ImagePicker().pickImage(

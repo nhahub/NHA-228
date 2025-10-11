@@ -1,6 +1,5 @@
 import 'package:go_router/go_router.dart';
 import 'package:nha_228/features/auth/screens/forget_passward_screen.dart';
-import 'package:nha_228/core/services/auth_service.dart';
 import 'package:nha_228/features/auth/screens/login_screen.dart';
 import 'package:nha_228/features/auth/screens/register_screen.dart';
 import 'package:nha_228/features/home/screens/search_screen.dart';
