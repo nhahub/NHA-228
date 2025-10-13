@@ -17,10 +17,13 @@ class AppColors {
   static final onboardtextColor = Color(0xff646464);
   static final skipbuttonColor = Color(0xff8F8F8F);
   static final navbarColor = Color(0xff9DD549);
+  static final categorybackground=Color(0xffECF7DD);
   static final categoryfoot=Color(0xffAFDD69);
   static final error = Colors.red;
   static final success = Colors.green;
   static final shadoo = Colors.black26;
+  static final camerabackground=Color(0xff86C627);
   static final appbar = Color(0xff04332D);
   static final subtitle = Color(0xff696969);
+   static final blue=Colors.blue;
 }

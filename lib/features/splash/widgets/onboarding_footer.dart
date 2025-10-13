@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
+import 'package:nha_228/core/services/hive_service.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
-import 'package:nha_228/features/auth/screens/login_screen.dart';
 
 class OnboardingFooter extends StatelessWidget {
   const OnboardingFooter({super.key, required this.controller, required this.index});
 
   final PageController controller;
   final int index;
+  onboardingSeen(BuildContext context) async {
+    await HiveManager().setBool(AppStrings.seenOnboarding, true);
+    context.go(AppRouter.loginScreen);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +23,7 @@ class OnboardingFooter extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TextButton(
-            onPressed: () {
-              context.go(AppRouter.loginScreen);
-            },
+            onPressed: () => onboardingSeen(context),
             child: Text(AppStrings.skip, style: Theme.of(context).textTheme.labelSmall),
           ),
           Container(
@@ -39,16 +41,7 @@ class OnboardingFooter extends StatelessWidget {
                       icon: Icon(Icons.arrow_forward_ios, color: AppColors.whiteColor),
                     )
                     : InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return LoginScreen();
-                            },
-                          ),
-                        );
-                      },
+                      onTap: () => onboardingSeen(context),
                       child: Container(
                         padding: EdgeInsets.all(15),
 

@@ -4,6 +4,7 @@ import 'package:nha_228/core/constants/app_assets.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/core/constants/app_values.dart';
+import 'package:nha_228/core/services/hive_service.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -41,7 +42,19 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     _controller.forward();
     Future.delayed(const Duration(seconds: 3), () {
-      context.go(AppRouter.onboardScreen);
+      final hive= HiveManager();
+      final bool seenOnboarding=hive.getBool(AppStrings.seenOnboarding);
+      final bool isLoggedIn=hive.getBool(AppStrings.isLoggedIn);
+      if(!seenOnboarding){
+        context.go(AppRouter.onboardScreen);
+      }else{
+        if(isLoggedIn){
+          context.go(AppRouter.homeScreen);
+        }else{
+          context.go(AppRouter.loginScreen);
+        }
+      }
+      
     });
   }
 

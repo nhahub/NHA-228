@@ -13,7 +13,7 @@ class CustomWasteItemFiels extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.primary,
+        color: AppColors.categorybackground,
         borderRadius: BorderRadius.circular(AppValues.r18),
       ),
       child: Column(
