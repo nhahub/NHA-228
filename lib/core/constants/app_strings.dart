@@ -120,4 +120,12 @@ class AppStrings {
   static const String loginSuccess = "Login successful ";
   static const String noAccount = "Don't have an account?";
   static const String alreadyHaveAccount = "Already have an account?";
+
+  //otp_verification
+  static const String phoneVerificationFailed = "Phone verification failed";
+  static const String failedToSendOTPTryAgain = "Failed to send OTP. Try again.";
+  static const String noVerificationIDPleaseRequestANewCode = "No verification ID. Please request a new code.";
+  static const String incorrectCode = "Incorrect code";
+  static const String codeSuccessfullyVerified = "Code successfully verified!";
+
 }
