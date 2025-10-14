@@ -8,7 +8,7 @@ import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/core/services/hive_service.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
 import 'package:nha_228/core/utils/validators.dart';
-import 'package:nha_228/features/auth/cubit/login/cubit/login_cubit.dart';
+import 'package:nha_228/features/auth/cubit/login_cubit/login_cubit.dart';
 import 'package:nha_228/features/auth/widgets/auth_redirect_text.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';
