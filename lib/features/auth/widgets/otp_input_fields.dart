@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_values.dart';
-import 'package:nha_228/core/constants/otp_constants.dart';
+import 'package:nha_228/core/constants/app_constants.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 
 class OtpInputFields extends StatefulWidget {
   final Function(String) onCompleted;
@@ -15,11 +15,14 @@ class OtpInputFields extends StatefulWidget {
 
 class _OtpInputFieldsState extends State<OtpInputFields> {
   final List<TextEditingController> _controllers = List.generate(
-    otpConstants.otpLength,
+    AppConstants.otpLength,
     (_) => TextEditingController(),
   );
 
-  final List<FocusNode> _focusNodes = List.generate(otpConstants.otpLength, (_) => FocusNode());
+  final List<FocusNode> _focusNodes = List.generate(
+    AppConstants.otpLength,
+    (_) => FocusNode(),
+  );
 
   @override
   void dispose() {
@@ -33,11 +36,11 @@ class _OtpInputFieldsState extends State<OtpInputFields> {
   }
 
   void _onChanged(String value, int index) {
-    if (value.isNotEmpty && index < otpConstants.otpLength-1) {
+    if (value.isNotEmpty && index < AppConstants.otpLength - 1) {
       _focusNodes[index + 1].requestFocus();
     }
 
-    if (index == otpConstants.otpLength-1 && value.isNotEmpty) {
+    if (index == AppConstants.otpLength - 1 && value.isNotEmpty) {
       String code = _controllers.map((c) => c.text).join();
       widget.onCompleted(code);
     }
@@ -47,10 +50,10 @@ class _OtpInputFieldsState extends State<OtpInputFields> {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: List.generate(otpConstants.otpLength, (index) {
+      children: List.generate(AppConstants.otpLength, (index) {
         return SizedBox(
-          width: AppValues.w54,
-          height: AppValues.h54,
+          width: AppSizes.w54,
+          height: AppSizes.h54,
           child: TextField(
             controller: _controllers[index],
             focusNode: _focusNodes[index],
@@ -65,15 +68,18 @@ class _OtpInputFieldsState extends State<OtpInputFields> {
               filled: true,
               fillColor: AppColors.whiteColor,
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppValues.w8),
+                borderRadius: BorderRadius.circular(AppSizes.w8),
                 borderSide: BorderSide(color: AppColors.borderSide),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppValues.r8),
-                borderSide: BorderSide(color: AppColors.focusedBorderColor, width: AppValues.w2),
+                borderRadius: BorderRadius.circular(AppSizes.r8),
+                borderSide: BorderSide(
+                  color: AppColors.focusedBorderColor,
+                  width: AppSizes.w2,
+                ),
               ),
             ),
-            style: TextStyle(fontSize: AppValues.sp20, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: AppSizes.sp20, fontWeight: FontWeight.bold),
           ),
         );
       }),

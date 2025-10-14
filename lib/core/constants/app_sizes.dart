@@ -1,6 +1,6 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AppValues {
+class AppSizes {
   // Height
   static double h4 = 4.h;
   static double h8 = 8.h;

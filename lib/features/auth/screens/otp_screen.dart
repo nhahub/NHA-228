@@ -1,13 +1,14 @@
-// import 'dart:async';
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/features/auth/cubit/otp_cubit/otp_cubit.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
+
 import '../widgets/otp_input_fields.dart';
 
 class PhoneOtpScreen extends StatefulWidget {
@@ -29,6 +30,7 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
     super.initState();
     _startTimer();
   }
+
   void _startTimer() {
     _secondsRemaining = 59;
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -41,6 +43,7 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
       }
     });
   }
+
   @override
   void dispose() {
     _timer.cancel();
@@ -48,14 +51,13 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
   }
 
   String maskedPhone(String phone) {
-  if (phone.length < 4) return phone;
-  final visible = phone.substring(phone.length - 3);
-  return '***$visible';
-}
+    if (phone.length < 4) return phone;
+    final visible = phone.substring(phone.length - 3);
+    return '***$visible';
+  }
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: AppColors.primary,
       body: SafeArea(
@@ -69,12 +71,12 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                 ).showSnackBar(SnackBar(content: Text(state.message)));
               } else if (state is PhoneOtpVerified) {
                 CustomSnackBar.show(
-              context,
-              AppStrings.codeSuccessfullyVerified,
-              backgroundColor: AppColors.success,
-            );
-                
-                Navigator.pop(context, true); 
+                  context,
+                  AppStrings.codeSuccessfullyVerified,
+                  backgroundColor: AppColors.success,
+                );
+
+                Navigator.pop(context, true);
               }
             },
             builder: (context, state) {
@@ -84,7 +86,7 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
 
               return Column(
                 children: [
-                  SizedBox(height: AppValues.h8),
+                  SizedBox(height: AppSizes.h8),
                   Row(
                     children: [
                       GestureDetector(
@@ -97,16 +99,14 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                                 Icons.arrow_back_ios,
                                 color: AppColors.otpVerificationScreenTextColor,
                                 size: 25,
-                                fontWeight: FontWeight.w700,
                               ),
                             ),
                             Text(
                               AppStrings.cancel,
-                              style: Theme.of(context).textTheme.titleSmall
-                                  ?.copyWith(
-                                    fontSize: AppValues.sp24,
-                                    fontFamily: 'Otama-ep',
-                                  ),
+                              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                                fontSize: AppSizes.sp24,
+                                fontFamily: 'Otama-ep',
+                              ),
                             ),
                           ],
                         ),
@@ -114,40 +114,39 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                     ],
                   ),
 
-                  SizedBox(height: AppValues.h16),
+                  SizedBox(height: AppSizes.h16),
                   Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                              AppStrings.otpVerification,
-                              style: Theme.of(context).textTheme.titleMedium
-                                  ?.copyWith(
-                                    fontSize: AppValues.sp24,
-                                    fontFamily: 'Otama-ep',
-                                    color: AppColors.otpVerificationScreenTextColor,
-                                  ),
+                            AppStrings.otpVerification,
+                            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                              fontSize: AppSizes.sp24,
+                              fontFamily: 'Otama-ep',
+                              color: AppColors.otpVerificationScreenTextColor,
                             ),
+                          ),
                         ],
                       ),
-                      SizedBox(height: AppValues.h10),
-                  Row(
-                    children: [
-                      SizedBox(width: AppValues.w8),
-                      Text(
-                        'We sent a 5-digit code to ${maskedPhone(widget.phoneNumber)}',
-                        style: TextStyle(fontSize: 14.sp, color: const Color.fromARGB(255, 126, 123, 123)),
-                        
+                      SizedBox(height: AppSizes.h10),
+                      Row(
+                        children: [
+                          SizedBox(width: AppSizes.w8),
+                          Text(
+                            'We sent a 5-digit code to ${maskedPhone(widget.phoneNumber)}',
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              color: const Color.fromARGB(255, 126, 123, 123),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                    ],
-                  ),
 
-                  
-
-                  SizedBox(height: AppValues.h54),
+                  SizedBox(height: AppSizes.h54),
 
                   OtpInputFields(
                     onCompleted: (code) {
@@ -157,62 +156,60 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                     },
                   ),
 
-                   SizedBox(height: AppValues.h40),
-                   SizedBox(
+                  SizedBox(height: AppSizes.h40),
+                  SizedBox(
                     width: double.infinity,
-                    height: AppValues.h48,
+                    height: AppSizes.h48,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.focusedBorderColor,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(AppValues.r8),
+                          borderRadius: BorderRadius.circular(AppSizes.r8),
                         ),
                       ),
-                      onPressed: _enteredCode.isEmpty
-                          ? null
-                          : () {
-                              context
-                                  .read<PhoneOtpCubit>()
-                                  .verifyOtp(widget.phoneNumber);
-                            },
+                      onPressed:
+                          _enteredCode.isEmpty
+                              ? null
+                              : () {
+                                context.read<PhoneOtpCubit>().verifyOtp(
+                                  widget.phoneNumber,
+                                );
+                              },
                       child: Text(
-                              AppStrings.confirmOtp,
-                              style: Theme.of(context).textTheme.labelMedium
-                                  ?.copyWith(
-                                    fontSize: AppValues.sp18,
-                                    color: AppColors.whiteColor,
-                                  ),
-                            ),
+                        AppStrings.confirmOtp,
+                        style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                          fontSize: AppSizes.sp18,
+                          color: AppColors.whiteColor,
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(height: 16.h),
                   Center(
-                    child: _secondsRemaining > 0
-                        ? Text(
-                            'Resend Code in 00:${_secondsRemaining.toString().padLeft(2, '0')}',
-                            style: TextStyle(
-                              fontSize: AppValues.sp14,
-                              color: AppColors.textprimary,
+                    child:
+                        _secondsRemaining > 0
+                            ? Text(
+                              'Resend Code in 00:${_secondsRemaining.toString().padLeft(2, '0')}',
+                              style: TextStyle(
+                                fontSize: AppSizes.sp14,
+                                color: AppColors.textprimary,
+                              ),
+                            )
+                            : TextButton(
+                              onPressed: () {
+                                context.read<PhoneOtpCubit>().sendOtp(widget.phoneNumber);
+                                _startTimer();
+                              },
+                              child: Text(
+                                AppStrings.resendCode,
+                                style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                                  fontSize: AppSizes.sp14,
+                                  color: AppColors.textprimary,
+                                ),
+                              ),
                             ),
-                          )
-                        : TextButton(
-                            onPressed: () {
-                              context.read<PhoneOtpCubit>().sendOtp(widget.phoneNumber);
-                              _startTimer();
-                            },
-                            child: Text(
-                              AppStrings.resendCode,
-                              style: Theme.of(context).textTheme.labelMedium
-                                  ?.copyWith(
-                                    fontSize: AppValues.sp14,
-                                    color: AppColors.textprimary
-                                  )
-                                  
-                            ),
-                          ),),
-                            SizedBox(height: AppValues.h16),
-                          
-                  
+                  ),
+                  SizedBox(height: AppSizes.h16),
                 ],
               );
             },
