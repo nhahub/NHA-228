@@ -33,52 +33,55 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        if (widget.hintText != null)
-          Text(widget.hintText!, style: Theme.of(context).textTheme.labelMedium),
-        const SizedBox(height: 6),
-        TextFormField(
-          controller: widget.controller,
-          validator: widget.validator,
-          keyboardType: widget.keyboardType,
-          obscureText: widget.isPassword ? _obscure : false,
-          style: Theme.of(context).textTheme.bodySmall,
-          decoration: InputDecoration(
-            hintText: widget.hintText,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(AppValues.r8),
-              borderSide: BorderSide(color: AppColors.boarderColor),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (widget.hintText != null)
+            Text(widget.hintText!, style: Theme.of(context).textTheme.labelMedium),
+          const SizedBox(height: 6),
+          TextFormField(
+            controller: widget.controller,
+            validator: widget.validator,
+            keyboardType: widget.keyboardType,
+            obscureText: widget.isPassword ? _obscure : false,
+            style: Theme.of(context).textTheme.bodySmall,
+            decoration: InputDecoration(
+              hintText: widget.hintText,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(AppValues.r8),
+                borderSide: BorderSide(color: AppColors.boarderColor),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(AppValues.r8),
+                borderSide: BorderSide(color: AppColors.boarderColor),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(AppValues.r8),
+                borderSide: BorderSide(color: AppColors.focusedBorderColor),
+              ),
+
+              fillColor: AppColors.textFieldfillColor,
+              filled: true,
+              suffixIcon:
+                  widget.isPassword
+                      ? IconButton(
+                        icon: Icon(
+                          _obscure ? Icons.visibility_off : Icons.visibility,
+                          color: Colors.grey,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscure = !_obscure;
+                          });
+                        },
+                      )
+                      : null,
             ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(AppValues.r8),
-              borderSide: BorderSide(color: AppColors.boarderColor),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(AppValues.r8),
-              borderSide: BorderSide(color: AppColors.focusedBorderColor),
-            ),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            fillColor: AppColors.textFieldfillColor,
-            filled: true,
-            suffixIcon:
-                widget.isPassword
-                    ? IconButton(
-                      icon: Icon(
-                        _obscure ? Icons.visibility_off : Icons.visibility,
-                        color: Colors.grey,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _obscure = !_obscure;
-                        });
-                      },
-                    )
-                    : null,
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

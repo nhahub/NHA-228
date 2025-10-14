@@ -30,7 +30,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                   });
                 },
                 controller: _controller,
-                children: [FirstScreen(), SecondScreen(), ThirdScreen()],
+                children: [RecyclingOnboard(), LocationOnboard(), MobileOnboard()],
               ),
             ),
             Row(
