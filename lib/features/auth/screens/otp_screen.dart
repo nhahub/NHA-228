@@ -70,7 +70,7 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
               } else if (state is PhoneOtpVerified) {
                 CustomSnackBar.show(
               context,
-              "Code successfully verified!",
+              AppStrings.codeSuccessfullyVerified,
               backgroundColor: AppColors.success,
             );
                 
