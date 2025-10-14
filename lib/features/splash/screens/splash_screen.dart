@@ -74,7 +74,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
               ),
 
               Text(AppStrings.appName, style: Theme.of(context).textTheme.titleMedium),
-              SizedBox(height: AppValues.splashSpacing),
+              SizedBox(height: AppValues.w18),
               Text(
                 AppStrings.splashSubtitle,
                 style: Theme.of(

@@ -45,7 +45,7 @@ class LoginScreen extends StatelessWidget {
             builder: (context, state) {
               return SingleChildScrollView(
                 child: Padding(
-                  padding: EdgeInsets.all(AppValues.padding),
+                  padding: EdgeInsets.all(AppValues.h16),
                   child: Form(
                     key: _formKey,
                     child: Column(
@@ -71,7 +71,7 @@ class LoginScreen extends StatelessWidget {
                           validator: (value) => value.validatePassword(),
                         ),
 
-                        SizedBox(height: AppValues.h61),
+                        SizedBox(height: AppValues.h60),
                         SizedBox(
                           width: double.infinity,
                           height: AppValues.h44,
