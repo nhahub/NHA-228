@@ -20,8 +20,6 @@ class AppSizes {
   static double h200 = 200.h;
   static double h2 = 2.h;
   static double h21 = 21.h;
-  static double splashSpacing = 10.h;
-  static double fieldSpacing = 16.h;
   static double h33 = 33.h;
   static double h25 = 25.h;
 
@@ -33,13 +31,11 @@ class AppSizes {
   static double sp26 = 26.sp;
   static double sp16 = 16.sp;
   static double sp22 = 22.sp;
-  static double r10 = 10.r;
-  static double r18 = 18.r;
+  static double sp38 = 38.sp;
   static double fieldBoarderRadius = 16.r;
   static double r40 = 40.r;
   static double r50 = 50.r;
   static double sp32 = 32.sp;
-  static double sp38 = 38.sp;
 
   // Width
   static double w2 = 2.w;
@@ -59,5 +55,7 @@ class AppSizes {
   // Radius
   static double r6 = 6.r;
   static double r8 = 8.r;
+  static double r10 = 10.r;
   static double r16 = 16.r;
+  static double r18 = 18.r;
 }
