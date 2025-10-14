@@ -33,7 +33,7 @@ class PostMaterialScreen extends StatelessWidget {
             SizedBox(height: 24),
             DeliveryScheduleSection(),
             SizedBox(height: 24),
-            SubmitButton(), 
+            SubmitButton(),
           ],
         ),
       ),

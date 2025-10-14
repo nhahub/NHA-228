@@ -7,8 +7,7 @@ class DeliveryScheduleSection extends StatefulWidget {
   const DeliveryScheduleSection({super.key});
 
   @override
-  State<DeliveryScheduleSection> createState() =>
-      _DeliveryScheduleSectionState();
+  State<DeliveryScheduleSection> createState() => _DeliveryScheduleSectionState();
 }
 
 class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
@@ -28,10 +27,7 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
   }
 
   Future<void> _pickTime() async {
-    final time = await showTimePicker(
-      context: context,
-      initialTime: TimeOfDay.now(),
-    );
+    final time = await showTimePicker(context: context, initialTime: TimeOfDay.now());
     if (time != null) setState(() => selectedTime = time);
   }
 
@@ -54,7 +50,6 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
               onChanged: (val) {
                 setState(() => scheduleEnabled = val);
               },
-              activeThumbColor: Colors.green,
             ),
           ],
         ),
@@ -79,9 +74,7 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
                         ? DateFormat.yMMMd().format(selectedDate!)
                         : "Choose a date",
                     style: TextStyle(
-                      color: selectedDate != null
-                          ? Colors.black
-                          : Colors.grey.shade500,
+                      color: selectedDate != null ? Colors.black : Colors.grey.shade500,
                     ),
                   ),
                   const Icon(Icons.calendar_today_outlined, color: Colors.grey),
@@ -109,9 +102,7 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
                         ? selectedTime!.format(context)
                         : "Choose a time",
                     style: TextStyle(
-                      color: selectedTime != null
-                          ? Colors.black
-                          : Colors.grey.shade500,
+                      color: selectedTime != null ? Colors.black : Colors.grey.shade500,
                     ),
                   ),
                   const Icon(Icons.access_time_outlined, color: Colors.grey),

@@ -5,8 +5,7 @@ class CollectionServiceSection extends StatefulWidget {
   const CollectionServiceSection({super.key});
 
   @override
-  State<CollectionServiceSection> createState() =>
-      _CollectionServiceSectionState();
+  State<CollectionServiceSection> createState() => _CollectionServiceSectionState();
 }
 
 class _CollectionServiceSectionState extends State<CollectionServiceSection> {
@@ -14,11 +13,7 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
   DateTime? preferredDate;
   String? preferredTime;
 
-  final timeSlots = [
-    "9:00 AM - 11:00 AM",
-    "12:00 PM - 2:00 PM",
-    "4:00 PM - 6:00 PM",
-  ];
+  final timeSlots = ["9:00 AM - 11:00 AM", "12:00 PM - 2:00 PM", "4:00 PM - 6:00 PM"];
 
   Future<void> pickDate() async {
     final picked = await showDatePicker(
@@ -45,23 +40,23 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
             Switch(
               value: enabled,
               onChanged: (val) => setState(() => enabled = val),
-              activeThumbColor: Colors.green,
+              // activeThumbColor: Colors.green,
             ),
           ],
         ),
         if (enabled) ...[
           const SizedBox(height: 10),
-          const Text("Preferred date",
-              style: TextStyle(fontWeight: FontWeight.w500)),
+          const Text("Preferred date", style: TextStyle(fontWeight: FontWeight.w500)),
           const SizedBox(height: 6),
           GestureDetector(
             onTap: pickDate,
             child: AbsorbPointer(
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: preferredDate == null
-                      ? "Select date"
-                      : DateFormat('yyyy-MM-dd').format(preferredDate!),
+                  hintText:
+                      preferredDate == null
+                          ? "Select date"
+                          : DateFormat('yyyy-MM-dd').format(preferredDate!),
                   suffixIcon: const Icon(Icons.calendar_today_outlined),
                   filled: true,
                   fillColor: Colors.white,
@@ -74,15 +69,13 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
             ),
           ),
           const SizedBox(height: 16),
-          const Text("Preferred time",
-              style: TextStyle(fontWeight: FontWeight.w500)),
+          const Text("Preferred time", style: TextStyle(fontWeight: FontWeight.w500)),
           const SizedBox(height: 6),
           DropdownButtonFormField<String>(
-            initialValue: preferredTime,
+            // initialValue: preferredTime,
             hint: const Text("Select time"),
-            items: timeSlots
-                .map((t) => DropdownMenuItem(value: t, child: Text(t)))
-                .toList(),
+            items:
+                timeSlots.map((t) => DropdownMenuItem(value: t, child: Text(t))).toList(),
             onChanged: (val) => setState(() => preferredTime = val),
             decoration: InputDecoration(
               filled: true,
@@ -94,8 +87,7 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
             ),
           ),
           const SizedBox(height: 16),
-          const Text("Location",
-              style: TextStyle(fontWeight: FontWeight.w500)),
+          const Text("Location", style: TextStyle(fontWeight: FontWeight.w500)),
           const SizedBox(height: 6),
           TextField(
             decoration: InputDecoration(
@@ -108,7 +100,7 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
               ),
             ),
           ),
-        ]
+        ],
       ],
     );
   }

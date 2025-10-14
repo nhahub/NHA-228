@@ -1,5 +1,5 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'post_material_state.dart';
 
@@ -9,7 +9,9 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
   void selectMaterial(String type, String priceText) {
     emit(state.copyWith(materialType: type, materialPrice: priceText));
   }
+
   double q = 0;
+
   void setQuantity(q) {
     double? total;
     if (state.materialPrice != null) {
@@ -37,10 +39,12 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
       emit(state.copyWith(status: PostMaterialStatus.loading));
 
       if (state.materialType == null || state.location == null) {
-        emit(state.copyWith(
-          status: PostMaterialStatus.error,
-          errorMessage: "Please fill all required fields.",
-        ));
+        emit(
+          state.copyWith(
+            status: PostMaterialStatus.error,
+            errorMessage: "Please fill all required fields.",
+          ),
+        );
         return;
       }
 
@@ -58,13 +62,9 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
 
       emit(state.copyWith(status: PostMaterialStatus.success));
 
-      
       resetState();
     } catch (e) {
-      emit(state.copyWith(
-        status: PostMaterialStatus.error,
-        errorMessage: e.toString(),
-      ));
+      emit(state.copyWith(status: PostMaterialStatus.error, errorMessage: e.toString()));
     }
   }
 }

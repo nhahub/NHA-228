@@ -24,15 +24,15 @@ class PostMaterialState {
   });
 
   factory PostMaterialState.initial() => PostMaterialState(
-        materialType: null,
-        materialPrice: null,
-        quantity: 0,
-        totalPrice: 0,
-        location: '',
-        description: '',
-        status: PostMaterialStatus.initial,
-        errorMessage: null,
-      );
+    materialType: null,
+    materialPrice: null,
+    quantity: 0,
+    totalPrice: 0,
+    location: '',
+    description: '',
+    status: PostMaterialStatus.initial,
+    errorMessage: null,
+  );
 
   PostMaterialState copyWith({
     String? materialType,

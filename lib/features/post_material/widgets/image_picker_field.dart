@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -39,22 +40,23 @@ class _ImagePickerFieldState extends State<ImagePickerField> {
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: Colors.grey.shade300),
             ),
-            child: selectedImage == null
-                ? const Center(
-                    child: Icon(
-                      Icons.add_a_photo_outlined,
-                      size: 40,
-                      color: Colors.grey,
+            child:
+                selectedImage == null
+                    ? const Center(
+                      child: Icon(
+                        Icons.add_a_photo_outlined,
+                        size: 40,
+                        color: Colors.grey,
+                      ),
+                    )
+                    : ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.file(
+                        selectedImage!,
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                      ),
                     ),
-                  )
-                : ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: Image.file(
-                      selectedImage!,
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                    ),
-                  ),
           ),
         ),
       ],

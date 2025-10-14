@@ -45,14 +45,13 @@ class MaterialGrid extends StatelessWidget {
                 duration: const Duration(milliseconds: 250),
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: isSelected
-                      ? AppColors.primary.withValues(alpha: 0.15)
-                      : Colors.white,
+                  color:
+                      isSelected
+                          ? AppColors.primary.withValues(alpha: 0.15)
+                          : Colors.white,
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
-                    color: isSelected
-                        ? Colors.grey.shade300
-                        : Colors.grey.shade300,
+                    color: isSelected ? Colors.grey.shade300 : Colors.grey.shade300,
                     width: 1.5,
                   ),
                   boxShadow: [
@@ -78,9 +77,7 @@ class MaterialGrid extends StatelessWidget {
                       item.title.split(" ").first,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontWeight: isSelected
-                            ? FontWeight.w600
-                            : FontWeight.w400,
+                        fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
                         color: isSelected ? Colors.white : Colors.black87,
                       ),
                     ),
