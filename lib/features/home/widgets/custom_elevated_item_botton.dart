@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_values.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/features/home/models/waste_item_model.dart';
 
 class CustomElevatedItemBotton extends StatelessWidget {
   final WasteItem item;
+
   const CustomElevatedItemBotton({super.key, required this.item});
 
   @override
@@ -12,20 +13,17 @@ class CustomElevatedItemBotton extends StatelessWidget {
     return InkWell(
       onTap: () {},
       child: Container(
-        height: AppValues.h33,
+        height: AppSizes.h33,
         width: double.infinity,
         decoration: BoxDecoration(
           color: AppColors.categoryfoot,
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(AppValues.r18),
-            bottomRight: Radius.circular(AppValues.r18),
+            bottomLeft: Radius.circular(AppSizes.r18),
+            bottomRight: Radius.circular(AppSizes.r18),
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: AppValues.w12,
-            vertical: AppValues.h8,
-          ),
+          padding: EdgeInsets.symmetric(horizontal: AppSizes.w12, vertical: AppSizes.h8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

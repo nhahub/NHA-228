@@ -1,5 +1,7 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nha_228/core/constants/app_strings.dart';
+
 part 'otp_state.dart';
 
 class PhoneOtpCubit extends Cubit<PhoneOtpState> {
@@ -19,7 +21,7 @@ class PhoneOtpCubit extends Cubit<PhoneOtpState> {
           emit(PhoneOtpVerified());
         },
         verificationFailed: (FirebaseAuthException e) {
-          emit(PhoneOtpError(e.message ?? "Phone verification failed"));
+          emit(PhoneOtpError(e.message ?? AppStrings.phoneVerificationFailed));
         },
         codeSent: (String verificationId, int? resendToken) {
           _verificationId = verificationId;
@@ -30,13 +32,13 @@ class PhoneOtpCubit extends Cubit<PhoneOtpState> {
         },
       );
     } catch (e) {
-      emit(PhoneOtpError("Failed to send OTP. Try again."));
+      emit(PhoneOtpError(AppStrings.failedToSendOTPTryAgain));
     }
   }
 
   Future<void> verifyOtp(String smsCode) async {
     if (_verificationId == null) {
-      emit(PhoneOtpError("No verification ID. Please request a new code."));
+      emit(PhoneOtpError(AppStrings.noVerificationIDPleaseRequestANewCode));
       return;
     }
     emit(PhoneOtpLoading());
@@ -48,7 +50,7 @@ class PhoneOtpCubit extends Cubit<PhoneOtpState> {
       await _auth.signInWithCredential(credential);
       emit(PhoneOtpVerified());
     } catch (e) {
-      emit(PhoneOtpError("Incorrect code"));
+      emit(PhoneOtpError(AppStrings.incorrectCode));
     }
   }
 }

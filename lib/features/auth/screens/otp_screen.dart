@@ -1,12 +1,11 @@
-// import 'dart:async';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/features/auth/cubit/otp_cubit/otp_cubit.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 
@@ -73,7 +72,7 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
               } else if (state is PhoneOtpVerified) {
                 CustomSnackBar.show(
                   context,
-                  "Code successfully verified!",
+                  AppStrings.codeSuccessfullyVerified,
                   backgroundColor: AppColors.success,
                 );
 
@@ -87,7 +86,7 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
 
               return Column(
                 children: [
-                  SizedBox(height: AppValues.h8),
+                  SizedBox(height: AppSizes.h8),
                   Row(
                     children: [
                       GestureDetector(
@@ -105,7 +104,7 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                             Text(
                               AppStrings.cancel,
                               style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                                fontSize: AppValues.sp24,
+                                fontSize: AppSizes.sp24,
                                 fontFamily: 'Otama-ep',
                               ),
                             ),
@@ -115,7 +114,7 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                     ],
                   ),
 
-                  SizedBox(height: AppValues.h16),
+                  SizedBox(height: AppSizes.h16),
                   Column(
                     children: [
                       Row(
@@ -124,17 +123,17 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                           Text(
                             AppStrings.otpVerification,
                             style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              fontSize: AppValues.sp24,
+                              fontSize: AppSizes.sp24,
                               fontFamily: 'Otama-ep',
                               color: AppColors.otpVerificationScreenTextColor,
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: AppValues.h10),
+                      SizedBox(height: AppSizes.h10),
                       Row(
                         children: [
-                          SizedBox(width: AppValues.w8),
+                          SizedBox(width: AppSizes.w8),
                           Text(
                             'We sent a 5-digit code to ${maskedPhone(widget.phoneNumber)}',
                             style: TextStyle(
@@ -147,7 +146,7 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                     ],
                   ),
 
-                  SizedBox(height: AppValues.h54),
+                  SizedBox(height: AppSizes.h54),
 
                   OtpInputFields(
                     onCompleted: (code) {
@@ -157,15 +156,15 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                     },
                   ),
 
-                  SizedBox(height: AppValues.h40),
+                  SizedBox(height: AppSizes.h40),
                   SizedBox(
                     width: double.infinity,
-                    height: AppValues.h48,
+                    height: AppSizes.h48,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.focusedBorderColor,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(AppValues.r8),
+                          borderRadius: BorderRadius.circular(AppSizes.r8),
                         ),
                       ),
                       onPressed:
@@ -179,7 +178,7 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                       child: Text(
                         AppStrings.confirmOtp,
                         style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                          fontSize: AppValues.sp18,
+                          fontSize: AppSizes.sp18,
                           color: AppColors.whiteColor,
                         ),
                       ),
@@ -192,7 +191,7 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                             ? Text(
                               'Resend Code in 00:${_secondsRemaining.toString().padLeft(2, '0')}',
                               style: TextStyle(
-                                fontSize: AppValues.sp14,
+                                fontSize: AppSizes.sp14,
                                 color: AppColors.textprimary,
                               ),
                             )
@@ -204,13 +203,13 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                               child: Text(
                                 AppStrings.resendCode,
                                 style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                                  fontSize: AppValues.sp14,
+                                  fontSize: AppSizes.sp14,
                                   color: AppColors.textprimary,
                                 ),
                               ),
                             ),
                   ),
-                  SizedBox(height: AppValues.h16),
+                  SizedBox(height: AppSizes.h16),
                 ],
               );
             },

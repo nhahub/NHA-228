@@ -10,6 +10,7 @@ class OnboardingFooter extends StatelessWidget {
 
   final PageController controller;
   final int index;
+
   onboardingSeen(BuildContext context) async {
     await HiveManager().setBool(AppStrings.seenOnboarding, true);
     context.go(AppRouter.loginScreen);

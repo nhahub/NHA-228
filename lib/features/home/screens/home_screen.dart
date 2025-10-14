@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
 import 'package:nha_228/features/home/data/waste_data.dart';
 import 'package:nha_228/features/home/widgets/custom_search_field.dart';
@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(AppValues.h16),
+          padding: EdgeInsets.all(AppSizes.h16),
           child: Column(
             children: [
               CustomSearchfield(
@@ -26,12 +26,12 @@ class HomeScreen extends StatelessWidget {
                   }
                 },
               ),
-              SizedBox(height: AppValues.h24),
+              SizedBox(height: AppSizes.h24),
               Expanded(
                 child: GridView.count(
                   crossAxisCount: 2,
-                  crossAxisSpacing: AppValues.w44,
-                  mainAxisSpacing: AppValues.h21,
+                  crossAxisSpacing: AppSizes.w44,
+                  mainAxisSpacing: AppSizes.h21,
                   childAspectRatio: 0.9,
                   children: List.generate(CategoryValues.wasteItems.length, (index) {
                     return CustomWasteItemFiels(item: CategoryValues.wasteItems[index]);

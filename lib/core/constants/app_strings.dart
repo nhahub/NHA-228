@@ -99,26 +99,16 @@ class AppStrings {
 
   static const String fieldRequired = "This field is required";
 
-  // Email
   static const String emailEmpty = "Please enter your email";
   static const String emailInvalid = "Enter a valid email address";
-
-  // Password
   static const String passwordEmpty = "Please enter your password";
   static const String passwordTooShort = "Password must be at least 6 characters";
-
-  // Confirm Password
   static const String confirmPasswordEmpty = "Please confirm your password";
   static const String passwordsDoNotMatch = "Passwords do not match";
-
-  // First Name
   static const String firstNameEmpty = "Please enter your first name";
   static const String firstNameTooShort = "First name must be at least 2 characters";
-
-  // Last Name
   static const String lastNameEmpty = "Please enter your last name";
   static const String lastNameTooShort = "Last name must be at least 2 characters";
-
   static const String loginSuccess = "Login successful ";
   static const String noAccount = "Don't have an account?";
   static const String alreadyHaveAccount = "Already have an account?";
@@ -129,8 +119,15 @@ class AppStrings {
   static const String results = 'Results';
   static const String chooseImage = 'Choose Image Source';
   static const String camera = 'Camera';
-  static const String  gallery ="Gallery";
+  static const String gallery = "Gallery";
+
   //hive keys
   static const String seenOnboarding = 'seenOnboarding';
   static const String isLoggedIn = 'isLoggedIn';
+  static const String phoneVerificationFailed = "Phone verification failed";
+  static const String failedToSendOTPTryAgain = "Failed to send OTP. Try again.";
+  static const String noVerificationIDPleaseRequestANewCode =
+      "No verification ID. Please request a new code.";
+  static const String incorrectCode = "Incorrect code";
+  static const String codeSuccessfullyVerified = "Code successfully verified!";
 }

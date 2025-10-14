@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/core/widgets/custom_app_bar.dart';
 import 'package:nha_228/core/widgets/custom_botton.dart';
 import 'package:nha_228/features/auth/cubit/cubit/forget_passward_cubit.dart';
@@ -54,8 +54,8 @@ class ForgetPasswordScreen extends StatelessWidget {
             body: SafeArea(
               child: SingleChildScrollView(
                 padding: EdgeInsets.symmetric(
-                  horizontal: AppValues.w20,
-                  vertical: AppValues.h20,
+                  horizontal: AppSizes.w20,
+                  vertical: AppSizes.h20,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,26 +64,26 @@ class ForgetPasswordScreen extends StatelessWidget {
                       AppStrings.forgotPasswordTitle,
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontFamily: 'otama.ep',
-                        fontSize: AppValues.sp32,
+                        fontSize: AppSizes.sp32,
                         color: AppColors.appbar,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    SizedBox(height: AppValues.h10),
+                    SizedBox(height: AppSizes.h10),
                     Text(
                       AppStrings.forgotPasswordSubtitle,
                       style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        fontSize: AppValues.sp14,
+                        fontSize: AppSizes.sp14,
                         color: AppColors.subtitle,
                       ),
                     ),
-                    SizedBox(height: AppValues.h50),
+                    SizedBox(height: AppSizes.h50),
                     CustomTextField(
                       controller: phoneController,
                       hintText: AppStrings.number,
                       keyboardType: TextInputType.phone,
                     ),
-                    SizedBox(height: AppValues.h30),
+                    SizedBox(height: AppSizes.h30),
                     Center(
                       child: CustomButton(
                         title:
