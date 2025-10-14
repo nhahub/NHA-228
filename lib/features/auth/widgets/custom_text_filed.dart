@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_values.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
@@ -50,15 +50,15 @@ class _CustomTextFieldState extends State<CustomTextField> {
             decoration: InputDecoration(
               hintText: widget.hintText,
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppValues.r8),
+                borderRadius: BorderRadius.circular(AppSizes.r8),
                 borderSide: BorderSide(color: AppColors.boarderColor),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppValues.r8),
+                borderRadius: BorderRadius.circular(AppSizes.r8),
                 borderSide: BorderSide(color: AppColors.boarderColor),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppValues.r8),
+                borderRadius: BorderRadius.circular(AppSizes.r8),
                 borderSide: BorderSide(color: AppColors.focusedBorderColor),
               ),
 

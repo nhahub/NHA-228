@@ -23,15 +23,12 @@ abstract class AppRouter {
   static final router = GoRouter(
     initialLocation: '/',
     routes: [
-        GoRoute(
-        path: '/',
-        builder: (context, state) => const SplashScreen(),
-      ),
+      GoRoute(path: '/', builder: (context, state) => const SplashScreen()),
 
       GoRoute(path: loginScreen, builder: (context, state) => LoginScreen()),
       GoRoute(path: onboardScreen, builder: (context, state) => OnboardScreen()),
       GoRoute(path: registerScreen, builder: (context, state) => RegisterScreen()),
-     
+
       GoRoute(path: homeScreen, builder: (context, state) => CustomNavBar()),
       GoRoute(
         path: searchScreen,
@@ -40,7 +37,7 @@ abstract class AppRouter {
           return SearchScreen(searchWord: searchWord);
         },
       ),
-  
+
       GoRoute(path: newPostScreen, builder: (context, state) => NewPostScreen()),
       GoRoute(path: editProfileScreen, builder: (context, state) => EditProfileScreen()),
       GoRoute(

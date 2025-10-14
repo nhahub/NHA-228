@@ -2,8 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
 import 'package:nha_228/core/utils/validators.dart';
 import 'package:nha_228/core/widgets/custom_app_bar.dart';
@@ -23,7 +23,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppBar(title: AppStrings.cancel),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(AppValues.padding),
+        padding: EdgeInsets.all(AppSizes.w18),
         child: Form(
           key: _formKey,
           child: Column(
@@ -46,7 +46,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
                 isPassword: true,
                 validator: (value) => value.validatePassword(),
               ),
-              SizedBox(height: AppValues.h10),
+              SizedBox(height: AppSizes.h10),
               CustomTextField(
                 controller: confirmPasswordController,
                 hintText: AppStrings.confirmPassword,
@@ -54,7 +54,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
                 validator:
                     (value) => value.validateConfirmPassword(newPasswordController.text),
               ),
-              SizedBox(height: AppValues.h24),
+              SizedBox(height: AppSizes.h24),
               CustomButton(
                 title: AppStrings.submit,
                 onPressed: () async {

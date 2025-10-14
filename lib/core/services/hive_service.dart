@@ -1,9 +1,9 @@
 import 'package:hive_ce_flutter/adapters.dart';
 
 class HiveManager {
-  static final HiveManager _instance= HiveManager._internal();
+  static final HiveManager _instance = HiveManager._internal();
 
-  factory HiveManager(){
+  factory HiveManager() {
     return _instance;
   }
 
@@ -11,16 +11,16 @@ class HiveManager {
 
   late Box _box;
 
-  init ()async{
+  init() async {
     await Hive.initFlutter();
     _box = await Hive.openBox('app_box');
   }
 
-   Future<void> setBool(String key,bool value)async {
-   await _box.put(key, value);
+  Future<void> setBool(String key, bool value) async {
+    await _box.put(key, value);
   }
 
-   bool getBool<bool>(String key){
-   return _box.get(key)?? false;
-   }
-   }
+  bool getBool<bool>(String key) {
+    return _box.get(key) ?? false;
+  }
+}

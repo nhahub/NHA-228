@@ -52,10 +52,7 @@ ThemeData appTheme() {
         color: AppColors.textprimary,
         fontWeight: FontWeight.w600,
       ),
-      displayMedium: TextStyle(
-        fontSize: 18.sp,
-         fontWeight: FontWeight.bold,
-      ),
+      displayMedium: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
     ),
 
     progressIndicatorTheme: ProgressIndicatorThemeData(
