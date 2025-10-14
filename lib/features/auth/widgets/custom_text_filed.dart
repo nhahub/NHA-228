@@ -50,15 +50,15 @@ class _CustomTextFieldState extends State<CustomTextField> {
             decoration: InputDecoration(
               hintText: widget.hintText,
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppValues.r8),
+                borderRadius: BorderRadius.circular(AppSizes.r8),
                 borderSide: BorderSide(color: AppColors.boarderColor),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppValues.r8),
+                borderRadius: BorderRadius.circular(AppSizes.r8),
                 borderSide: BorderSide(color: AppColors.boarderColor),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppValues.r8),
+                borderRadius: BorderRadius.circular(AppSizes.r8),
                 borderSide: BorderSide(color: AppColors.focusedBorderColor),
               ),
 

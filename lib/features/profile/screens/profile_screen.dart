@@ -10,7 +10,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: InkWell(
-          onTap: (){
+          onTap: () {
             context.push(AppRouter.editProfileScreen);
           },
           child: const Text('Edit profile'),

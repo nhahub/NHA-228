@@ -25,7 +25,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               child: Icon(
                 isRtl ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
                 color: AppColors.appbar,
-                size: AppValues.sp26,
+                size: AppSizes.sp26,
               ),
             ),
           ),

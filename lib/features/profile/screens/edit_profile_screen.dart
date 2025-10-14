@@ -5,8 +5,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nha_228/core/constants/app_assets.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/core/widgets/custom_app_bar.dart';
 import 'package:nha_228/core/widgets/custom_botton.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';
@@ -31,13 +31,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         child: SingleChildScrollView(
           child: Center(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppValues.w18),
+              padding: EdgeInsets.symmetric(horizontal: AppSizes.w18),
               child: Column(
                 children: [
                   Stack(
                     children: [
                       CircleAvatar(
-                        radius: AppValues.r50,
+                        radius: AppSizes.r50,
                         backgroundImage:
                             imagePath == null
                                 ? AssetImage(AppAssets.profile)
@@ -55,11 +55,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             });
                           },
                           child: Container(
-                            width: AppValues.w25,
-                            height: AppValues.h25,
+                            width: AppSizes.w25,
+                            height: AppSizes.h25,
                             decoration: BoxDecoration(
                               color: AppColors.camerabackground,
-                              borderRadius: BorderRadius.circular(AppValues.r40),
+                              borderRadius: BorderRadius.circular(AppSizes.r40),
                             ),
                             child: Center(child: SvgPicture.asset(AppAssets.camera)),
                           ),
@@ -73,7 +73,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   CustomTextField(hintText: AppStrings.phone),
                   GenderDropdownField(),
                   DatePickerField(),
-                  SizedBox(height: AppValues.h20),
+                  SizedBox(height: AppSizes.h20),
                   CustomButton(title: AppStrings.save, onPressed: () {}),
                 ],
               ),
@@ -89,20 +89,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       context: context,
       builder: (BuildContext context) {
         return Dialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppValues.r18)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppSizes.r18),
+          ),
           child: Padding(
-            padding:  EdgeInsets.all(AppValues.w20),
+            padding: EdgeInsets.all(AppSizes.w20),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   AppStrings.chooseImage,
-                  style:Theme.of(context).textTheme.displayMedium,
+                  style: Theme.of(context).textTheme.displayMedium,
                 ),
-                 SizedBox(height: AppValues.h20),
+                SizedBox(height: AppSizes.h20),
 
                 ListTile(
-                  leading: Icon(Icons.camera_alt, color: AppColors.blue,),
+                  leading: Icon(Icons.camera_alt, color: AppColors.blue),
                   title: Text(AppStrings.camera),
                   onTap: () async {
                     Navigator.pop(context);
@@ -115,7 +117,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 const Divider(),
 
                 ListTile(
-                  leading: Icon(Icons.photo_library, color:AppColors.success),
+                  leading: Icon(Icons.photo_library, color: AppColors.success),
                   title: Text(AppStrings.gallery),
                   onTap: () async {
                     Navigator.pop(context);
