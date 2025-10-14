@@ -2,9 +2,9 @@ import 'package:hive_ce_flutter/adapters.dart';
 import 'package:nha_228/features/auth/models/user_model.dart';
 
 class HiveManager {
-  static final HiveManager _instance= HiveManager._internal();
+  static final HiveManager _instance = HiveManager._internal();
 
-  factory HiveManager(){
+  factory HiveManager() {
     return _instance;
   }
 
@@ -13,15 +13,15 @@ class HiveManager {
   late Box _box;
   late Box _userBox;
 
-  init ()async{
+  init() async {
     await Hive.initFlutter();
     Hive.registerAdapter(UserModelAdapter());
     _box = await Hive.openBox('app_box');
     _userBox = await Hive.openBox('user_box');
   }
 
-   Future<void> setBool(String key,bool value)async {
-   await _box.put(key, value);
+  Future<void> setBool(String key, bool value) async {
+    await _box.put(key, value);
   }
 
    bool getBool<bool>(String key){
@@ -38,4 +38,6 @@ class HiveManager {
    Future<void> clearUser() async{
     await _userBox.delete('user');
    }
-   }
+   
+ 
+}

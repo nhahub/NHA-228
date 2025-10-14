@@ -8,7 +8,7 @@ import 'package:nha_228/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-   await HiveManager().init();
+  await HiveManager().init();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const Krakibak());
 }

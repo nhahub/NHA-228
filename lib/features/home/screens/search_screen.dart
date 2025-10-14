@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/features/home/widgets/custom_search_field.dart';
 
 class SearchScreen extends StatefulWidget {
   final String searchWord;
+
   const SearchScreen({super.key, required this.searchWord});
 
   @override
@@ -13,6 +14,7 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   TextEditingController searchController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -23,12 +25,12 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(AppValues.h60),
+        preferredSize: Size.fromHeight(AppSizes.h60),
         child: SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: AppValues.w16,
-              vertical: AppValues.h10,
+              horizontal: AppSizes.w16,
+              vertical: AppSizes.h10,
             ),
             child: Row(
               children: [
@@ -46,10 +48,10 @@ class _SearchScreenState extends State<SearchScreen> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppValues.w16),
+          padding: EdgeInsets.symmetric(horizontal: AppSizes.w16),
           child: Column(
             children: [
-              SizedBox(height: AppValues.h10),
+              SizedBox(height: AppSizes.h10),
               Align(
                 alignment: Alignment.topLeft,
                 child: Text(

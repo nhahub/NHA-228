@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_values.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -21,11 +21,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           InkWell(
             onTap: () => Navigator.pop(context),
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppValues.h4),
+              padding: EdgeInsets.symmetric(horizontal: AppSizes.h4),
               child: Icon(
                 isRtl ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
                 color: AppColors.appbar,
-                size: AppValues.sp26,
+                size: AppSizes.sp26,
               ),
             ),
           ),

@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nha_228/core/constants/app_assets.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/core/services/hive_service.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
 import 'package:nha_228/core/utils/validators.dart';
@@ -35,7 +35,7 @@ class LoginScreen extends StatelessWidget {
                   backgroundColor: AppColors.error,
                 );
               } else if (state is LoginSuccess) {
-                  HiveManager().setBool(AppStrings.isLoggedIn, true);
+                HiveManager().setBool(AppStrings.isLoggedIn, true);
                 CustomSnackBar.show(
                   context,
                   AppStrings.loginSuccess,
@@ -47,7 +47,7 @@ class LoginScreen extends StatelessWidget {
             builder: (context, state) {
               return SingleChildScrollView(
                 child: Padding(
-                  padding: EdgeInsets.all(AppValues.padding),
+                  padding: EdgeInsets.all(AppSizes.h16),
                   child: Form(
                     key: _formKey,
                     child: Column(
@@ -64,7 +64,7 @@ class LoginScreen extends StatelessWidget {
                           keyboardType: TextInputType.emailAddress,
                           validator: (value) => value.validateEmail(),
                         ),
-                        SizedBox(height: AppValues.h16),
+                        SizedBox(height: AppSizes.h16),
 
                         CustomTextField(
                           controller: passwordController,
@@ -73,10 +73,10 @@ class LoginScreen extends StatelessWidget {
                           validator: (value) => value.validatePassword(),
                         ),
 
-                        SizedBox(height: AppValues.h61),
+                        SizedBox(height: AppSizes.h60),
                         SizedBox(
                           width: double.infinity,
-                          height: AppValues.h44,
+                          height: AppSizes.h44,
                           child: ElevatedButton(
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
