@@ -130,6 +130,7 @@ class AppStrings {
   static const String incorrectCode = "Incorrect code";
   static const String codeSuccessfullyVerified = "Code successfully verified!";
 
+
   static const String male = "Male";
   static const String female = "Female";
   static const String codeSent = "Code sent successfully! ";
