@@ -16,7 +16,7 @@ class MaterialGrid extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+         Text(
           "Choose a material type:",
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
         ),
