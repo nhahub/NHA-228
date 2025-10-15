@@ -134,5 +134,8 @@ class AppStrings {
   static const String incorrectCode = "Incorrect code";
   static const String codeSuccessfullyVerified = "Code successfully verified!";
 static const String chooseADate = "Choose a date";
+static const String deliveryLocation = "Delivery location (optional)";
+static const String chooseTime = "Choose a time";
+static const String scheduleDelivery = "Schedule Delivery";
 
 }
