@@ -85,9 +85,12 @@ class AppStrings {
   static const String materialPictures = "Material pictures";
   static const String collectionService = "Collection service";
   static const String preferredDate = "Preferred date";
+  static const String selectDate = "Select date";
   static const String preferredTime = "Preferred time";
+  static const String selectTime = "Select time";
   static const String location = "location";
   static const String address = "address";
+  static const String enterYourAddress = "Enter Your Address";
   static const String postRequest = "Post the request";
 
   static const editProfile = "Edit Profile";
@@ -122,7 +125,7 @@ class AppStrings {
   static const String camera = 'Camera';
   static const String gallery = "Gallery";
 
-  //hive keys
+  
   static const String seenOnboarding = 'seenOnboarding';
   static const String isLoggedIn = 'isLoggedIn';
 
@@ -133,6 +136,12 @@ class AppStrings {
   static const String noVerificationIDPleaseRequestANewCode = "No verification ID. Please request a new code.";
   static const String incorrectCode = "Incorrect code";
   static const String codeSuccessfullyVerified = "Code successfully verified!";
-
-
+static const String chooseADate = "Choose a date";
+static const String deliveryLocation = "Delivery location (optional)";
+static const String chooseTime = "Choose a time";
+static const String scheduleDelivery = "Schedule Delivery";
+static const String description = "Description";
+static const String describeYourMaterialCase = "Describe your material case please ...";
+static const String pleaseDescribeYourMaterialCase = "Please describe your material case!";
+static const String addAPhoto = "Add a photo (optional)";
 }

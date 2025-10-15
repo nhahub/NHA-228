@@ -16,18 +16,17 @@ class AppColors {
   static final nonActiveIndcator = Color(0x4D66AA00);
   static final onboardTextColor = Color(0xff646464);
   static final skipButtonColor = Color(0xff8F8F8F);
-  static final navbarColor = Color(0xff9DD549);
+  static final navBarColor = Color(0xff9DD549);
   static final categoryBackground = Color(0xffECF7DD);
   static final categoryFoot = Color(0xffAFDD69);
   static final error = Colors.red;
   static final success = Colors.green;
   static final shadow = Colors.black26;
-  static final borderSide = Colors.grey;
-  static final otpVerificationScreenTextColor = Color(0xff04332D);  
-  static final cameraBackground=Color(0xff86C627);
+  static final cameraBackground = Color(0xff86C627);
   static final appBar = Color(0xff04332D);
   static final subtitle = Color(0xff696969);
-   static final blue=Colors.blue;
-  
+  static final blue = Colors.blue;
+  static final borderSide = Colors.grey.shade300;
+  static final otpVerificationScreenTextColor = Color(0xff04332D);
   
 }

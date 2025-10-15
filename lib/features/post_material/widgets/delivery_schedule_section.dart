@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
+import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 
 class DeliveryScheduleSection extends StatefulWidget {
@@ -41,9 +44,9 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              "Schedule Delivery",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+             Text(
+              AppStrings.scheduleDelivery,
+              style: TextStyle(fontSize: AppSizes.sp20, fontWeight: FontWeight.w600),
             ),
             Switch(
               value: scheduleEnabled,
@@ -55,16 +58,16 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
         ),
 
         if (scheduleEnabled) ...[
-          const SizedBox(height: 16),
+           SizedBox(height: AppSizes.h16),
 
           GestureDetector(
             onTap: _pickDate,
             child: Container(
-              padding: const EdgeInsets.all(14),
+              padding: EdgeInsets.all(AppSizes.r14),
               decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.grey.shade300),
+                color: AppColors.whiteColor,
+                borderRadius: BorderRadius.circular(AppSizes.r12),
+                border: Border.all(color: AppColors.borderSide),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -72,26 +75,26 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
                   Text(
                     selectedDate != null
                         ? DateFormat.yMMMd().format(selectedDate!)
-                        : "Choose a date",
+                        : AppStrings.chooseADate,
                     style: TextStyle(
-                      color: selectedDate != null ? Colors.black : Colors.grey.shade500,
+                      color: selectedDate != null ? AppColors.textPrimary : AppColors.borderSide,
                     ),
                   ),
-                  const Icon(Icons.calendar_today_outlined, color: Colors.grey),
+                   Icon(Icons.calendar_today_outlined, color: AppColors.borderSide),
                 ],
               ),
             ),
           ),
 
-          const SizedBox(height: 16),
+           SizedBox(height: AppSizes.h16),
 
           GestureDetector(
             onTap: _pickTime,
             child: Container(
-              padding: const EdgeInsets.all(14),
+              padding: EdgeInsets.all(AppSizes.r14),
               decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
+                color: AppColors.whiteColor,
+                borderRadius: BorderRadius.circular(AppSizes.r12),
                 border: Border.all(color: Colors.grey.shade300),
               ),
               child: Row(
@@ -100,27 +103,27 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
                   Text(
                     selectedTime != null
                         ? selectedTime!.format(context)
-                        : "Choose a time",
+                        : AppStrings.chooseTime,
                     style: TextStyle(
-                      color: selectedTime != null ? Colors.black : Colors.grey.shade500,
+                      color: selectedTime != null ? AppColors.textPrimary : AppColors.borderSide,
                     ),
                   ),
-                  const Icon(Icons.access_time_outlined, color: Colors.grey),
+                   Icon(Icons.access_time_outlined, color: AppColors.borderSide),
                 ],
               ),
             ),
           ),
 
-          const SizedBox(height: 16),
+           SizedBox(height: AppSizes.h16),
 
           TextField(
             decoration: InputDecoration(
-              hintText: "Delivery location (optional)",
+              hintText: AppStrings.deliveryLocation,
               filled: true,
-              fillColor: Colors.white,
+              fillColor: AppColors.whiteColor,
               border: OutlineInputBorder(
                 borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(AppSizes.r12),
               ),
             ),
             onChanged: (val) => cubit.setLocation(val),
