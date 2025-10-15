@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:nha_228/core/constants/app_sizes.dart';
+import 'package:nha_228/core/constants/app_strings.dart';
 
 class CollectionServiceSection extends StatefulWidget {
   const CollectionServiceSection({super.key});
@@ -34,9 +35,9 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              "Collection service 🛵",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+             Text(
+              AppStrings.collectionService,
+              style: TextStyle(fontSize: AppSizes.h16, fontWeight: FontWeight.w600),
             ),
             Switch(
               value: enabled,
@@ -47,8 +48,8 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
         ),
         if (enabled) ...[
           SizedBox(height: AppSizes.h10 ),
-          const Text("Preferred date", style: TextStyle(fontWeight: FontWeight.w500)),
-          const SizedBox(height: 6),
+           Text(AppStrings.preferredDate, style: TextStyle(fontWeight: FontWeight.w500)),
+           SizedBox(height: AppSizes.h6),
           GestureDetector(
             onTap: pickDate,
             child: AbsorbPointer(
@@ -56,25 +57,25 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
                 decoration: InputDecoration(
                   hintText:
                       preferredDate == null
-                          ? "Select date"
+                          ? AppStrings.selectDate
                           : DateFormat('yyyy-MM-dd').format(preferredDate!),
                   suffixIcon: const Icon(Icons.calendar_today_outlined),
                   filled: true,
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(AppSizes.r12),
                     borderSide: BorderSide.none,
                   ),
                 ),
               ),
             ),
           ),
-          const SizedBox(height: 16),
-          const Text("Preferred time", style: TextStyle(fontWeight: FontWeight.w500)),
-          const SizedBox(height: 6),
+         SizedBox(height: AppSizes.h16),
+          const Text(AppStrings.preferredTime, style: TextStyle(fontWeight: FontWeight.w500)),
+           SizedBox(height: AppSizes.h6),
           DropdownButtonFormField<String>(
             // initialValue: preferredTime,
-            hint: const Text("Select time"),
+            hint: const Text(AppStrings.selectTime),
             items:
                 timeSlots.map((t) => DropdownMenuItem(value: t, child: Text(t))).toList(),
             onChanged: (val) => setState(() => preferredTime = val),
@@ -82,21 +83,21 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
               filled: true,
               fillColor: Colors.white,
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(AppSizes.r12),
                 borderSide: BorderSide.none,
               ),
             ),
           ),
-          const SizedBox(height: 16),
-          const Text("Location", style: TextStyle(fontWeight: FontWeight.w500)),
-          const SizedBox(height: 6),
+           SizedBox(height: AppSizes.h16),
+          const Text(AppStrings.location, style: TextStyle(fontWeight: FontWeight.w500)),
+           SizedBox(height: AppSizes.h6),
           TextField(
             decoration: InputDecoration(
-              hintText: "Enter your address",
+              hintText: AppStrings.enterYourAddress,
               filled: true,
               fillColor: Colors.white,
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(AppSizes.r12),
                 borderSide: BorderSide.none,
               ),
             ),

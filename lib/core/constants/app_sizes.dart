@@ -50,6 +50,7 @@ class AppSizes {
   static double r6 = 6.r;
   static double r8 = 8.r;
   static double r10 = 10.r;
+  static double r12 = 12.r;
   static double r16 = 16.r;
   static double r18 = 18.r;
   static double r40 = 40.r;
