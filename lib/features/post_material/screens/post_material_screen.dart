@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/widgets/custom_app_bar.dart';
 import 'package:nha_228/features/post_material/widgets/delivery_schedule_section.dart';
 import 'package:nha_228/features/post_material/widgets/description_field.dart';
@@ -18,7 +19,7 @@ class PostMaterialScreen extends StatelessWidget {
       backgroundColor: AppColors.primary,
       appBar: CustomAppBar(title: "Posting materials"),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(AppSizes.h16),
         child: ListView(
           children: const [
             MaterialGrid(),
