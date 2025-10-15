@@ -2,6 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
+import 'package:nha_228/core/constants/app_strings.dart';
 
 class ImagePickerField extends StatefulWidget {
   const ImagePickerField({super.key});
@@ -26,31 +29,31 @@ class _ImagePickerFieldState extends State<ImagePickerField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          "Add a photo (optional)",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+         Text(
+          AppStrings.addAPhoto,
+          style: TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.w600),
         ),
-        const SizedBox(height: 8),
+         SizedBox(height: AppSizes.h8),
         GestureDetector(
           onTap: pickImage,
           child: Container(
-            height: 150,
+            height: AppSizes.h150,
             decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.grey.shade300),
+              color: AppColors.whiteColor,
+              borderRadius: BorderRadius.circular(AppSizes.r16),
+              border: Border.all(color: AppColors.borderSide),
             ),
             child:
                 selectedImage == null
-                    ? const Center(
+                    ?  Center(
                       child: Icon(
                         Icons.add_a_photo_outlined,
                         size: 40,
-                        color: Colors.grey,
+                        color: AppColors.borderSide,
                       ),
                     )
                     : ClipRRect(
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(AppSizes.r16),
                       child: Image.file(
                         selectedImage!,
                         fit: BoxFit.cover,

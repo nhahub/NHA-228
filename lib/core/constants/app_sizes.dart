@@ -19,6 +19,7 @@ class AppSizes {
   static double h50 = 50.h;
   static double h54 = 54.h;
   static double h70 = 70.h;
+  static double h150 = h150;
   static double h200 = 200.h;
 
   // Font Size

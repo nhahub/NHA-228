@@ -140,4 +140,5 @@ static const String scheduleDelivery = "Schedule Delivery";
 static const String description = "Description";
 static const String describeYourMaterialCase = "Describe your material case please ...";
 static const String pleaseDescribeYourMaterialCase = "Please describe your material case!";
+static const String addAPhoto = "Add a photo (optional)";
 }
