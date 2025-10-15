@@ -13,7 +13,7 @@ class CustomElevatedItemBotton extends StatelessWidget {
     return InkWell(
       onTap: () {},
       child: Container(
-        height: AppSizes.h33,
+        height: AppSizes.h32,
         width: double.infinity,
         decoration: BoxDecoration(
           color: AppColors.categoryfoot,
