@@ -60,7 +60,7 @@ class _OtpInputFieldsState extends State<OtpInputFields> {
             textAlign: TextAlign.center,
             keyboardType: TextInputType.number,
             maxLength: 1,
-            cursorColor: AppColors.textprimary,
+            cursorColor: AppColors.textPrimary,
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             onChanged: (value) => _onChanged(value, index),
             decoration: InputDecoration(
