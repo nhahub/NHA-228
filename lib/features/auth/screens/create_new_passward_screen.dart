@@ -35,7 +35,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
                   AppStrings.createNewPassword,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontFamily: 'otama.ep',
-                    color: AppColors.textprimary,
+                    color: AppColors.textPrimary,
                   ),
                   textAlign: TextAlign.center,
                 ),

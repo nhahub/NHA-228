@@ -73,7 +73,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                 Icons.home,
                 color:
                     _selectedIndex == 0
-                        ? AppColors.skipbuttonColor
+                        ? AppColors.skipButtonColor
                         : AppColors.whiteColor,
               ),
               onPressed: () => _onItemTapped(0),
@@ -84,7 +84,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                 Icons.person,
                 color:
                     _selectedIndex == 1
-                        ? AppColors.skipbuttonColor
+                        ? AppColors.skipButtonColor
                         : AppColors.whiteColor,
               ),
               onPressed: () => _onItemTapped(1),

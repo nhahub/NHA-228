@@ -192,7 +192,7 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                               'Resend Code in 00:${_secondsRemaining.toString().padLeft(2, '0')}',
                               style: TextStyle(
                                 fontSize: AppSizes.sp14,
-                                color: AppColors.textprimary,
+                                color: AppColors.textPrimary,
                               ),
                             )
                             : TextButton(
@@ -204,7 +204,7 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                                 AppStrings.resendCode,
                                 style: Theme.of(context).textTheme.labelMedium?.copyWith(
                                   fontSize: AppSizes.sp14,
-                                  color: AppColors.textprimary,
+                                  color: AppColors.textPrimary,
                                 ),
                               ),
                             ),

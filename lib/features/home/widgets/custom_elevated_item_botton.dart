@@ -16,7 +16,7 @@ class CustomElevatedItemBotton extends StatelessWidget {
         height: AppSizes.h32,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: AppColors.categoryfoot,
+          color: AppColors.categoryFoot,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(AppSizes.r18),
             bottomRight: Radius.circular(AppSizes.r18),
