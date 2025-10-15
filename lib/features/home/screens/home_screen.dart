@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
                 child: GridView.count(
                   crossAxisCount: 2,
                   crossAxisSpacing: AppSizes.w44,
-                  mainAxisSpacing: AppSizes.h21,
+                  mainAxisSpacing: AppSizes.h20,
                   childAspectRatio: 0.9,
                   children: List.generate(CategoryValues.wasteItems.length, (index) {
                     return CustomWasteItemFiels(item: CategoryValues.wasteItems[index]);
