@@ -137,5 +137,7 @@ static const String chooseADate = "Choose a date";
 static const String deliveryLocation = "Delivery location (optional)";
 static const String chooseTime = "Choose a time";
 static const String scheduleDelivery = "Schedule Delivery";
-
+static const String description = "Description";
+static const String describeYourMaterialCase = "Describe your material case please ...";
+static const String pleaseDescribeYourMaterialCase = "Please describe your material case!";
 }
