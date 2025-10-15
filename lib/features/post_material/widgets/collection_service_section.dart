@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 
 class CollectionServiceSection extends StatefulWidget {
   const CollectionServiceSection({super.key});
@@ -45,7 +46,7 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
           ],
         ),
         if (enabled) ...[
-          const SizedBox(height: 10),
+          SizedBox(height: AppSizes.h10 ),
           const Text("Preferred date", style: TextStyle(fontWeight: FontWeight.w500)),
           const SizedBox(height: 6),
           GestureDetector(
