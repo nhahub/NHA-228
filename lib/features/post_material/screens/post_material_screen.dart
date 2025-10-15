@@ -10,7 +10,7 @@ import 'package:nha_228/features/post_material/widgets/quantity_selector.dart';
 import 'package:nha_228/features/post_material/widgets/submit_button.dart';
 
 class PostMaterialScreen extends StatelessWidget {
-  const PostMaterialScreen({super.key});
+  const PostMaterialScreen ({super.key});
 
   @override
   Widget build(BuildContext context) {
