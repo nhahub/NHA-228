@@ -21,19 +21,19 @@ class PostMaterialScreen extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.all(AppSizes.h16),
         child: ListView(
-          children: const [
+          children: [
             MaterialGrid(),
-            SizedBox(height: 24),
+            SizedBox(height: AppSizes.h24),
             QuantitySelector(),
-            SizedBox(height: 24),
+            SizedBox(height: AppSizes.h24),
             ImagePickerField(),
-            SizedBox(height: 24),
+            SizedBox(height: AppSizes.h24),
             DescriptionField(),
-            SizedBox(height: 30),
+            SizedBox(height: AppSizes.h30),
             LocationField(),
-            SizedBox(height: 24),
+            SizedBox(height:AppSizes.h24),
             DeliveryScheduleSection(),
-            SizedBox(height: 24),
+            SizedBox(height: AppSizes.h24),
             SubmitButton(),
           ],
         ),
