@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flutter/material.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/constants/app_values.dart';
 
 class GenderDropdownField extends StatefulWidget {
   const GenderDropdownField({super.key});
@@ -20,7 +20,7 @@ class _GenderDropdownFieldState extends State<GenderDropdownField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(AppStrings.gender, style: Theme.of(context).textTheme.labelMedium),
-        SizedBox(height: AppValues.h10),
+        SizedBox(height: AppSizes.h10),
 
         DropdownButtonHideUnderline(
           child: DropdownButton2<String>(
@@ -39,10 +39,10 @@ class _GenderDropdownFieldState extends State<GenderDropdownField> {
             onChanged: (v) => setState(() => gender = v),
 
             buttonStyleData: ButtonStyleData(
-              padding: EdgeInsets.symmetric(horizontal: AppValues.w8),
+              padding: EdgeInsets.symmetric(horizontal: AppSizes.w8),
               decoration: BoxDecoration(
                 color: AppColors.textFieldfillColor,
-                borderRadius: BorderRadius.circular(AppValues.r10),
+                borderRadius: BorderRadius.circular(AppSizes.r10),
                 border: Border.all(color: AppColors.boarderColor),
               ),
             ),
@@ -50,7 +50,7 @@ class _GenderDropdownFieldState extends State<GenderDropdownField> {
             dropdownStyleData: DropdownStyleData(
               decoration: BoxDecoration(
                 color: AppColors.primary,
-                borderRadius: BorderRadius.circular(AppValues.sp14),
+                borderRadius: BorderRadius.circular(AppSizes.sp14),
               ),
             ),
           ),

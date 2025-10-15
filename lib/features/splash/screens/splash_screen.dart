@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nha_228/core/constants/app_assets.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/constants/app_values.dart';
 import 'package:nha_228/core/services/hive_service.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
 
@@ -42,19 +42,18 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     _controller.forward();
     Future.delayed(const Duration(seconds: 3), () {
-      final hive= HiveManager();
-      final bool seenOnboarding=hive.getBool(AppStrings.seenOnboarding);
-      final bool isLoggedIn=hive.getBool(AppStrings.isLoggedIn);
-      if(!seenOnboarding){
+      final hive = HiveManager();
+      final bool seenOnboarding = hive.getBool(AppStrings.seenOnboarding);
+      final bool isLoggedIn = hive.getBool(AppStrings.isLoggedIn);
+      if (!seenOnboarding) {
         context.go(AppRouter.onboardScreen);
-      }else{
-        if(isLoggedIn){
+      } else {
+        if (isLoggedIn) {
           context.go(AppRouter.homeScreen);
-        }else{
+        } else {
           context.go(AppRouter.loginScreen);
         }
       }
-      
     });
   }
 
@@ -87,12 +86,13 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
               ),
 
               Text(AppStrings.appName, style: Theme.of(context).textTheme.titleMedium),
-              SizedBox(height: AppValues.splashSpacing),
+              SizedBox(height: AppSizes.w18),
               Text(
                 AppStrings.splashSubtitle,
-                style: Theme.of(
-                  context,
-                ).textTheme.titleMedium!.copyWith(fontSize: AppValues.subtitleFontSize),
+                style: Theme.of(context).textTheme.titleMedium!,
+
+                /// TODO : CHECK THIS SIZE
+                // .copyWith(fontSize: AppSizes.subtitleFontSize),
               ),
             ],
           ),

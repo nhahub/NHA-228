@@ -3,9 +3,5 @@ class WasteItem {
   final String imagePath;
   final String price;
 
-  WasteItem({
-    required this.title,
-    required this.imagePath,
-    required this.price,
-  });
+  WasteItem({required this.title, required this.imagePath, required this.price});
 }
