@@ -53,7 +53,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
         onPressed: () {
           context.push(AppRouter.newPostScreen);
         },
-        backgroundColor: AppColors.navbarColor,
+        backgroundColor: AppColors.navBarColor,
         elevation: 0,
         shape: const CircleBorder(),
         child: Icon(Icons.add, size: AppSizes.sp32, color: AppColors.whiteColor),
@@ -64,7 +64,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
         shape: const CircularNotchedRectangle(),
         notchMargin: AppSizes.h8,
         height: AppSizes.h60,
-        color: AppColors.navbarColor,
+        color: AppColors.navBarColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -73,7 +73,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                 Icons.home,
                 color:
                     _selectedIndex == 0
-                        ? AppColors.skipbuttonColor
+                        ? AppColors.skipButtonColor
                         : AppColors.whiteColor,
               ),
               onPressed: () => _onItemTapped(0),
@@ -84,7 +84,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                 Icons.person,
                 color:
                     _selectedIndex == 1
-                        ? AppColors.skipbuttonColor
+                        ? AppColors.skipButtonColor
                         : AppColors.whiteColor,
               ),
               onPressed: () => _onItemTapped(1),

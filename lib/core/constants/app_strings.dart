@@ -124,7 +124,7 @@ class AppStrings {
   static const String camera = 'Camera';
   static const String gallery = "Gallery";
 
-  //hive keys
+  
   static const String seenOnboarding = 'seenOnboarding';
   static const String isLoggedIn = 'isLoggedIn';
   static const String phoneVerificationFailed = "Phone verification failed";
@@ -133,5 +133,6 @@ class AppStrings {
       "No verification ID. Please request a new code.";
   static const String incorrectCode = "Incorrect code";
   static const String codeSuccessfullyVerified = "Code successfully verified!";
+static const String chooseADate = "Choose a date";
 
 }

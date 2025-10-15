@@ -44,7 +44,7 @@ class _DatePickerFieldState extends State<DatePickerField> {
             decoration: InputDecoration(
               hintText: AppStrings.dateOfBirth,
               filled: true,
-              fillColor: AppColors.textFieldfillColor,
+              fillColor: AppColors.textFieldFillColor,
               suffixIcon: IconButton(
                 onPressed: () {
                   selectDate();

@@ -58,7 +58,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             width: AppSizes.w24,
                             height: AppSizes.h24,
                             decoration: BoxDecoration(
-                              color: AppColors.camerabackground,
+                              color: AppColors.cameraBackground,
                               borderRadius: BorderRadius.circular(AppSizes.r40),
                             ),
                             child: Center(child: SvgPicture.asset(AppAssets.camera)),
