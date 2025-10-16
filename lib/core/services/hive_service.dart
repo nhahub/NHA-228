@@ -35,8 +35,35 @@ class HiveManager {
   UserModel? getUser() {
     return _userBox.get('user');
   }
+  
+  void updateUser({ 
+    String? firstName,
+    String? lastName,
+    String? photoUrl,
+    DateTime? dateOfBirth,
+    String? gender,
+    String? phone,
+    String? email,
+    }) {  
+    UserModel? currentUser = getUser();
+    if (currentUser != null) {
+      UserModel updatedUser = UserModel(
+        uid: currentUser.uid,
+        firstName: firstName ?? currentUser.firstName,
+        lastName: lastName ?? currentUser.lastName,
+        email: email ?? currentUser.email,
+        photoUrl: photoUrl ?? currentUser.photoUrl,
+        dateOfBirth: dateOfBirth ?? currentUser.dateOfBirth,
+        phone: phone ?? currentUser.phone,
+        gender: gender ?? currentUser.gender
+      );
+      saveUser(updatedUser);
+    }
+    }
+
 
   Future<void> clearUser() async {
     await _userBox.delete('user');
   }
+
 }

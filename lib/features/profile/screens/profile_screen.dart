@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nha_228/core/constants/app_sizes.dart';
-import 'package:nha_228/core/services/hive_service.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
 import 'package:nha_228/features/auth/models/user_model.dart';
 
@@ -14,12 +13,8 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   UserModel? userModel;
-  @override
-  void initState() {
-    super.initState();
-    
-    userModel = HiveManager().getUser();
-  }
+  
+  
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       },
                       child: const Text('Edit profile'),
                     ),
-                  ),
-                  Text(userModel?.firstName ?? 'No Name'),
-                  Text(userModel?.email ?? 'No Email'),
-                  Text(userModel?.lastName ?? 'No name'),
-                  
+                  ),                  
                 ],
               ),
             ),
