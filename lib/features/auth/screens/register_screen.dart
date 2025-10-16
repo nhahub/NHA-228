@@ -126,6 +126,7 @@ class RegisterScreen extends StatelessWidget {
                               lastName: lastNameController.text.trim(),
                             );
                           }
+                          context.go(AppRouter.homeScreen);
                         },
                       ),
 

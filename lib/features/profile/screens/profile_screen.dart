@@ -17,36 +17,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     super.initState();
+    
     userModel = HiveManager().getUser();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:SafeArea(
+      body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: AppSizes.w18),
               child: Column(
-
                 children: [
-                   Center(
-        child: InkWell(
-          onTap: () {
-            context.push(AppRouter.editProfileScreen);
-          },
-          child: const Text('Edit profile'),
+               
+                  Center(
+                    child: InkWell(
+                      onTap: () {
+                        context.push(AppRouter.editProfileScreen);
+                      },
+                      child: const Text('Edit profile'),
+                    ),
+                  ),
+                  Text(userModel?.firstName ?? 'No Name'),
+                  Text(userModel?.email ?? 'No Email'),
+                  Text(userModel?.lastName ?? 'No name'),
+                  
+                ],
+              ),
+            ),
+          ),
         ),
       ),
-                ],)))))
-    //  Center(
-    //     child: InkWell(
-    //       onTap: (){
-    //         context.push(AppRouter.editProfileScreen);
-    //       },
-    //       child: const Text('Edit profile'),
-    //     ),
-    //   ),
     );
   }
 }

@@ -20,13 +20,11 @@ class _DatePickerFieldState extends State<DatePickerField> {
       firstDate: DateTime(1900),
       lastDate: DateTime(2100),
     );
-    if (date != null) {
-      setState(() {
-        String formattedDate = DateFormat('dd/MM/yyyy').format(date);
-        dateController.text = formattedDate;
-      });
+    setState(() {
+      String formattedDate = DateFormat('dd/MM/yyyy').format(date!);
+      dateController.text = formattedDate;
+    });
     }
-  }
 
   @override
   Widget build(BuildContext context) {
