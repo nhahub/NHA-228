@@ -48,7 +48,7 @@ class QuantitySelector extends StatelessWidget {
                     child: Icon(
                       Icons.keyboard_arrow_up_rounded,
                       size: 28,
-                      color: AppColors.textprimary,
+                      color: AppColors.textPrimary,
                     ),
                   ),
                   InkWell(
@@ -59,7 +59,7 @@ class QuantitySelector extends StatelessWidget {
                     child: Icon(
                       Icons.keyboard_arrow_down_rounded,
                       size: 28,
-                      color: AppColors.textprimary,
+                      color: AppColors.textPrimary,
                     ),
                   ),
                 ],

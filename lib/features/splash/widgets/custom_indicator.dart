@@ -16,7 +16,7 @@ class CustomIndicator extends StatelessWidget {
       duration: const Duration(milliseconds: 250),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100.r),
-        color: active ? AppColors.activeIndcator : AppColors.nonactiveIndcator,
+        color: active ? AppColors.activeIndcator : AppColors.nonActiveIndcator,
       ),
     );
   }

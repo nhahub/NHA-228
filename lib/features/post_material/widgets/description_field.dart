@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
+import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 
 class DescriptionField extends StatelessWidget {
@@ -16,30 +18,30 @@ class DescriptionField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Description",
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+           Text(
+            AppStrings.description,
+            style: TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.w600),
           ),
-          const SizedBox(height: 8),
+           SizedBox(height: AppSizes.h8),
 
           TextFormField(
             maxLines: 5,
             decoration: InputDecoration(
-              hintText: "Describe your material case please ...",
+              hintText: AppStrings.describeYourMaterialCase,
               filled: true,
-              fillColor: Colors.white,
+              fillColor: AppColors.whiteColor,
               border: OutlineInputBorder(
                 borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(AppSizes.r12),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: AppColors.primary),
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(AppSizes.r12),
               ),
             ),
             validator: (value) {
               if (value == null || value.trim().isEmpty) {
-                return "Please describe your material case!";
+                return AppStrings.pleaseDescribeYourMaterialCase;
               }
               return null;
             },

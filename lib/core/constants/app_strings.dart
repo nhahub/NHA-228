@@ -85,9 +85,12 @@ class AppStrings {
   static const String materialPictures = "Material pictures";
   static const String collectionService = "Collection service";
   static const String preferredDate = "Preferred date";
+  static const String selectDate = "Select date";
   static const String preferredTime = "Preferred time";
+  static const String selectTime = "Select time";
   static const String location = "location";
   static const String address = "address";
+  static const String enterYourAddress = "Enter Your Address";
   static const String postRequest = "Post the request";
 
   static const editProfile = "Edit Profile";
@@ -112,6 +115,7 @@ class AppStrings {
   static const String loginSuccess = "Login successful ";
   static const String noAccount = "Don't have an account?";
   static const String alreadyHaveAccount = "Already have an account?";
+
   static const String male = "Male";
   static const String female = "Female";
   static const String codeSent = "Code sent successfully! ";
@@ -121,13 +125,23 @@ class AppStrings {
   static const String camera = 'Camera';
   static const String gallery = "Gallery";
 
-  //hive keys
+  
   static const String seenOnboarding = 'seenOnboarding';
   static const String isLoggedIn = 'isLoggedIn';
+
+
+  
   static const String phoneVerificationFailed = "Phone verification failed";
   static const String failedToSendOTPTryAgain = "Failed to send OTP. Try again.";
-  static const String noVerificationIDPleaseRequestANewCode =
-      "No verification ID. Please request a new code.";
+  static const String noVerificationIDPleaseRequestANewCode = "No verification ID. Please request a new code.";
   static const String incorrectCode = "Incorrect code";
   static const String codeSuccessfullyVerified = "Code successfully verified!";
+static const String chooseADate = "Choose a date";
+static const String deliveryLocation = "Delivery location (optional)";
+static const String chooseTime = "Choose a time";
+static const String scheduleDelivery = "Schedule Delivery";
+static const String description = "Description";
+static const String describeYourMaterialCase = "Describe your material case please ...";
+static const String pleaseDescribeYourMaterialCase = "Please describe your material case!";
+static const String addAPhoto = "Add a photo (optional)";
 }

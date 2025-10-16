@@ -17,10 +17,10 @@ class PhoneOtpScreen extends StatefulWidget {
   const PhoneOtpScreen({super.key, required this.phoneNumber});
 
   @override
-  State<PhoneOtpScreen> createState() => _EmailOtpScreenState();
+  State<PhoneOtpScreen> createState() => _PhoneOtpScreenState();
 }
 
-class _EmailOtpScreenState extends State<PhoneOtpScreen> {
+class _PhoneOtpScreenState extends State<PhoneOtpScreen> {
   late Timer _timer;
   int _secondsRemaining = 59;
   String _enteredCode = "";
@@ -192,7 +192,7 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                               'Resend Code in 00:${_secondsRemaining.toString().padLeft(2, '0')}',
                               style: TextStyle(
                                 fontSize: AppSizes.sp14,
-                                color: AppColors.textprimary,
+                                color: AppColors.textPrimary,
                               ),
                             )
                             : TextButton(
@@ -204,7 +204,7 @@ class _EmailOtpScreenState extends State<PhoneOtpScreen> {
                                 AppStrings.resendCode,
                                 style: Theme.of(context).textTheme.labelMedium?.copyWith(
                                   fontSize: AppSizes.sp14,
-                                  color: AppColors.textprimary,
+                                  color: AppColors.textPrimary,
                                 ),
                               ),
                             ),
