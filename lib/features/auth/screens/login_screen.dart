@@ -72,6 +72,12 @@ class LoginScreen extends StatelessWidget {
                           isPassword: true,
                           validator: (value) => value.validatePassword(),
                         ),
+                        AuthRedirectText(
+                          actionText: AppStrings.forgetPasswordRedirect,
+                          onTap: () {
+                            context.push(AppRouter.forgetPasswordScreen);
+                          },
+                        ),
 
                         SizedBox(height: AppSizes.h60),
                         SizedBox(

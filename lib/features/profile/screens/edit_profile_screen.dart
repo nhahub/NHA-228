@@ -8,6 +8,7 @@ import 'package:nha_228/core/constants/app_assets.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
 import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
+import 'package:nha_228/core/services/firestor_user.dart';
 import 'package:nha_228/core/services/hive_service.dart';
 import 'package:nha_228/core/widgets/custom_app_bar.dart';
 import 'package:nha_228/core/widgets/custom_botton.dart';
@@ -126,6 +127,16 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   CustomButton(
                     title: AppStrings.save,
                     onPressed: () {
+                      FirestorUser().addUser(
+                        UserModel(
+                          uid: userModel?.uid ?? '',
+                          firstName: firstNameController.text,
+                          lastName: lastNameController.text,
+                          email: emailController.text,
+                          phone: phoneController.text,
+                          photoUrl: imagePath,
+                          gender: selectedGender,
+                          dateOfBirth: selectedDate,));
                       HiveManager().updateUser(
                         firstName: firstNameController.text,
                         lastName: lastNameController.text,

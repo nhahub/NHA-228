@@ -125,23 +125,24 @@ class AppStrings {
   static const String camera = 'Camera';
   static const String gallery = "Gallery";
 
-  
   static const String seenOnboarding = 'seenOnboarding';
   static const String isLoggedIn = 'isLoggedIn';
 
-
-  
   static const String phoneVerificationFailed = "Phone verification failed";
   static const String failedToSendOTPTryAgain = "Failed to send OTP. Try again.";
-  static const String noVerificationIDPleaseRequestANewCode = "No verification ID. Please request a new code.";
+  static const String noVerificationIDPleaseRequestANewCode =
+      "No verification ID. Please request a new code.";
   static const String incorrectCode = "Incorrect code";
   static const String codeSuccessfullyVerified = "Code successfully verified!";
-static const String chooseADate = "Choose a date";
-static const String deliveryLocation = "Delivery location (optional)";
-static const String chooseTime = "Choose a time";
-static const String scheduleDelivery = "Schedule Delivery";
-static const String description = "Description";
-static const String describeYourMaterialCase = "Describe your material case please ...";
-static const String pleaseDescribeYourMaterialCase = "Please describe your material case!";
-static const String addAPhoto = "Add a photo (optional)";
+  static const String chooseADate = "Choose a date";
+  static const String deliveryLocation = "Delivery location (optional)";
+  static const String chooseTime = "Choose a time";
+  static const String scheduleDelivery = "Schedule Delivery";
+  static const String description = "Description";
+  static const String describeYourMaterialCase = "Describe your material case please ...";
+  static const String pleaseDescribeYourMaterialCase =
+      "Please describe your material case!";
+  static const String addAPhoto = "Add a photo (optional)";
+  static const String forgetPasswordRedirect = 'Forgot your password? ';
+  static const String profile = 'Profile';
 }
