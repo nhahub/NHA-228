@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 
 class DataInfoFiled extends StatelessWidget {
   const DataInfoFiled({super.key, this.data});
@@ -6,16 +8,16 @@ class DataInfoFiled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 56,
+      height: AppSizes.h56,
       width: double.infinity,
       decoration: BoxDecoration(
-        color:Color(0xffF6F6F6),
-        borderRadius: BorderRadius.circular(10.0),
-      ) ,
+        color:AppColors.textFieldFillColor,
+        borderRadius: BorderRadius.circular(AppSizes.r10),
+      ),
       child: Align(
         alignment: Alignment.centerLeft,
         child: Padding(
-          padding: const EdgeInsets.only(left: 20.0),
+          padding:  EdgeInsets.only(left:AppSizes.w20),
           child: Text(data ?? '', style: Theme.of(context).textTheme.labelMedium,),
         )),
     );
