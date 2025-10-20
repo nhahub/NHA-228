@@ -2,13 +2,17 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nha_228/core/constants/app_assets.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
 import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
+import 'package:nha_228/core/services/firestor_user.dart';
+import 'package:nha_228/core/services/hive_service.dart';
 import 'package:nha_228/core/widgets/custom_app_bar.dart';
 import 'package:nha_228/core/widgets/custom_botton.dart';
+import 'package:nha_228/features/auth/models/user_model.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';
 import 'package:nha_228/features/profile/widgets/date_picker_field.dart';
 import 'package:nha_228/features/profile/widgets/gender_drop_down_field.dart';
@@ -22,6 +26,26 @@ class EditProfileScreen extends StatefulWidget {
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
   String? imagePath;
+  UserModel? userModel;
+  String? selectedGender;
+  DateTime? selectedDate;
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    userModel = HiveManager().getUser();
+    firstNameController.text = userModel?.firstName ?? '';
+    lastNameController.text = userModel?.lastName ?? '';
+    emailController.text = userModel?.email ?? '';
+    phoneController.text = userModel?.phone ?? '';
+    imagePath = userModel?.photoUrl;
+    selectedGender = userModel?.gender;
+    selectedDate = userModel?.dateOfBirth;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,14 +91,64 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       ),
                     ],
                   ),
-                  CustomTextField(hintText: AppStrings.firstName),
-                  CustomTextField(hintText: AppStrings.lastName),
-                  CustomTextField(hintText: AppStrings.email),
-                  CustomTextField(hintText: AppStrings.phone),
-                  GenderDropdownField(),
-                  DatePickerField(),
+                  CustomTextField(
+                    hintText: AppStrings.firstName,
+                    controller: firstNameController,
+                    keyboardType: TextInputType.name,
+                  ),
+                  CustomTextField(
+                    hintText: AppStrings.lastName,
+                    controller: lastNameController,
+                    keyboardType: TextInputType.name,
+                  ),
+                  CustomTextField(
+                    hintText: AppStrings.email,
+                    controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
+                  ),
+                  CustomTextField(
+                    hintText: AppStrings.phone,
+                    controller: phoneController,
+                    keyboardType: TextInputType.phone,
+                  ),
+                  GenderDropdownField(
+                    initialValue: selectedGender,
+                    onChanged: (value) {
+                      selectedGender = value;
+                    },
+                  ),
+                  DatePickerField(
+                    initialDate: userModel?.dateOfBirth,
+                    onDateSelected: (value) {
+                      selectedDate = value;
+                    },
+                  ),
                   SizedBox(height: AppSizes.h20),
-                  CustomButton(title: AppStrings.save, onPressed: () {}),
+                  CustomButton(
+                    title: AppStrings.save,
+                    onPressed: () {
+                      FirestorUser().addUser(
+                        UserModel(
+                          uid: userModel?.uid ?? '',
+                          firstName: firstNameController.text,
+                          lastName: lastNameController.text,
+                          email: emailController.text,
+                          phone: phoneController.text,
+                          photoUrl: imagePath,
+                          gender: selectedGender,
+                          dateOfBirth: selectedDate,));
+                      HiveManager().updateUser(
+                        firstName: firstNameController.text,
+                        lastName: lastNameController.text,
+                        email: emailController.text,
+                        phone: phoneController.text,
+                        photoUrl: imagePath,
+                        dateOfBirth: selectedDate,
+                        gender: selectedGender,
+                      );
+                      context.pop();
+                    },
+                  ),
                 ],
               ),
             ),

@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
@@ -5,7 +6,9 @@ import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
 
 class DatePickerField extends StatefulWidget {
-  const DatePickerField({super.key});
+  const DatePickerField({super.key, this.initialDate, this.onDateSelected});
+  final DateTime? initialDate;
+  final Function(DateTime)? onDateSelected;
 
   @override
   State<DatePickerField> createState() => _DatePickerFieldState();
@@ -25,7 +28,20 @@ class _DatePickerFieldState extends State<DatePickerField> {
         String formattedDate = DateFormat('dd/MM/yyyy').format(date);
         dateController.text = formattedDate;
       });
+      widget.onDateSelected?.call(date);
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    dateController = TextEditingController(
+      text:
+          widget.initialDate != null
+              ? DateFormat('dd/MM/yyyy').format(widget.initialDate!)
+              : '',
+    );
+    
   }
 
   @override
