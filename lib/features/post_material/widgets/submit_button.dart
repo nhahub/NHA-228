@@ -17,13 +17,13 @@ class SubmitButton extends StatelessWidget {
         if (state.status == PostMaterialStatus.success) {
           CustomSnackBar.show(
             context,
-            "Material posted successfully!",
+            AppStrings.materialPostedSuccessfully,
             backgroundColor: AppColors.success,
           );
         } else if (state.status == PostMaterialStatus.error) {
           CustomSnackBar.show(
             context,
-            'Something went wrong',
+            AppStrings.somethingWentWrong,
             backgroundColor: AppColors.error,
           );
         }
@@ -50,7 +50,7 @@ class SubmitButton extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.focusedBorderColor,
             minimumSize: const Size(double.infinity, 50),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSizes.r12)),
           ),
           onPressed: () async {
             await cubit.postMaterial();
