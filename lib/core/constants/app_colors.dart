@@ -31,4 +31,5 @@ class AppColors {
   static final highlightColor = Colors.grey.shade100;
   static final addAPhotoOutlined = Colors.grey.shade700;
   static final chooseMaterialIsNotSelected = Colors.black87;
+  static final totalColor = Colors.grey;
 }
