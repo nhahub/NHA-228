@@ -92,16 +92,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     ],
                   ),
                   CustomTextField(
+                    readOnly: true,
                     hintText: AppStrings.firstName,
                     controller: firstNameController,
                     keyboardType: TextInputType.name,
                   ),
                   CustomTextField(
+                    readOnly: true,
                     hintText: AppStrings.lastName,
                     controller: lastNameController,
                     keyboardType: TextInputType.name,
                   ),
                   CustomTextField(
+                    readOnly: true,
                     hintText: AppStrings.email,
                     controller: emailController,
                     keyboardType: TextInputType.emailAddress,
@@ -127,6 +130,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   CustomButton(
                     title: AppStrings.save,
                     onPressed: () {
+                      
                       FirestorUser().addUser(
                         UserModel(
                           uid: userModel?.uid ?? '',
