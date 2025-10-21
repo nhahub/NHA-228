@@ -10,7 +10,7 @@ ThemeData appTheme() {
       titleLarge: TextStyle(
         fontSize: 38.sp,
         fontWeight: FontWeight.w400,
-        color: AppColors.textprimary,
+        color: AppColors.textPrimary,
       ),
       titleMedium: TextStyle(
         fontSize: 24.sp,
@@ -35,21 +35,21 @@ ThemeData appTheme() {
       titleSmall: TextStyle(
         fontSize: 14.sp,
         fontWeight: FontWeight.w400,
-        color: AppColors.onboardtextColor,
+        color: AppColors.onboardTextColor,
       ),
       labelSmall: TextStyle(
         fontSize: 16.sp,
         fontWeight: FontWeight.w500,
-        color: AppColors.skipbuttonColor,
+        color: AppColors.skipButtonColor,
       ),
       bodyMedium: TextStyle(
         fontSize: 12.sp,
         fontWeight: FontWeight.w600,
-        color: AppColors.skipbuttonColor,
+        color: AppColors.skipButtonColor,
       ),
       displaySmall: TextStyle(
         fontSize: 12.sp,
-        color: AppColors.textprimary,
+        color: AppColors.textPrimary,
         fontWeight: FontWeight.w600,
       ),
       displayMedium: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),

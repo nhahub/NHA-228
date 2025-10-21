@@ -65,7 +65,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontFamily: 'otama.ep',
                         fontSize: AppSizes.sp32,
-                        color: AppColors.appbar,
+                        color: AppColors.appBar,
                         fontWeight: FontWeight.w400,
                       ),
                     ),

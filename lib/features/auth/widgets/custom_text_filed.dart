@@ -62,7 +62,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 borderSide: BorderSide(color: AppColors.focusedBorderColor),
               ),
 
-              fillColor: AppColors.textFieldfillColor,
+              fillColor: AppColors.textFieldFillColor,
               filled: true,
               suffixIcon:
                   widget.isPassword
