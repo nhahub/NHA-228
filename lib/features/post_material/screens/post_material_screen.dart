@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
+import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/core/widgets/custom_app_bar.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 import 'package:nha_228/features/post_material/widgets/delivery_schedule_section.dart';
@@ -20,23 +22,23 @@ class PostMaterialScreen extends StatelessWidget {
       create: (_) => PostMaterialCubit(),
       child: Scaffold(
         backgroundColor: AppColors.primary,
-        appBar: CustomAppBar(title: "Posting materials"),
+        appBar: CustomAppBar(title: AppStrings.postingMaterials),
         body: Padding(
           padding: const EdgeInsets.all(16),
           child: ListView(
-            children: const [
+            children: [
               MaterialGrid(),
-              SizedBox(height: 24),
+              SizedBox(height: AppSizes.h24),
               QuantitySelector(),
-              SizedBox(height: 24),
+              SizedBox(height: AppSizes.h24),
               ImagePickerField(),
-              SizedBox(height: 24),
+              SizedBox(height: AppSizes.h24),
               DescriptionField(),
-              SizedBox(height: 30),
+              SizedBox(height: AppSizes.h30),
               LocationField(),
-              SizedBox(height: 24),
+              SizedBox(height: AppSizes.h24),
               DeliveryScheduleSection(),
-              SizedBox(height: 24),
+              SizedBox(height: AppSizes.h24),
               SubmitButton(),
             ],
           ),
