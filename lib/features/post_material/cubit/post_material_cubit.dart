@@ -43,11 +43,11 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
   Future<void> postMaterial() async {
     try {
       emit(state.copyWith(status: PostMaterialStatus.loading));
+      print("Started posting material...");
 
       if (state.materialType == null ||
           state.location == null ||
-          state.description == null ||
-          imageFile == null) {
+          state.description == null) {
         emit(state.copyWith(
           status: PostMaterialStatus.error,
           errorMessage: "Please fill all required fields.",
@@ -55,11 +55,14 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
         return;
       }
 
-      final fileName = 'materials_images/${DateTime.now().millisecondsSinceEpoch}.jpg';
-      final ref = FirebaseStorage.instance.ref().child(fileName);
+      //  الصورة متعطلة مؤقتًا لأن Firebase Storage مش مفعّل
+      // final fileName = 'materials_images/${DateTime.now().millisecondsSinceEpoch}.jpg';
+      // final ref = FirebaseStorage.instance.ref().child(fileName);
+      // final uploadTask = await ref.putFile(imageFile!);
+      // final imageUrl = await uploadTask.ref.getDownloadURL();
 
-      final uploadTask = await ref.putFile(imageFile!);
-      final imageUrl = await uploadTask.ref.getDownloadURL();
+      // Placeholder image بدل الرفع الحقيقي مؤقتًا
+      String imageUrl = "https://via.placeholder.com/200";
 
       final data = {
         'materialType': state.materialType,
@@ -72,12 +75,13 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
         'createdAt': Timestamp.now(),
       };
 
-      // 🪄 3. Save to Firestore
       await FirebaseFirestore.instance.collection('materials').add(data);
 
       emit(state.copyWith(status: PostMaterialStatus.success));
       resetState();
+      print("Post completed successfully!");
     } catch (e) {
+      print("Firebase error: $e");
       emit(state.copyWith(
         status: PostMaterialStatus.error,
         errorMessage: e.toString(),

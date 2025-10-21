@@ -3,7 +3,7 @@ import 'package:nha_228/features/auth/screens/forget_passward_screen.dart';
 import 'package:nha_228/features/auth/screens/login_screen.dart';
 import 'package:nha_228/features/auth/screens/register_screen.dart';
 import 'package:nha_228/features/home/screens/search_screen.dart';
-import 'package:nha_228/features/home/widgets/custom_vav_bar.dart';
+import 'package:nha_228/features/home/widgets/custom_nav_bar.dart';
 import 'package:nha_228/features/post_material/screens/post_material_screen.dart';
 import 'package:nha_228/features/profile/screens/edit_profile_screen.dart';
 import 'package:nha_228/features/splash/screens/onboard_screen.dart';
