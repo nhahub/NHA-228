@@ -28,5 +28,5 @@ class AppColors {
   static final blue = Colors.blue;
   static final borderSide = Colors.grey.shade300;
   static final otpVerificationScreenTextColor = Color(0xff04332D);
-  
+  static final highlightColor = Colors.grey.shade100;
 }

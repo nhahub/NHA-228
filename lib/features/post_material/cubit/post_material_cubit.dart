@@ -8,13 +8,13 @@ part 'post_material_state.dart';
 class PostMaterialCubit extends Cubit<PostMaterialState> {
   PostMaterialCubit() : super(PostMaterialState.initial());
 
+  File? imageFile;
+
   void selectMaterial(String type, String priceText) {
     emit(state.copyWith(materialType: type, materialPrice: priceText));
   }
 
-  double q = 0;
-
-  void setQuantity(q) {
+  void setQuantity(double q) {
     double? total;
     if (state.materialPrice != null) {
       final pricePerKg = double.tryParse(state.materialPrice!.split(" ").first);
@@ -31,20 +31,23 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
     emit(state.copyWith(description: val));
   }
 
-  File? imageFile;
   void setImage(File file) {
     imageFile = file;
   }
 
   void resetState() {
     emit(PostMaterialState.initial());
+    imageFile = null;
   }
 
   Future<void> postMaterial() async {
     try {
       emit(state.copyWith(status: PostMaterialStatus.loading));
 
-      if (state.materialType == null || state.location == null) {
+      if (state.materialType == null ||
+          state.location == null ||
+          state.description == null ||
+          imageFile == null) {
         emit(state.copyWith(
           status: PostMaterialStatus.error,
           errorMessage: "Please fill all required fields.",
@@ -52,17 +55,11 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
         return;
       }
 
-      String? imageUrl;
+      final fileName = 'materials_images/${DateTime.now().millisecondsSinceEpoch}.jpg';
+      final ref = FirebaseStorage.instance.ref().child(fileName);
 
-      if (imageFile != null) {
-        final ref = FirebaseStorage.instance
-            .ref()
-            .child('materials_images')
-            .child('${DateTime.now().millisecondsSinceEpoch}.jpg');
-
-        await ref.putFile(imageFile!);
-        imageUrl = await ref.getDownloadURL();
-      }
+      final uploadTask = await ref.putFile(imageFile!);
+      final imageUrl = await uploadTask.ref.getDownloadURL();
 
       final data = {
         'materialType': state.materialType,
@@ -75,15 +72,16 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
         'createdAt': Timestamp.now(),
       };
 
+      // 🪄 3. Save to Firestore
       await FirebaseFirestore.instance.collection('materials').add(data);
 
       emit(state.copyWith(status: PostMaterialStatus.success));
-
       resetState();
-      imageFile = null;  
     } catch (e) {
       emit(state.copyWith(
-          status: PostMaterialStatus.error, errorMessage: e.toString()));
+        status: PostMaterialStatus.error,
+        errorMessage: e.toString(),
+      ));
     }
   }
 }
