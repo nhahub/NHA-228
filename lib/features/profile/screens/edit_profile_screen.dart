@@ -130,7 +130,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   CustomButton(
                     title: AppStrings.save,
                     onPressed: () {
-                      
                       FirestorUser().addUser(
                         UserModel(
                           uid: userModel?.uid ?? '',
@@ -140,7 +139,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           phone: phoneController.text,
                           photoUrl: imagePath,
                           gender: selectedGender,
-                          dateOfBirth: selectedDate,));
+                          dateOfBirth: selectedDate,
+                        ),
+                      );
                       HiveManager().updateUser(
                         firstName: firstNameController.text,
                         lastName: lastNameController.text,

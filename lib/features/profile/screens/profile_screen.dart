@@ -61,7 +61,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             : '',
                   ),
 
-                  
                   Center(
                     child: InkWell(
                       onTap: () {

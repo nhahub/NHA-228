@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
@@ -41,7 +40,6 @@ class _DatePickerFieldState extends State<DatePickerField> {
               ? DateFormat('dd/MM/yyyy').format(widget.initialDate!)
               : '',
     );
-    
   }
 
   @override
