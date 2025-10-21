@@ -147,7 +147,7 @@ static const String addAPhoto = "Add a photo (optional)";
 static const String postCompletedSuccessfully = "Post completed successfully!";
 static const String pleaseFillAllRequiredFields = "Please fill all required fields.";
 static const String tapToUploadImage = "Tap to upload image";
-static const String addAPhoto = "Add a photo (optional)";
-static const String addAPhoto = "Add a photo (optional)";
+static const String enterYourLocation = "Enter your location";
+static const String yourLocation = "Your Location";
 static const String addAPhoto = "Add a photo (optional)";
 }

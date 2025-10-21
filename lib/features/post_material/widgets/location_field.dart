@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
+import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 
 class LocationField extends StatelessWidget {
@@ -12,19 +15,19 @@ class LocationField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          "Your Location",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+        Text(
+          AppStrings.yourLocation,
+          style: TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.w600),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: AppSizes.h8),
         TextField(
           decoration: InputDecoration(
-            hintText: "Enter your location",
+            hintText: AppStrings.enterYourLocation,
             filled: true,
-            fillColor: Colors.white,
+            fillColor: AppColors.whiteColor,
             border: OutlineInputBorder(
               borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(AppSizes.r12),
             ),
           ),
           onChanged: (val) => cubit.setLocation(val),
