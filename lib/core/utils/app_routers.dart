@@ -16,12 +16,12 @@ abstract class AppRouter {
   static const loginScreen = '/LoginScreen';
   static const registerScreen = '/RegisterScreen';
   static const onboardScreen = '/OnboardScreen';
-  static const newPostScreen = '/NewPostScreen';
+  static const postMaterialScreen = '/PostMaterialScreen';
   static const editProfileScreen = '/EditProfileScreen';
   static const forgetPasswordScreen = '/ForgetPasswordScreen';
 
   static final router = GoRouter(
-    initialLocation: '/',
+    initialLocation: AppRouter.postMaterialScreen,
     routes: [
       GoRoute(path: '/', builder: (context, state) => const SplashScreen()),
 
@@ -38,7 +38,7 @@ abstract class AppRouter {
         },
       ),
 
-      GoRoute(path: newPostScreen, builder: (context, state) => PostMaterialScreen()),
+      GoRoute(path: postMaterialScreen, builder: (context, state) => PostMaterialScreen()),
       GoRoute(path: editProfileScreen, builder: (context, state) => EditProfileScreen()),
       GoRoute(
         path: forgetPasswordScreen,

@@ -51,7 +51,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.push(AppRouter.newPostScreen);
+          context.push(AppRouter.postMaterialScreen);
         },
         backgroundColor: AppColors.navBarColor,
         elevation: 0,
