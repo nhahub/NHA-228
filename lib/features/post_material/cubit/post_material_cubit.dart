@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'post_material_state.dart';
@@ -18,7 +20,6 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
       final pricePerKg = double.tryParse(state.materialPrice!.split(" ").first);
       if (pricePerKg != null) total = pricePerKg * q;
     }
-
     emit(state.copyWith(quantity: q, totalPrice: total));
   }
 
@@ -30,6 +31,11 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
     emit(state.copyWith(description: val));
   }
 
+  File? imageFile;
+  void setImage(File file) {
+    imageFile = file;
+  }
+
   void resetState() {
     emit(PostMaterialState.initial());
   }
@@ -39,13 +45,23 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
       emit(state.copyWith(status: PostMaterialStatus.loading));
 
       if (state.materialType == null || state.location == null) {
-        emit(
-          state.copyWith(
-            status: PostMaterialStatus.error,
-            errorMessage: "Please fill all required fields.",
-          ),
-        );
+        emit(state.copyWith(
+          status: PostMaterialStatus.error,
+          errorMessage: "Please fill all required fields.",
+        ));
         return;
+      }
+
+      String? imageUrl;
+
+      if (imageFile != null) {
+        final ref = FirebaseStorage.instance
+            .ref()
+            .child('materials_images')
+            .child('${DateTime.now().millisecondsSinceEpoch}.jpg');
+
+        await ref.putFile(imageFile!);
+        imageUrl = await ref.getDownloadURL();
       }
 
       final data = {
@@ -55,6 +71,7 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
         'totalPrice': state.totalPrice,
         'location': state.location,
         'description': state.description,
+        'imageUrl': imageUrl,
         'createdAt': Timestamp.now(),
       };
 
@@ -63,8 +80,10 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
       emit(state.copyWith(status: PostMaterialStatus.success));
 
       resetState();
+      imageFile = null;  
     } catch (e) {
-      emit(state.copyWith(status: PostMaterialStatus.error, errorMessage: e.toString()));
+      emit(state.copyWith(
+          status: PostMaterialStatus.error, errorMessage: e.toString()));
     }
   }
 }

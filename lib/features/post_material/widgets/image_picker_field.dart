@@ -1,10 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
-import 'package:nha_228/core/constants/app_strings.dart';
+import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 
 class ImagePickerField extends StatefulWidget {
   const ImagePickerField({super.key});
@@ -14,55 +12,56 @@ class ImagePickerField extends StatefulWidget {
 }
 
 class _ImagePickerFieldState extends State<ImagePickerField> {
-  File? selectedImage;
+  File? _selectedImage;
 
-  Future<void> pickImage() async {
+  Future<void> _pickImage(BuildContext context) async {
     final picker = ImagePicker();
-    final picked = await picker.pickImage(source: ImageSource.gallery);
-    if (picked != null) {
-      setState(() => selectedImage = File(picked.path));
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      final file = File(pickedFile.path);
+      setState(() => _selectedImage = file);
+
+      context.read<PostMaterialCubit>().setImage(file);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-         Text(
-          AppStrings.addAPhoto,
-          style: TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.w600),
+    return GestureDetector(
+      onTap: () => _pickImage(context),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey.shade400),
+          borderRadius: BorderRadius.circular(12),
+          color: Colors.grey.shade100,
         ),
-         SizedBox(height: AppSizes.h8),
-        GestureDetector(
-          onTap: pickImage,
-          child: Container(
-            height: AppSizes.h150,
-            decoration: BoxDecoration(
-              color: AppColors.whiteColor,
-              borderRadius: BorderRadius.circular(AppSizes.r16),
-              border: Border.all(color: AppColors.borderSide),
-            ),
-            child:
-                selectedImage == null
-                    ?  Center(
-                      child: Icon(
-                        Icons.add_a_photo_outlined,
-                        size: 40,
-                        color: AppColors.borderSide,
-                      ),
-                    )
-                    : ClipRRect(
-                      borderRadius: BorderRadius.circular(AppSizes.r16),
-                      child: Image.file(
-                        selectedImage!,
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                      ),
+        child: Column(
+          children: [
+            _selectedImage != null
+                ? ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.file(
+                      _selectedImage!,
+                      height: 150,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
                     ),
-          ),
+                  )
+                : Column(
+                    children: [
+                      const Icon(Icons.add_a_photo_outlined, size: 40),
+                      const SizedBox(height: 8),
+                      Text(
+                        "Tap to upload image",
+                        style: TextStyle(color: Colors.grey.shade700),
+                      ),
+                    ],
+                  ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
