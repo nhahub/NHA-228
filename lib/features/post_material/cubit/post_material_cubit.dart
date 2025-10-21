@@ -44,7 +44,6 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
   Future<void> postMaterial() async {
     try {
       emit(state.copyWith(status: PostMaterialStatus.loading));
-      print("Started posting material...");
 
       if (state.materialType == null ||
           state.location == null ||
@@ -80,9 +79,7 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
 
       emit(state.copyWith(status: PostMaterialStatus.success));
       resetState();
-      print(AppStrings.postCompletedSuccessfully);
     } catch (e) {
-      print("Firebase error: $e");
       emit(state.copyWith(
         status: PostMaterialStatus.error,
         errorMessage: e.toString(),
