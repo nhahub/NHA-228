@@ -95,7 +95,7 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
               decoration: BoxDecoration(
                 color: AppColors.whiteColor,
                 borderRadius: BorderRadius.circular(AppSizes.r12),
-                border: Border.all(color: Colors.grey.shade300),
+                border: Border.all(color: AppColors.borderSide),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
