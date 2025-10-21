@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AuthRedirectText extends StatelessWidget {
   const AuthRedirectText({
     super.key,
-     this.message,
+    this.message,
     required this.actionText,
     required this.onTap,
   });
@@ -17,10 +17,7 @@ class AuthRedirectText extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          message ?? '',
-          style: TextStyle(color: Color(0xff828282)),
-        ),
+        Text(message ?? '', style: TextStyle(color: Color(0xff828282))),
         TextButton(
           onPressed: onTap,
           child: Text(actionText, style: TextStyle(color: Color(0xff04332D))),

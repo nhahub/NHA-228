@@ -38,7 +38,10 @@ abstract class AppRouter {
         },
       ),
 
-      GoRoute(path: postMaterialScreen, builder: (context, state) => PostMaterialScreen()),
+      GoRoute(
+        path: postMaterialScreen,
+        builder: (context, state) => PostMaterialScreen(),
+      ),
       GoRoute(path: editProfileScreen, builder: (context, state) => EditProfileScreen()),
       GoRoute(
         path: forgetPasswordScreen,
