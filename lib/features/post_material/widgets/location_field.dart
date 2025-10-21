@@ -17,12 +17,13 @@ class LocationField extends StatelessWidget {
       children: [
         Text(
           AppStrings.yourLocation,
-          style: TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.w600),
+          style: TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.w400, color: AppColors.textPrimary),
         ),
         SizedBox(height: AppSizes.h8),
         TextField(
           decoration: InputDecoration(
             hintText: AppStrings.enterYourLocation,
+            hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
             filled: true,
             fillColor: AppColors.whiteColor,
             border: OutlineInputBorder(

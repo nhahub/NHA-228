@@ -20,7 +20,7 @@ class MaterialGrid extends StatelessWidget {
       children: [
          Text(
           AppStrings.chooseAMaterialType,
-          style: TextStyle(fontSize: AppSizes.sp18, fontWeight: FontWeight.w600),
+          style: TextStyle(fontSize: AppSizes.sp18, fontWeight: FontWeight.w400, color: AppColors.textPrimary),
         ),
         SizedBox(height: AppSizes.h12),
 

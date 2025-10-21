@@ -20,7 +20,7 @@ class DescriptionField extends StatelessWidget {
         children: [
            Text(
             AppStrings.description,
-            style: TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.w600),
+            style: TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.w400, color: AppColors.textPrimary),
           ),
            SizedBox(height: AppSizes.h8),
 
@@ -28,6 +28,7 @@ class DescriptionField extends StatelessWidget {
             maxLines: 5,
             decoration: InputDecoration(
               hintText: AppStrings.describeYourMaterialCase,
+              hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
               filled: true,
               fillColor: AppColors.whiteColor,
               border: OutlineInputBorder(
