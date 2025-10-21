@@ -149,5 +149,5 @@ static const String pleaseFillAllRequiredFields = "Please fill all required fiel
 static const String tapToUploadImage = "Tap to upload image";
 static const String enterYourLocation = "Enter your location";
 static const String yourLocation = "Your Location";
-static const String addAPhoto = "Add a photo (optional)";
+static const String chooseAMaterialType = "Choose a material type:";
 }

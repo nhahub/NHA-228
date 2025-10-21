@@ -30,4 +30,5 @@ class AppColors {
   static final otpVerificationScreenTextColor = Color(0xff04332D);
   static final highlightColor = Colors.grey.shade100;
   static final addAPhotoOutlined = Colors.grey.shade700;
+  static final chooseMaterialIsNotSelected = Colors.black87;
 }
