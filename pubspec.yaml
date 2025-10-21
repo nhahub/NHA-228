@@ -46,6 +46,8 @@ dependencies:
   cloud_firestore: ^6.0.3
   cupertino_icons: ^1.0.8
   flutter_bloc: ^9.1.1
+  firebase_storage: ^12.4.10
+  shimmer: ^3.0.0
 
 
 dev_dependencies:

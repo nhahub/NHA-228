@@ -46,13 +46,14 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
           children: [
              Text(
               AppStrings.scheduleDelivery,
-              style: TextStyle(fontSize: AppSizes.sp20, fontWeight: FontWeight.w600),
+              style: TextStyle(fontSize: AppSizes.sp18, fontWeight: FontWeight.w400, color: AppColors.textPrimary),
             ),
             Switch(
               value: scheduleEnabled,
               onChanged: (val) {
                 setState(() => scheduleEnabled = val);
               },
+              activeTrackColor: AppColors.success,
             ),
           ],
         ),
@@ -77,10 +78,10 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
                         ? DateFormat.yMMMd().format(selectedDate!)
                         : AppStrings.chooseADate,
                     style: TextStyle(
-                      color: selectedDate != null ? AppColors.textPrimary : AppColors.borderSide,
+                      color: selectedDate != null ? AppColors.addAPhotoOutlined : AppColors.shadow,
                     ),
                   ),
-                   Icon(Icons.calendar_today_outlined, color: AppColors.borderSide),
+                   Icon(Icons.calendar_today_outlined, color: AppColors.shadow),
                 ],
               ),
             ),
@@ -95,7 +96,7 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
               decoration: BoxDecoration(
                 color: AppColors.whiteColor,
                 borderRadius: BorderRadius.circular(AppSizes.r12),
-                border: Border.all(color: Colors.grey.shade300),
+                border: Border.all(color: AppColors.borderSide),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -105,10 +106,10 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
                         ? selectedTime!.format(context)
                         : AppStrings.chooseTime,
                     style: TextStyle(
-                      color: selectedTime != null ? AppColors.textPrimary : AppColors.borderSide,
+                      color: selectedTime != null ? AppColors.addAPhotoOutlined : AppColors.shadow,
                     ),
                   ),
-                   Icon(Icons.access_time_outlined, color: AppColors.borderSide),
+                   Icon(Icons.access_time_outlined, color: AppColors.shadow),
                 ],
               ),
             ),
@@ -119,6 +120,7 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
           TextField(
             decoration: InputDecoration(
               hintText: AppStrings.deliveryLocation,
+              hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
               filled: true,
               fillColor: AppColors.whiteColor,
               border: OutlineInputBorder(

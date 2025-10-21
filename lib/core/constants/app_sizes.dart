@@ -7,6 +7,8 @@ class AppSizes {
   static double h6 = 6.h;
   static double h8 = 8.h;
   static double h10 = 10.h;
+  static double h12 = 12.h;
+  static double h14 = 14.h;
   static double h16 = 16.h;
   static double h20 = 20.h;
   static double h24 = 24.h;
@@ -44,11 +46,13 @@ class AppSizes {
   static double w24 = 24.w;
   static double w40 = 40.w;
   static double w44 = 44.w;
+  static double w48 = 48.w;
   static double w54 = 54.w;
   static double w60 = 60.w;
   static double w148 = 148.w;
 
   // Radius
+  static double r4 = 4.r;
   static double r6 = 6.r;
   static double r8 = 8.r;
   static double r10 = 10.r;

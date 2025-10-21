@@ -134,6 +134,7 @@ class AppStrings {
       "No verification ID. Please request a new code.";
   static const String incorrectCode = "Incorrect code";
   static const String codeSuccessfullyVerified = "Code successfully verified!";
+<<<<<<< HEAD
   static const String chooseADate = "Choose a date";
   static const String deliveryLocation = "Delivery location (optional)";
   static const String chooseTime = "Choose a time";
@@ -145,4 +146,23 @@ class AppStrings {
   static const String addAPhoto = "Add a photo (optional)";
   static const String forgetPasswordRedirect = 'Forgot your password? ';
   static const String profile = 'Profile';
+=======
+static const String chooseADate = "Choose a date";
+static const String deliveryLocation = "Delivery location (optional)";
+static const String chooseTime = "Choose a time";
+static const String scheduleDelivery = "Schedule Delivery";
+static const String description = "Description";
+static const String describeYourMaterialCase = "Describe your material case please ...";
+static const String pleaseDescribeYourMaterialCase = "Please describe your material case!";
+static const String addAPhoto = "Add a photo (optional)";
+static const String postCompletedSuccessfully = "Post completed successfully!";
+static const String pleaseFillAllRequiredFields = "Please fill all required fields.";
+static const String tapToUploadImage = "Tap to upload image";
+static const String enterYourLocation = "Enter your location";
+static const String yourLocation = "Your Location";
+static const String chooseAMaterialType = "Choose a material type:";
+static const String somethingWentWrong = 'Something went wrong';
+static const String materialPostedSuccessfully = "Material posted successfully!";
+static const String startedPostingMaterial = "Started posting material...";
+>>>>>>> origin/master
 }
