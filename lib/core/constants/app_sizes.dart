@@ -30,9 +30,9 @@ class AppSizes {
   static double sp16 = 16.sp;
   static double sp18 = 18.sp;
   static double sp20 = 20.sp;
-  static double sp22 = 22.sp;
   static double sp24 = 24.sp;
   static double sp26 = 26.sp;
+  static double sp22 = 22.sp;
   static double sp32 = 32.sp;
   static double sp38 = 38.sp;
 

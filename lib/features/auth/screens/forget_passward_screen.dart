@@ -5,7 +5,7 @@ import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/core/widgets/custom_app_bar.dart';
 import 'package:nha_228/core/widgets/custom_botton.dart';
-import 'package:nha_228/features/auth/cubit/cubit/forget_passward_cubit.dart';
+import 'package:nha_228/features/auth/cubit/forget_passward_cubit/forget_passward_cubit.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';
 
@@ -47,6 +47,7 @@ class ForgetPasswordScreen extends StatelessWidget {
           final cubit = context.read<ForgetPasswordCubit>();
           return Scaffold(
             appBar: AppBar(
+              automaticallyImplyLeading: false,
               backgroundColor: Colors.transparent,
               elevation: 0,
               title: CustomAppBar(title: AppStrings.back),
