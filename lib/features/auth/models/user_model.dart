@@ -25,7 +25,7 @@ class UserModel {
   @HiveField(6)
   final String? gender;
 
-   @HiveField(7)
+  @HiveField(7)
   final String? phone;
 
   UserModel({
@@ -46,9 +46,7 @@ class UserModel {
       lastName: map['lastName'],
       email: map['email'],
       photoUrl: map['photoUrl'],
-      dateOfBirth: map['dateOfBirth'] != null
-          ? DateTime.parse(map['dateOfBirth'])
-          : null,
+      dateOfBirth: map['dateOfBirth'] != null ? DateTime.parse(map['dateOfBirth']) : null,
       gender: map['gender'],
       phone: map['phone'],
     );
@@ -66,7 +64,8 @@ class UserModel {
       'phone': phone,
     };
   }
-   UserModel copyWith({
+
+  UserModel copyWith({
     String? firstName,
     String? lastName,
     String? email,
@@ -74,7 +73,6 @@ class UserModel {
     String? gender,
     DateTime? dateOfBirth,
     String? photoUrl,
-    
   }) {
     return UserModel(
       uid: uid,
@@ -87,5 +85,4 @@ class UserModel {
       photoUrl: photoUrl ?? this.photoUrl,
     );
   }
-
 }

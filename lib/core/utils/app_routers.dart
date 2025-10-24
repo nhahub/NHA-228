@@ -42,6 +42,11 @@ abstract class AppRouter {
         path: postMaterialScreen,
         builder: (context, state) => PostMaterialScreen(),
       ),
+      GoRoute(
+        path: editProfileScreen,
+        builder:
+            (context, state) => EditProfileScreen(profileCubit: state.extra as dynamic),
+      ),
       GoRoute(path: editProfileScreen, builder: (context, state) => EditProfileScreen()),
       GoRoute(
         path: forgetPasswordScreen,

@@ -18,9 +18,13 @@ class MaterialGrid extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-         Text(
+        Text(
           AppStrings.chooseAMaterialType,
-          style: TextStyle(fontSize: AppSizes.sp18, fontWeight: FontWeight.w400, color: AppColors.textPrimary),
+          style: TextStyle(
+            fontSize: AppSizes.sp18,
+            fontWeight: FontWeight.w400,
+            color: AppColors.textPrimary,
+          ),
         ),
         SizedBox(height: AppSizes.h12),
 
@@ -80,7 +84,10 @@ class MaterialGrid extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
-                        color: isSelected ? AppColors.whiteColor : AppColors.chooseMaterialIsNotSelected,
+                        color:
+                            isSelected
+                                ? AppColors.whiteColor
+                                : AppColors.chooseMaterialIsNotSelected,
                       ),
                     ),
                   ],

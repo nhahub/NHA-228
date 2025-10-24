@@ -10,7 +10,7 @@ class CustomTextField extends StatefulWidget {
     this.validator,
     this.keyboardType,
     this.isPassword = false,
-    this.readOnly=false,
+    this.readOnly = false,
   });
 
   final String? hintText;

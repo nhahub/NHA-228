@@ -154,6 +154,7 @@ class AppStrings {
   static const String startedPostingMaterial = "Started posting material...";
   static const String profile = "Profile";
   static const String forgetPasswordRedirect = "Forgot password?";
+  static const String logout = "Logout";
   static const String materialsPosted = "Materials posted";
   static const String changePasswordSuccess = "Password changed successfully!";
 }

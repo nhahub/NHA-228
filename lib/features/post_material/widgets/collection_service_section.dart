@@ -36,7 +36,7 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-             Text(
+            Text(
               AppStrings.collectionService,
               style: TextStyle(fontSize: AppSizes.h16, fontWeight: FontWeight.w600),
             ),
@@ -48,9 +48,9 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
           ],
         ),
         if (enabled) ...[
-          SizedBox(height: AppSizes.h10 ),
-           Text(AppStrings.preferredDate, style: TextStyle(fontWeight: FontWeight.w500)),
-           SizedBox(height: AppSizes.h6),
+          SizedBox(height: AppSizes.h10),
+          Text(AppStrings.preferredDate, style: TextStyle(fontWeight: FontWeight.w500)),
+          SizedBox(height: AppSizes.h6),
           GestureDetector(
             onTap: pickDate,
             child: AbsorbPointer(
@@ -71,9 +71,12 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
               ),
             ),
           ),
-         SizedBox(height: AppSizes.h16),
-          const Text(AppStrings.preferredTime, style: TextStyle(fontWeight: FontWeight.w500)),
-           SizedBox(height: AppSizes.h6),
+          SizedBox(height: AppSizes.h16),
+          const Text(
+            AppStrings.preferredTime,
+            style: TextStyle(fontWeight: FontWeight.w500),
+          ),
+          SizedBox(height: AppSizes.h6),
           DropdownButtonFormField<String>(
             // initialValue: preferredTime,
             hint: const Text(AppStrings.selectTime),
@@ -89,9 +92,9 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
               ),
             ),
           ),
-           SizedBox(height: AppSizes.h16),
+          SizedBox(height: AppSizes.h16),
           const Text(AppStrings.location, style: TextStyle(fontWeight: FontWeight.w500)),
-           SizedBox(height: AppSizes.h6),
+          SizedBox(height: AppSizes.h6),
           TextField(
             decoration: InputDecoration(
               hintText: AppStrings.enterYourAddress,

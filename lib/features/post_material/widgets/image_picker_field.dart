@@ -44,24 +44,24 @@ class _ImagePickerFieldState extends State<ImagePickerField> {
           children: [
             _selectedImage != null
                 ? ClipRRect(
-                    borderRadius: BorderRadius.circular(AppSizes.r8),
-                    child: Image.file(
-                      _selectedImage!,
-                      height: AppSizes.h150,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
-                  )
-                : Column(
-                    children: [
-                      const Icon(Icons.add_a_photo_outlined, size: 40),
-                      SizedBox(height: AppSizes.h8),
-                      Text(
-                        AppStrings.tapToUploadImage,
-                        style: TextStyle(color: AppColors.addAPhotoOutlined),
-                      ),
-                    ],
+                  borderRadius: BorderRadius.circular(AppSizes.r8),
+                  child: Image.file(
+                    _selectedImage!,
+                    height: AppSizes.h150,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
                   ),
+                )
+                : Column(
+                  children: [
+                    const Icon(Icons.add_a_photo_outlined, size: 40),
+                    SizedBox(height: AppSizes.h8),
+                    Text(
+                      AppStrings.tapToUploadImage,
+                      style: TextStyle(color: AppColors.addAPhotoOutlined),
+                    ),
+                  ],
+                ),
           ],
         ),
       ),

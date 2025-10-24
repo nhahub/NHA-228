@@ -14,7 +14,6 @@ import 'package:nha_228/features/auth/widgets/auth_redirect_text.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';
 
-
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
 
