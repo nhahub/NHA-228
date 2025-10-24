@@ -47,6 +47,7 @@ class ForgetPasswordScreen extends StatelessWidget {
           final cubit = context.read<ForgetPasswordCubit>();
           return Scaffold(
             appBar: AppBar(
+              automaticallyImplyLeading: false,
               backgroundColor: Colors.transparent,
               elevation: 0,
               title: CustomAppBar(title: AppStrings.back),
