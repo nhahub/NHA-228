@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 
 class QuantitySelector extends StatelessWidget {
@@ -15,11 +16,11 @@ class QuantitySelector extends StatelessWidget {
         final totalPrice = state.totalPrice ?? 0;
 
         return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          padding: EdgeInsets.symmetric(horizontal: AppSizes.w16, vertical: AppSizes.h14),
           decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.grey.shade300),
+            color: AppColors.whiteColor,
+            borderRadius: BorderRadius.circular(AppSizes.r12),
+            border: Border.all(color: AppColors.borderSide),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,12 +30,12 @@ class QuantitySelector extends StatelessWidget {
                 children: [
                   Text(
                     "Quantity (${quantity.toStringAsFixed(0)} kg)",
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                    style: TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.w600, color: AppColors.labelColor),
                   ),
-                  const SizedBox(height: 4),
+                  SizedBox(height: AppSizes.h4),
                   Text(
                     "Total: ${totalPrice.toStringAsFixed(1)} EGP",
-                    style: const TextStyle(fontSize: 13, color: Colors.grey),
+                    style: TextStyle(fontSize: AppSizes.sp14, color: AppColors.totalColor),
                   ),
                 ],
               ),
@@ -44,7 +45,7 @@ class QuantitySelector extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () => cubit.setQuantity(quantity + 1),
-                    borderRadius: BorderRadius.circular(6),
+                    borderRadius: BorderRadius.circular(AppSizes.r6),
                     child: Icon(
                       Icons.keyboard_arrow_up_rounded,
                       size: 28,
@@ -55,7 +56,7 @@ class QuantitySelector extends StatelessWidget {
                     onTap: () {
                       if (quantity > 0) cubit.setQuantity(quantity - 1);
                     },
-                    borderRadius: BorderRadius.circular(6),
+                    borderRadius: BorderRadius.circular(AppSizes.r6),
                     child: Icon(
                       Icons.keyboard_arrow_down_rounded,
                       size: 28,

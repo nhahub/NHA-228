@@ -92,16 +92,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     ],
                   ),
                   CustomTextField(
+                    readOnly: true,
                     hintText: AppStrings.firstName,
                     controller: firstNameController,
                     keyboardType: TextInputType.name,
                   ),
                   CustomTextField(
+                    readOnly: true,
                     hintText: AppStrings.lastName,
                     controller: lastNameController,
                     keyboardType: TextInputType.name,
                   ),
                   CustomTextField(
+                    readOnly: true,
                     hintText: AppStrings.email,
                     controller: emailController,
                     keyboardType: TextInputType.emailAddress,
@@ -136,7 +139,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           phone: phoneController.text,
                           photoUrl: imagePath,
                           gender: selectedGender,
-                          dateOfBirth: selectedDate,));
+                          dateOfBirth: selectedDate,
+                        ),
+                      );
                       HiveManager().updateUser(
                         firstName: firstNameController.text,
                         lastName: lastNameController.text,

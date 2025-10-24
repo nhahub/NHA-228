@@ -6,6 +6,7 @@ import 'package:nha_228/core/theme/app_theme.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
 import 'package:nha_228/firebase_options.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await HiveManager().init();

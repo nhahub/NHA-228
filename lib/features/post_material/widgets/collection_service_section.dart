@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:nha_228/core/constants/app_colors.dart';
 import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
 
@@ -61,7 +62,7 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
                           : DateFormat('yyyy-MM-dd').format(preferredDate!),
                   suffixIcon: const Icon(Icons.calendar_today_outlined),
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: AppColors.whiteColor,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(AppSizes.r12),
                     borderSide: BorderSide.none,
@@ -81,7 +82,7 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
             onChanged: (val) => setState(() => preferredTime = val),
             decoration: InputDecoration(
               filled: true,
-              fillColor: Colors.white,
+              fillColor: AppColors.whiteColor,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(AppSizes.r12),
                 borderSide: BorderSide.none,
@@ -95,7 +96,7 @@ class _CollectionServiceSectionState extends State<CollectionServiceSection> {
             decoration: InputDecoration(
               hintText: AppStrings.enterYourAddress,
               filled: true,
-              fillColor: Colors.white,
+              fillColor: AppColors.whiteColor,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(AppSizes.r12),
                 borderSide: BorderSide.none,

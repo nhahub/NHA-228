@@ -143,6 +143,17 @@ class AppStrings {
   static const String pleaseDescribeYourMaterialCase =
       "Please describe your material case!";
   static const String addAPhoto = "Add a photo (optional)";
-  static const String forgetPasswordRedirect = 'Forgot your password? ';
-  static const String profile = 'Profile';
+  static const String postCompletedSuccessfully = "Post completed successfully!";
+  static const String pleaseFillAllRequiredFields = "Please fill all required fields.";
+  static const String tapToUploadImage = "Tap to upload image";
+  static const String enterYourLocation = "Enter your location";
+  static const String yourLocation = "Your Location";
+  static const String chooseAMaterialType = "Choose a material type:";
+  static const String somethingWentWrong = 'Something went wrong';
+  static const String materialPostedSuccessfully = "Material posted successfully!";
+  static const String startedPostingMaterial = "Started posting material...";
+  static const String profile = "Profile";
+  static const String forgetPasswordRedirect = "Forgot password?";
+  static const String materialsPosted = "Materials posted";
+  static const String changePasswordSuccess = "Password changed successfully!";
 }

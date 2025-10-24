@@ -15,12 +15,12 @@ class GenderDropdownField extends StatefulWidget {
 
 class _GenderDropdownFieldState extends State<GenderDropdownField> {
   String? gender;
-@override
+  @override
   void initState() {
     super.initState();
-    gender =widget.initialValue;
-
+    gender = widget.initialValue;
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -31,7 +31,6 @@ class _GenderDropdownFieldState extends State<GenderDropdownField> {
 
         DropdownButtonHideUnderline(
           child: DropdownButton2<String>(
-            
             isExpanded: true,
             value: gender,
             hint: Text(AppStrings.gender, style: Theme.of(context).textTheme.labelMedium),
