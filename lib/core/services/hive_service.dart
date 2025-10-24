@@ -44,6 +44,7 @@ class HiveManager {
     String? gender,
     String? phone,
     String? email,
+    required String uid,
   }) {
     UserModel? currentUser = getUser();
     if (currentUser != null) {

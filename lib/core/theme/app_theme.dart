@@ -53,6 +53,22 @@ ThemeData appTheme() {
         fontWeight: FontWeight.w600,
       ),
       displayMedium: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+      headlineSmall: TextStyle(
+        fontSize: 24.sp,
+        color: AppColors.appBar,
+        fontFamily: 'otama.ep',
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      iconTheme: IconThemeData(color: AppColors.appBar),
+      titleTextStyle: TextStyle(
+        color: AppColors.appBar,
+        fontSize: 24.sp,
+        fontWeight: FontWeight.w600,
+      ),
     ),
 
     progressIndicatorTheme: ProgressIndicatorThemeData(

@@ -8,4 +8,13 @@ class FirestorUser {
   Future<void> addUser(UserModel userModel) async {
     return await user.doc(userModel.uid).set(userModel.toMap(), SetOptions(merge: true));
   }
+
+  Future<UserModel?> getUser(String uid) async {
+    DocumentSnapshot doc = await user.doc(uid).get();
+    if (doc.exists) {
+      return UserModel.fromMap(doc.data() as Map<String, dynamic>);
+    } else {
+      return null;
+    }
+  }
 }
