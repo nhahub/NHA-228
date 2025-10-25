@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   static final primary = Color(0xffF5FFED);
   static final secondary = Color(0xff009639);
+  static final scaffoldBackgroundColor = Color(0xffF5FFED);
   static final labelMediumColor = Color(0xff505050);
   static final textPrimary = Color(0xff000000);
   static final labelColor = Color(0xff505050);
@@ -12,8 +13,8 @@ class AppColors {
   static final focusedBorderColor = Color(0xff009639);
   static final errorBorderColor = Color(0xFFD5392E);
   static final textFieldFillColor = Color(0xffF6F6F6);
-  static final activeIndcator = Color(0xff66AA00);
-  static final nonActiveIndcator = Color(0x4D66AA00);
+  static final activeIndicator = Color(0xff66AA00);
+  static final nonActiveIndicator = Color(0x4D66AA00);
   static final onboardTextColor = Color(0xff646464);
   static final skipButtonColor = Color(0xff8F8F8F);
   static final navBarColor = Color(0xff9DD549);

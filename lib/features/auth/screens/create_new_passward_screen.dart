@@ -1,13 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
-import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/utils/app_routers.dart';
-import 'package:nha_228/core/utils/validators.dart';
-import 'package:nha_228/core/widgets/custom_app_bar.dart';
-import 'package:nha_228/core/widgets/custom_botton.dart';
+// import 'package:nha_228/core/constants/app_colors.dart';
+// import 'package:nha_228/core/constants/app_sizes.dart';
+// import 'package:nha_228/core/constants/app_strings.dart';
+// import 'package:nha_228/core/utils/app_routers.dart';
+// import 'package:nha_228/core/utils/validators.dart';
+// import 'package:nha_228/core/widgets/custom_app_bar.dart';
+// import 'package:nha_228/core/widgets/custom_botton.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';
 
@@ -66,14 +66,14 @@ class CreateNewPasswordScreen extends StatelessWidget {
                         await user.updatePassword(newPasswordController.text.trim());
                         CustomSnackBar.show(
                           context,
-                          "Password updated successfully",
+                          "Password updated successfully", from app strings
                           backgroundColor: AppColors.secondary,
                         );
                         context.go(AppRouter.loginScreen);
                       } else {
                         CustomSnackBar.show(
                           context,
-                          "No authenticated user found",
+                          "No authenticated user found",  from app strings
                           backgroundColor: AppColors.errorBorderColor,
                         );
                       }

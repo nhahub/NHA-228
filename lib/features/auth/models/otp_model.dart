@@ -1,8 +1,6 @@
 class OtpModel {
   final String phoneNumber;
-
   final String code;
-
   final DateTime expiresAt;
 
   OtpModel({required this.phoneNumber, required this.code, required this.expiresAt});

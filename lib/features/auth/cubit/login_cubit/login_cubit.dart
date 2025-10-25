@@ -19,7 +19,7 @@ class LoginCubit extends Cubit<LoginState> {
 
       final user = credential.user;
       if (user != null) {
-        final userModel = await FirestorUser().getUser(user.uid);
+        final userModel = await FirestoreUser().getUser(user.uid);
         if (userModel != null) {
           try {
             await HiveManager().saveUser(userModel);

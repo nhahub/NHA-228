@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -18,6 +19,7 @@ import 'package:nha_228/features/profile/widgets/gender_drop_down_field.dart';
 
 class EditProfileScreen extends StatefulWidget {
   final ProfileCubit profileCubit;
+
   const EditProfileScreen({super.key, required this.profileCubit});
 
   @override

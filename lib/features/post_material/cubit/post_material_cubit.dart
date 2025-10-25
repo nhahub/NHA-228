@@ -57,6 +57,7 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
         return;
       }
 
+      fix this
       //  الصورة متعطلة مؤقتًا لأن Firebase Storage مش مفعّل
       // final fileName = 'materials_images/${DateTime.now().millisecondsSinceEpoch}.jpg';
       // final ref = FirebaseStorage.instance.ref().child(fileName);

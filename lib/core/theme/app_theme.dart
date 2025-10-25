@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
 
 ThemeData appTheme() {
   return ThemeData(
-    scaffoldBackgroundColor: AppColors.primary,
-    // primaryColor: Color(0xffFFFFFF),
+    scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
+    primaryColor: AppColors.primary,
     textTheme: TextTheme(
       titleLarge: TextStyle(
         fontSize: 38.sp,

@@ -125,9 +125,6 @@ class AppStrings {
   static const String camera = 'Camera';
   static const String gallery = "Gallery";
 
-  static const String seenOnboarding = 'seenOnboarding';
-  static const String isLoggedIn = 'isLoggedIn';
-
   static const String phoneVerificationFailed = "Phone verification failed";
   static const String failedToSendOTPTryAgain = "Failed to send OTP. Try again.";
   static const String noVerificationIDPleaseRequestANewCode =

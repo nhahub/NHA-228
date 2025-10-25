@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nha_228/core/constants/app_assets.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_constants.dart';
 import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/core/services/hive_service.dart';
@@ -35,7 +36,7 @@ class LoginScreen extends StatelessWidget {
                   backgroundColor: AppColors.error,
                 );
               } else if (state is LoginSuccess) {
-                HiveManager().setBool(AppStrings.isLoggedIn, true);
+                HiveManager().setBool(AppConstants.isLoggedIn, true);
                 CustomSnackBar.show(
                   context,
                   AppStrings.loginSuccess,

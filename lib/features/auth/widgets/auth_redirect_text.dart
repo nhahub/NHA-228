@@ -14,6 +14,7 @@ class AuthRedirectText extends StatelessWidget {
   final String actionText;
   final VoidCallback onTap;
   final MainAxisAlignment alignment;
+
   @override
   Widget build(BuildContext context) {
     return Row(

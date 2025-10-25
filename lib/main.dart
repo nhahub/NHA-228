@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:nha_228/core/services/app_initialize.dart';
 import 'package:nha_228/core/services/hive_service.dart';
 import 'package:nha_228/core/theme/app_theme.dart';

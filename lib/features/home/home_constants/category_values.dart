@@ -7,6 +7,9 @@ class CategoryValues {
   static const int electronicPrice = 10;
   static const int paperPrice = 10;
   static const int cartonPrice = 10;
+
+
+  add to firebase
   static List<WasteItem> wasteItems = [
     WasteItem(
       title: "Metal waste",

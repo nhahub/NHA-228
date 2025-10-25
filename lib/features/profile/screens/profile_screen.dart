@@ -8,7 +8,7 @@ import 'package:nha_228/core/constants/app_colors.dart';
 import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
-import 'package:nha_228/core/utils/image_helper.dart';
+import 'package:nha_228/features/profile/utils/image_helper.dart';
 import 'package:nha_228/features/profile/cubit/profile_cubit.dart';
 import 'package:nha_228/features/profile/widgets/custom_elevated_button.dart';
 import 'package:nha_228/features/profile/widgets/data_info_filed.dart';

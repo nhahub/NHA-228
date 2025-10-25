@@ -9,6 +9,9 @@ class CategoryValues {
   static const int paperPrice = 10;
   static const int cartonPrice = 10;
 
+
+
+  static data ... wrong
   static final List<WasteItem> wasteItems = [
     WasteItem(
       title: "Metal waste",

@@ -27,7 +27,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         email: email,
       );
       await HiveManager().saveUser(userModel);
-      await FirestorUser().addUser(userModel);
+      await FirestoreUser().addUser(userModel);
 
       emit(RegisterSuccess(userCredential.user));
     } on FirebaseAuthException catch (e) {

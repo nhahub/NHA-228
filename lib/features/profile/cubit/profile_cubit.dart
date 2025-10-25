@@ -22,7 +22,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(ProfileLoading());
     try {
       emit(ProfileUpdated(userModel: userModel!));
-      await FirestorUser().addUser(updatedUser);
+      await FirestoreUser().addUser(updatedUser);
       await HiveManager().saveUser(updatedUser);
       userModel = updatedUser;
       emit(ProfileUpdated(userModel: updatedUser));
