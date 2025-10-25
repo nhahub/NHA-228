@@ -48,10 +48,12 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
       if (state.materialType == null ||
           state.location == null ||
           state.description == null) {
-        emit(state.copyWith(
-          status: PostMaterialStatus.error,
-          errorMessage: AppStrings.pleaseFillAllRequiredFields,
-        ));
+        emit(
+          state.copyWith(
+            status: PostMaterialStatus.error,
+            errorMessage: AppStrings.pleaseFillAllRequiredFields,
+          ),
+        );
         return;
       }
 
@@ -80,10 +82,7 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
       emit(state.copyWith(status: PostMaterialStatus.success));
       resetState();
     } catch (e) {
-      emit(state.copyWith(
-        status: PostMaterialStatus.error,
-        errorMessage: e.toString(),
-      ));
+      emit(state.copyWith(status: PostMaterialStatus.error, errorMessage: e.toString()));
     }
   }
 }

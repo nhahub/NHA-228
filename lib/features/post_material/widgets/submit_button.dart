@@ -50,7 +50,9 @@ class SubmitButton extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.focusedBorderColor,
             minimumSize: const Size(double.infinity, 50),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSizes.r12)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppSizes.r12),
+            ),
           ),
           onPressed: () async {
             await cubit.postMaterial();

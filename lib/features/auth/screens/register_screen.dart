@@ -9,7 +9,7 @@ import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
 import 'package:nha_228/core/utils/validators.dart';
 import 'package:nha_228/core/widgets/custom_botton.dart';
-import 'package:nha_228/features/auth/cubit/register%20cubit/register_cubit.dart';
+import 'package:nha_228/features/auth/cubit/register cubit/register_cubit.dart';
 import 'package:nha_228/features/auth/widgets/auth_redirect_text.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';
@@ -125,6 +125,7 @@ class RegisterScreen extends StatelessWidget {
                               lastName: lastNameController.text.trim(),
                             );
                           }
+                          context.go(AppRouter.homeScreen);
                         },
                       ),
 

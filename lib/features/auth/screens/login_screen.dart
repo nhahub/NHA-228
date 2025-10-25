@@ -8,7 +8,7 @@ import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/core/services/hive_service.dart';
 import 'package:nha_228/core/utils/app_routers.dart';
 import 'package:nha_228/core/utils/validators.dart';
-import 'package:nha_228/features/auth/cubit/login/cubit/login_cubit.dart';
+import 'package:nha_228/features/auth/cubit/login_cubit/login_cubit.dart';
 import 'package:nha_228/features/auth/widgets/auth_redirect_text.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';
@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
 
   final _formKey = GlobalKey<FormState>();
-  final emailControlller = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   @override
@@ -59,10 +59,10 @@ class LoginScreen extends StatelessWidget {
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                         CustomTextField(
-                          controller: emailControlller,
+                          controller: emailController,
                           hintText: AppStrings.email,
                           keyboardType: TextInputType.emailAddress,
-                          validator: (value) => value.validateEmail(),
+                          validator: (value) => value?.trim().validateEmail(),
                         ),
                         SizedBox(height: AppSizes.h16),
 
@@ -70,7 +70,15 @@ class LoginScreen extends StatelessWidget {
                           controller: passwordController,
                           hintText: AppStrings.password,
                           isPassword: true,
-                          validator: (value) => value.validatePassword(),
+                          validator: (value) => value?.trim().validatePassword(),
+                        ),
+
+                        AuthRedirectText(
+                          alignment: MainAxisAlignment.end,
+                          actionText: AppStrings.forgetPasswordRedirect,
+                          onTap: () {
+                            context.push(AppRouter.forgetPasswordScreen);
+                          },
                         ),
 
                         SizedBox(height: AppSizes.h60),
@@ -81,8 +89,8 @@ class LoginScreen extends StatelessWidget {
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
                                 context.read<LoginCubit>().loginUser(
-                                  email: emailControlller.text,
-                                  password: passwordController.text,
+                                  email: emailController.text.trim(),
+                                  password: passwordController.text.trim(),
                                 );
                               }
                             },

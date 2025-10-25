@@ -28,14 +28,17 @@ class CustomElevatedItemBotton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
-                child: Text(
-                  item.title,
-                  maxLines: 2,
-                  style: Theme.of(context).textTheme.displaySmall,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    item.title,
+                    maxLines: 2,
+                    style: Theme.of(context).textTheme.displaySmall,
+                  ),
                 ),
               ),
 
-              Icon(Icons.arrow_forward_ios, color: Colors.white),
+              //Icon(Icons.arrow_forward_ios, color: Colors.white),
             ],
           ),
         ),

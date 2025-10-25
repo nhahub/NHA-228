@@ -44,9 +44,13 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-             Text(
+            Text(
               AppStrings.scheduleDelivery,
-              style: TextStyle(fontSize: AppSizes.sp18, fontWeight: FontWeight.w400, color: AppColors.textPrimary),
+              style: TextStyle(
+                fontSize: AppSizes.sp18,
+                fontWeight: FontWeight.w400,
+                color: AppColors.textPrimary,
+              ),
             ),
             Switch(
               value: scheduleEnabled,
@@ -59,7 +63,7 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
         ),
 
         if (scheduleEnabled) ...[
-           SizedBox(height: AppSizes.h16),
+          SizedBox(height: AppSizes.h16),
 
           GestureDetector(
             onTap: _pickDate,
@@ -78,16 +82,19 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
                         ? DateFormat.yMMMd().format(selectedDate!)
                         : AppStrings.chooseADate,
                     style: TextStyle(
-                      color: selectedDate != null ? AppColors.addAPhotoOutlined : AppColors.shadow,
+                      color:
+                          selectedDate != null
+                              ? AppColors.addAPhotoOutlined
+                              : AppColors.shadow,
                     ),
                   ),
-                   Icon(Icons.calendar_today_outlined, color: AppColors.shadow),
+                  Icon(Icons.calendar_today_outlined, color: AppColors.shadow),
                 ],
               ),
             ),
           ),
 
-           SizedBox(height: AppSizes.h16),
+          SizedBox(height: AppSizes.h16),
 
           GestureDetector(
             onTap: _pickTime,
@@ -106,16 +113,19 @@ class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
                         ? selectedTime!.format(context)
                         : AppStrings.chooseTime,
                     style: TextStyle(
-                      color: selectedTime != null ? AppColors.addAPhotoOutlined : AppColors.shadow,
+                      color:
+                          selectedTime != null
+                              ? AppColors.addAPhotoOutlined
+                              : AppColors.shadow,
                     ),
                   ),
-                   Icon(Icons.access_time_outlined, color: AppColors.shadow),
+                  Icon(Icons.access_time_outlined, color: AppColors.shadow),
                 ],
               ),
             ),
           ),
 
-           SizedBox(height: AppSizes.h16),
+          SizedBox(height: AppSizes.h16),
 
           TextField(
             decoration: InputDecoration(

@@ -10,6 +10,7 @@ class CustomTextField extends StatefulWidget {
     this.validator,
     this.keyboardType,
     this.isPassword = false,
+    this.readOnly = false,
   });
 
   final String? hintText;
@@ -17,6 +18,7 @@ class CustomTextField extends StatefulWidget {
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final bool isPassword;
+  final bool readOnly;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -42,6 +44,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             Text(widget.hintText!, style: Theme.of(context).textTheme.labelMedium),
           const SizedBox(height: 6),
           TextFormField(
+            readOnly: widget.readOnly,
             controller: widget.controller,
             validator: widget.validator,
             keyboardType: widget.keyboardType,

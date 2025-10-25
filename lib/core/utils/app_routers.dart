@@ -21,7 +21,7 @@ abstract class AppRouter {
   static const forgetPasswordScreen = '/ForgetPasswordScreen';
 
   static final router = GoRouter(
-    initialLocation: AppRouter.postMaterialScreen,
+    initialLocation: AppRouter.root,
     routes: [
       GoRoute(path: '/', builder: (context, state) => const SplashScreen()),
 
@@ -38,7 +38,15 @@ abstract class AppRouter {
         },
       ),
 
-      GoRoute(path: postMaterialScreen, builder: (context, state) => PostMaterialScreen()),
+      GoRoute(
+        path: postMaterialScreen,
+        builder: (context, state) => PostMaterialScreen(),
+      ),
+      GoRoute(
+        path: editProfileScreen,
+        builder:
+            (context, state) => EditProfileScreen(profileCubit: state.extra as dynamic),
+      ),
       GoRoute(path: editProfileScreen, builder: (context, state) => EditProfileScreen()),
       GoRoute(
         path: forgetPasswordScreen,

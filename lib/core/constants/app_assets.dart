@@ -14,4 +14,5 @@ class AppAssets {
   static const String paper = "$_path/paper.png";
   static const String carton = "$_path/carton.png";
   static const String profile = "$_path/profile.png";
+  static const String edit = "$_path/edit.svg";
 }

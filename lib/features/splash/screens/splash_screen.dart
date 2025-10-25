@@ -89,10 +89,9 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
               SizedBox(height: AppSizes.w18),
               Text(
                 AppStrings.splashSubtitle,
-                style: Theme.of(context).textTheme.titleMedium!,
-
-                /// TODO : CHECK THIS SIZE
-                // .copyWith(fontSize: AppSizes.subtitleFontSize),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium!.copyWith(fontSize: AppSizes.sp14),
               ),
             ],
           ),

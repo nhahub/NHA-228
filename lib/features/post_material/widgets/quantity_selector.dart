@@ -30,12 +30,19 @@ class QuantitySelector extends StatelessWidget {
                 children: [
                   Text(
                     "Quantity (${quantity.toStringAsFixed(0)} kg)",
-                    style: TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.w600, color: AppColors.labelColor),
+                    style: TextStyle(
+                      fontSize: AppSizes.sp16,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.labelColor,
+                    ),
                   ),
                   SizedBox(height: AppSizes.h4),
                   Text(
                     "Total: ${totalPrice.toStringAsFixed(1)} EGP",
-                    style: TextStyle(fontSize: AppSizes.sp14, color: AppColors.totalColor),
+                    style: TextStyle(
+                      fontSize: AppSizes.sp14,
+                      color: AppColors.totalColor,
+                    ),
                   ),
                 ],
               ),

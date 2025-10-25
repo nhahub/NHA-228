@@ -5,7 +5,9 @@ import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
 
 class GenderDropdownField extends StatefulWidget {
-  const GenderDropdownField({super.key});
+  const GenderDropdownField({super.key, this.initialValue, this.onChanged});
+  final String? initialValue;
+  final Function(String)? onChanged;
 
   @override
   State<GenderDropdownField> createState() => _GenderDropdownFieldState();
@@ -13,6 +15,11 @@ class GenderDropdownField extends StatefulWidget {
 
 class _GenderDropdownFieldState extends State<GenderDropdownField> {
   String? gender;
+  @override
+  void initState() {
+    super.initState();
+    gender = widget.initialValue;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +43,10 @@ class _GenderDropdownFieldState extends State<GenderDropdownField> {
                       ),
                     )
                     .toList(),
-            onChanged: (v) => setState(() => gender = v),
+            onChanged: (v) {
+              setState(() => gender = v);
+              widget.onChanged?.call(v!);
+            },
 
             buttonStyleData: ButtonStyleData(
               padding: EdgeInsets.symmetric(horizontal: AppSizes.w8),

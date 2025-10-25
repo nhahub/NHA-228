@@ -18,11 +18,15 @@ class DescriptionField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           Text(
+          Text(
             AppStrings.description,
-            style: TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.w400, color: AppColors.textPrimary),
+            style: TextStyle(
+              fontSize: AppSizes.sp16,
+              fontWeight: FontWeight.w400,
+              color: AppColors.textPrimary,
+            ),
           ),
-           SizedBox(height: AppSizes.h8),
+          SizedBox(height: AppSizes.h8),
 
           TextFormField(
             maxLines: 5,

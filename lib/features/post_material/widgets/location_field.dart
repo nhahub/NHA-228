@@ -17,7 +17,11 @@ class LocationField extends StatelessWidget {
       children: [
         Text(
           AppStrings.yourLocation,
-          style: TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.w400, color: AppColors.textPrimary),
+          style: TextStyle(
+            fontSize: AppSizes.sp16,
+            fontWeight: FontWeight.w400,
+            color: AppColors.textPrimary,
+          ),
         ),
         SizedBox(height: AppSizes.h8),
         TextField(
