@@ -13,6 +13,7 @@ import 'package:nha_228/features/auth/cubit/register cubit/register_cubit.dart';
 import 'package:nha_228/features/auth/widgets/auth_redirect_text.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';
+import 'package:nha_228/features/profile/cubit/profile_cubit.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
@@ -43,7 +44,7 @@ class RegisterScreen extends StatelessWidget {
               "Account created successfully!",
               backgroundColor: AppColors.success,
             );
-            context.go(AppRouter.loginScreen);
+            context.go(AppRouter.homeScreen);
           } else if (state is RegisterFailure) {
             CustomSnackBar.show(
               context,
@@ -125,7 +126,7 @@ class RegisterScreen extends StatelessWidget {
                               lastName: lastNameController.text.trim(),
                             );
                           }
-                          context.go(AppRouter.homeScreen);
+                         
                         },
                       ),
 
