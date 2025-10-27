@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_constants.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
+import 'package:nha_228/core/core.dart';
 
 class OtpInputFields extends StatefulWidget {
   final Function(String) onCompleted;

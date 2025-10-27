@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-
+import 'package:nha_228/core/core.dart';
 class CustomSnackBar {
   static void show(BuildContext context, String message, {Color? backgroundColor}) {
     ScaffoldMessenger.of(context).showSnackBar(

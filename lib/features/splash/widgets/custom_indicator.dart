@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
 
 class CustomIndicator extends StatelessWidget {
   const CustomIndicator({super.key, required this.active});

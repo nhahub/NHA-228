@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
+import 'package:nha_228/core/core.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String title;

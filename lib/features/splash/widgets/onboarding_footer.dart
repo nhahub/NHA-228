@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/services/hive_service.dart';
-import 'package:nha_228/core/utils/app_routers.dart';
+import 'package:nha_228/core/core.dart';
+
 
 class OnboardingFooter extends StatelessWidget {
   const OnboardingFooter({super.key, required this.controller, required this.index});
@@ -12,7 +10,7 @@ class OnboardingFooter extends StatelessWidget {
   final int index;
 
   onboardingSeen(BuildContext context) async {
-    await HiveManager().setBool(AppStrings.seenOnboarding, true);
+    await HiveManager().setBool(AppConstants .seenOnboarding, true);
     context.go(AppRouter.loginScreen);
   }
 

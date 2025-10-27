@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
-import 'package:nha_228/core/constants/app_strings.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/home/widgets/custom_search_field.dart';
 
 class SearchScreen extends StatefulWidget {

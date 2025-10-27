@@ -1,15 +1,12 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
-import 'package:nha_228/core/constants/app_strings.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/auth/cubit/otp_cubit/otp_cubit.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
+import 'package:nha_228/features/auth/widgets/otp_input_fields.dart';
 
-import '../widgets/otp_input_fields.dart';
 
 class PhoneOtpScreen extends StatefulWidget {
   final String phoneNumber;
