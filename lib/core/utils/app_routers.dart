@@ -21,7 +21,7 @@ abstract class AppRouter {
   static const forgetPasswordScreen = '/ForgetPasswordScreen';
 
   static final router = GoRouter(
-    initialLocation: AppRouter.root,
+    initialLocation: root,
     routes: [
       GoRoute(path: '/', builder: (context, state) => const SplashScreen()),
 
