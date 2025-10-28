@@ -1,60 +1,64 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+//import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 
 ThemeData appTheme() {
   return ThemeData(
-    scaffoldBackgroundColor: AppColors.primary,
-    // primaryColor: Color(0xffFFFFFF),
+    scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
+     primaryColor: AppColors.primary,
     textTheme: TextTheme(
       titleLarge: TextStyle(
-        fontSize: 38.sp,
+        fontSize: AppSizes.sp38 ,
         fontWeight: FontWeight.w400,
         color: AppColors.textPrimary,
       ),
       titleMedium: TextStyle(
-        fontSize: 24.sp,
+        fontSize: AppSizes.sp24,
         fontWeight: FontWeight.w400,
         color: AppColors.whiteColor,
       ),
       labelMedium: TextStyle(
-        fontSize: 16.sp,
+        fontSize: AppSizes.sp16,
         fontWeight: FontWeight.w400,
         color: AppColors.labelMediumColor,
       ),
       bodySmall: TextStyle(
-        fontSize: 12.sp,
+        fontSize: AppSizes.sp12,
         fontWeight: FontWeight.w400,
         color: AppColors.hintTextColor,
       ),
       headlineMedium: TextStyle(
-        fontSize: 16.sp,
+        fontSize: AppSizes.sp16,
         fontWeight: FontWeight.w500,
         color: AppColors.whiteColor,
       ),
       titleSmall: TextStyle(
-        fontSize: 14.sp,
+        fontSize: AppSizes.sp14,
         fontWeight: FontWeight.w400,
         color: AppColors.onboardTextColor,
       ),
       labelSmall: TextStyle(
-        fontSize: 16.sp,
+        fontSize: AppSizes.sp16,
         fontWeight: FontWeight.w500,
         color: AppColors.skipButtonColor,
       ),
       bodyMedium: TextStyle(
-        fontSize: 12.sp,
+        fontSize: AppSizes.sp12,
         fontWeight: FontWeight.w600,
         color: AppColors.skipButtonColor,
       ),
       displaySmall: TextStyle(
-        fontSize: 12.sp,
+        fontSize: AppSizes.sp12,
         color: AppColors.textPrimary,
         fontWeight: FontWeight.w600,
       ),
-      displayMedium: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+      displayMedium: TextStyle(
+        fontSize: AppSizes.sp18,
+        fontWeight: FontWeight.bold
+      ),
       headlineSmall: TextStyle(
-        fontSize: 24.sp,
+        fontSize: AppSizes.sp24,
         color: AppColors.appBar,
         fontFamily: 'otama.ep',
         fontWeight: FontWeight.bold,
@@ -66,7 +70,7 @@ ThemeData appTheme() {
       iconTheme: IconThemeData(color: AppColors.appBar),
       titleTextStyle: TextStyle(
         color: AppColors.appBar,
-        fontSize: 24.sp,
+        fontSize: AppSizes.sp24,
         fontWeight: FontWeight.w600,
       ),
     ),
@@ -81,7 +85,7 @@ ThemeData appTheme() {
         backgroundColor: WidgetStatePropertyAll(AppColors.focusedBorderColor),
         foregroundColor: WidgetStatePropertyAll(AppColors.whiteColor),
         shape: WidgetStatePropertyAll(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.r)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSizes.r4)),
         ),
       ),
     ),

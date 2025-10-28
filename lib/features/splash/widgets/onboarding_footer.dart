@@ -17,7 +17,7 @@ class OnboardingFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
+      padding:  EdgeInsets.symmetric(horizontal: AppSizes.w30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -42,11 +42,11 @@ class OnboardingFooter extends StatelessWidget {
                     : InkWell(
                       onTap: () => onboardingSeen(context),
                       child: Container(
-                        padding: EdgeInsets.all(15),
+                        padding: EdgeInsets.all(AppSizes.w16),
 
                         decoration: BoxDecoration(
                           color: AppColors.secondary,
-                          borderRadius: BorderRadius.circular(120),
+                          borderRadius: BorderRadius.circular(AppSizes.r120),
                         ),
                         child: Text(
                           AppStrings.getStarted,
