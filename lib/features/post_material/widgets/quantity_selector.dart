@@ -40,7 +40,7 @@ class QuantitySelector extends StatelessWidget {
                     "Total: ${totalPrice.toStringAsFixed(1)} EGP",
                     style: TextStyle(
                       fontSize: AppSizes.sp14,
-                      color: AppColors.totalColor,
+                      color: AppColors.grey,
                     ),
                   ),
                 ],

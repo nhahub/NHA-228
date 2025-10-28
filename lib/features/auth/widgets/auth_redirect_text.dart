@@ -19,7 +19,7 @@ class AuthRedirectText extends StatelessWidget {
     return Row(
       mainAxisAlignment: alignment,
       children: [
-        Text(message ?? '', style: TextStyle(color: Color(0xff828282))),
+        Text(message ?? '', style: TextStyle(color: AppColors.authRedirectText)),
         TextButton(
           onPressed: onTap,
           child: Text(actionText, style: TextStyle(color: AppColors.secondary)),

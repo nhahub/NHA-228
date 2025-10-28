@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/auth/cubit/register cubit/register_cubit.dart';
@@ -28,13 +27,13 @@ class RegisterScreen extends StatelessWidget {
           if (state is RegisterLoading) {
             CustomSnackBar.show(
               context,
-              "Creating your account...",
+              AppStrings.creatingAccount,
               backgroundColor: AppColors.success,
             );
           } else if (state is RegisterSuccess) {
             CustomSnackBar.show(
               context,
-              "Account created successfully!",
+              AppStrings.registerSuccess,
               backgroundColor: AppColors.success,
             );
             context.go(AppRouter.homeScreen);
@@ -57,7 +56,7 @@ class RegisterScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(height: AppSizes.h10 * 2),
-                      Image.asset(AppAssets.logo, height: 100.h),
+                      Image.asset(AppAssets.logo, height: AppSizes.h100),
                       SizedBox(height: AppSizes.h10 * 2),
 
                       Text(

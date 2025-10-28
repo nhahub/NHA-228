@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nha_228/core/constants/app_strings.dart';
 
 part 'forget_passward_state.dart';
 
@@ -8,7 +9,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
 
   Future<void> sendCode(String phoneNumber) async {
     if (phoneNumber.isEmpty) {
-      emit(ForgetPasswordError("Please enter your phone number"));
+      emit(ForgetPasswordError(AppStrings.emptyPhoneError));
       return;
     }
 
@@ -21,7 +22,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
           emit(ForgetPasswordSuccess(autoVerified: true));
         },
         verificationFailed: (FirebaseAuthException e) {
-          emit(ForgetPasswordError(e.message ?? "Error occurred while sending"));
+          emit(ForgetPasswordError(e.message ?? AppStrings.verificationFailed));
         },
         codeSent: (String verificationId, int? resendToken) {
           emit(ForgetPasswordCodeSent(verificationId));
@@ -29,7 +30,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
         codeAutoRetrievalTimeout: (String verificationId) {},
       );
     } catch (e) {
-      emit(ForgetPasswordError("Unexpected error occurred: $e"));
+      emit(ForgetPasswordError("${AppStrings.unexpectedError}: $e"));
     }
   }
 }

@@ -13,7 +13,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     if (userModel != null) {
       emit(ProfileLoaded(userModel: userModel!));
     } else {
-      emit(ProfileError(error: "Failed to load user data"));
+      emit(ProfileError(error: AppStrings.failedToFetchUserData));
     }
   }
 
@@ -35,7 +35,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     try {
       await FirebaseAuth.instance.signOut();
       await HiveManager().clearUser();
-      await HiveManager().setBool('isLoggedIn', false);
+      await HiveManager().setBool(AppConstants.isLoggedIn, false);
       userModel = null;
       emit(ProfileLoggedOut());
     } catch (e) {

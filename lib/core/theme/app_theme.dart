@@ -63,6 +63,11 @@ ThemeData appTheme() {
         fontFamily: 'otama.ep',
         fontWeight: FontWeight.bold,
       ),
+      headlineLarge: TextStyle(
+        fontSize: AppSizes.sp14,
+        color: AppColors.otpVerificationScreenTextColor,
+        fontWeight: FontWeight.w400,
+      ),
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,

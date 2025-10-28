@@ -36,13 +36,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding:  EdgeInsets.all(AppSizes.w8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (widget.hintText != null)
             Text(widget.hintText!, style: Theme.of(context).textTheme.labelMedium),
-          const SizedBox(height: 6),
+           SizedBox(height:AppSizes.h6),
           TextFormField(
             readOnly: widget.readOnly,
             controller: widget.controller,
@@ -72,7 +72,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       ? IconButton(
                         icon: Icon(
                           _obscure ? Icons.visibility_off : Icons.visibility,
-                          color: Colors.grey,
+                          color: AppColors.grey,
                         ),
                         onPressed: () {
                           setState(() {

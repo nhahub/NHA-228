@@ -30,7 +30,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
       emit(RegisterSuccess(userCredential.user));
     } on FirebaseAuthException catch (e) {
-      emit(RegisterFailure(e.message ?? "opps! something went wrong"));
+      emit(RegisterFailure(e.message ?? AppStrings.registerFailed));
     } catch (e) {
       emit(RegisterFailure(e.toString()));
     }

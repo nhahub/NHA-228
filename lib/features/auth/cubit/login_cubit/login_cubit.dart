@@ -24,21 +24,21 @@ class LoginCubit extends Cubit<LoginState> {
             await HiveManager().saveUser(userModel);
             emit(LoginSuccess(user: credential.user));
           } catch (e) {
-            emit(LoginFailure(error: 'Failed to save user data locally'));
+            emit(LoginFailure(error: AppStrings.failedToSaveLocal));
           }
         } else {
-          emit(LoginFailure(error: 'User data not found in Firestore'));
+          emit(LoginFailure(error: AppStrings.userDataNotFound));
         }
       } else {
-        emit(LoginFailure(error: 'User not found'));
+        emit(LoginFailure(error: AppStrings.userNotFound));
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        emit(LoginFailure(error: 'User not found'));
+        emit(LoginFailure(error: AppStrings.userNotFound));
       } else if (e.code == 'wrong-password') {
-        emit(LoginFailure(error: 'Wrong password'));
+        emit(LoginFailure(error: AppStrings.wrongPassword));
       } else {
-        emit(LoginFailure(error: 'Email or password may be wrong'));
+        emit(LoginFailure(error: AppStrings.emailOrPasswordWrong));
       }
     } catch (e) {
       emit(LoginFailure(error: e.toString()));

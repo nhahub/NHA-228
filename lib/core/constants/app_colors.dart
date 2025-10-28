@@ -32,5 +32,6 @@ class AppColors {
   static final highlightColor = Colors.grey.shade100;
   static final addAPhotoOutlined = Colors.grey.shade700;
   static final chooseMaterialIsNotSelected = Colors.black87;
-  static final totalColor = Colors.grey;
+  static final grey = Colors.grey;
+  static final authRedirectText = Color(0xff828282);
 }

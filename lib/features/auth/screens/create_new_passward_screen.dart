@@ -60,21 +60,21 @@ class CreateNewPasswordScreen extends StatelessWidget {
                         await user.updatePassword(newPasswordController.text.trim());
                         CustomSnackBar.show(
                           context,
-                          "Password updated successfully",
+                           AppStrings.passwordUpdated,
                           backgroundColor: AppColors.secondary,
                         );
                         context.go(AppRouter.loginScreen);
                       } else {
                         CustomSnackBar.show(
                           context,
-                          "No authenticated user found",
+                          AppStrings.noAuthenticatedUser,
                           backgroundColor: AppColors.errorBorderColor,
                         );
                       }
                     } catch (e) {
                       CustomSnackBar.show(
                         context,
-                        "Error: $e",
+                        '${AppStrings.passwordUpdateError}: $e',
                         backgroundColor: AppColors.errorBorderColor,
                       );
                     }
