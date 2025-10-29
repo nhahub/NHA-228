@@ -26,6 +26,7 @@ class LocationField extends StatelessWidget {
         SizedBox(height: AppSizes.h8),
         TextField(
           maxLines: 3,
+          cursorColor: AppColors.success,
           decoration: InputDecoration(
             hintText: AppStrings.enterYourLocation,
             hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),

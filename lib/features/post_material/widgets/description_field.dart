@@ -26,6 +26,7 @@ class DescriptionField extends StatelessWidget {
 
           TextFormField(
             maxLines: 5,
+            cursorColor: AppColors.success,
             decoration: InputDecoration(
               hintText: AppStrings.describeYourMaterialCase,
               hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
