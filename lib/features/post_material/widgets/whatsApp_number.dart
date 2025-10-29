@@ -10,55 +10,45 @@ class WhatsappNumber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PostMaterialCubit, PostMaterialState>(
-      builder: (context, state) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              AppStrings.whatsAppNumber,
-              style: TextStyle(
-                fontSize: AppSizes.sp16,
-                fontWeight: FontWeight.w400,
-                color: AppColors.textPrimary,
-              ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          AppStrings.whatsAppNumber,
+          style: TextStyle(
+            fontSize: AppSizes.sp16,
+            fontWeight: FontWeight.w400,
+            color: AppColors.textPrimary,
+          ),
+        ),
+        SizedBox(height: AppSizes.h8),
+        TextFormField(
+          keyboardType: TextInputType.phone,
+          cursorColor: AppColors.success,
+          decoration: InputDecoration(
+            hintText: AppStrings.hintWhatsAppNumber,
+            hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
+            filled: true,
+            fillColor: AppColors.whiteColor,
+            border: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(AppSizes.r12),
             ),
-            SizedBox(height: AppSizes.h8),
-
-            TextFormField(
-              keyboardType: TextInputType.phone,
-              cursorColor: AppColors.success,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-
-              decoration: InputDecoration(
-                hintText: AppStrings.hintWhatsAppNumber,
-                hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
-                filled: true,
-                fillColor: AppColors.whiteColor,
-                border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.circular(AppSizes.r12),
-                ),
-              ),
-
-              onChanged: (value) {
-                context.read<PostMaterialCubit>().setWhatsAppNumber(value);
-              },
-              validator: (value) {
-                if (value == null || value.trim().isEmpty) {
-                  return AppStrings.pleaseEnterAWhatsAppNumber;
-                }
-                final phone = value.trim();
-                if (!RegExp(r'^\+?\d{10,15}$').hasMatch(phone)) {
-                  return AppStrings.invalidWhatsAppNumber;
-                }
-
-                return null;
-              },
-            ),
-          ],
-        );
-      },
+          ),
+          validator: (value) {
+            if (value == null || value.trim().isEmpty) {
+              return "WhatsApp number is required";
+            }
+            if (!RegExp(r'^[0-9]{11}$').hasMatch(value)) {
+              return "Enter a valid 11-digit number";
+            }
+            return null;
+          },
+          onChanged: (value) {
+            context.read<PostMaterialCubit>().setWhatsAppNumber(value);
+          },
+        ),
+      ],
     );
   }
 }

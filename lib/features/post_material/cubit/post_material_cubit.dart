@@ -31,7 +31,6 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
   void setDescription(String val) {
     emit(state.copyWith(description: val));
   }
-
   void setWhatsAppNumber(String val) {
     emit(state.copyWith(whatsAppNamber: val));
   }
@@ -45,41 +44,21 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
     imageFile = null;
   }
 
-  bool _validateFields() {
-    if (state.materialType == null ||
-        state.quantity == null ||
-        state.location == null ||
-        state.description == null ||
-        state.whatsAppNamber == null ||
-        state.materialType!.isEmpty ||
-        state.location!.isEmpty ||
-        state.description!.isEmpty ||
-        state.whatsAppNamber!.isEmpty) {
-      emit(state.copyWith(
-        status: PostMaterialStatus.error,
-        errorMessage: AppStrings.pleaseFillAllRequiredFields,
-      ));
-      return false;
-    }
-
-    // WhatsApp Number Validation
-    final phoneRegex = RegExp(r'^\+?[0-9]{10,15}$');
-    if (!phoneRegex.hasMatch(state.whatsAppNamber!)) {
-      emit(state.copyWith(
-        status: PostMaterialStatus.error,
-        errorMessage: "Invalid WhatsApp Number",
-      ));
-      return false;
-    }
-
-    return true;
-  }
-
   Future<void> postMaterial() async {
-    if (!_validateFields()) return;
-
     try {
       emit(state.copyWith(status: PostMaterialStatus.loading));
+
+      if (state.materialType == null ||
+          state.location == null ||
+          state.description == null) {
+        emit(
+          state.copyWith(
+            status: PostMaterialStatus.error,
+            errorMessage: AppStrings.pleaseFillAllRequiredFields,
+          ),
+        );
+        return;
+      }
 
       //  الصورة متعطلة مؤقتًا لأن Firebase Storage مش مفعّل
       // final fileName = 'materials_images/${DateTime.now().millisecondsSinceEpoch}.jpg';
@@ -97,7 +76,6 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
         'totalPrice': state.totalPrice,
         'location': state.location,
         'description': state.description,
-        'whatsAppNumber': state.whatsAppNamber,
         'imageUrl': imageUrl,
         'createdAt': Timestamp.now(),
       };
@@ -107,10 +85,7 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
       emit(state.copyWith(status: PostMaterialStatus.success));
       resetState();
     } catch (e) {
-      emit(state.copyWith(
-        status: PostMaterialStatus.error,
-        errorMessage: e.toString(),
-      ));
+      emit(state.copyWith(status: PostMaterialStatus.error, errorMessage: e.toString()));
     }
   }
 }

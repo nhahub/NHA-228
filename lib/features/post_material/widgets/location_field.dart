@@ -16,7 +16,7 @@ class LocationField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          AppStrings.yourLocation,
+          AppStrings.location,
           style: TextStyle(
             fontSize: AppSizes.sp16,
             fontWeight: FontWeight.w400,
@@ -24,7 +24,7 @@ class LocationField extends StatelessWidget {
           ),
         ),
         SizedBox(height: AppSizes.h8),
-        TextField(
+        TextFormField(
           maxLines: 3,
           cursorColor: AppColors.success,
           decoration: InputDecoration(
@@ -36,8 +36,18 @@ class LocationField extends StatelessWidget {
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(AppSizes.r12),
             ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: AppColors.primary),
+              borderRadius: BorderRadius.circular(AppSizes.r12),
+            ),
           ),
-          onChanged: (val) => cubit.setLocation(val),
+          validator: (value) {
+            if (value == null || value.trim().isEmpty) {
+              return "Please enter your location";
+            }
+            return null;
+          },
+          onChanged: (val) => cubit.setLocation(val.trim()),
         ),
       ],
     );

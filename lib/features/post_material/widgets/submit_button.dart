@@ -5,48 +5,31 @@ import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
-import 'package:shimmer/shimmer.dart';
 
 class SubmitButton extends StatelessWidget {
-  const SubmitButton({super.key});
+  final GlobalKey<FormState> formKey;
+
+  const SubmitButton({super.key, required this.formKey});
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<PostMaterialCubit, PostMaterialState>(
       listener: (context, state) {
-        if (state.status == PostMaterialStatus.success) {
+        if (state.status == PostMaterialStatus.error && state.errorMessage != null) {
+          CustomSnackBar.show(
+            context,
+            state.errorMessage!,
+            backgroundColor: AppColors.error,
+          );
+        } else if (state.status == PostMaterialStatus.success) {
           CustomSnackBar.show(
             context,
             AppStrings.materialPostedSuccessfully,
             backgroundColor: AppColors.success,
           );
-        } 
-        else if (state.status == PostMaterialStatus.error) {
-          CustomSnackBar.show(
-            context,
-            state.errorMessage ?? AppStrings.somethingWentWrong,
-            backgroundColor: AppColors.error,
-          );
         }
       },
       builder: (context, state) {
-        final cubit = context.read<PostMaterialCubit>();
-
-        if (state.status == PostMaterialStatus.loading) {
-          return Shimmer.fromColors(
-            baseColor: AppColors.borderSide,
-            highlightColor: AppColors.highlightColor,
-            child: Container(
-              height: AppSizes.h50,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: AppColors.borderSide,
-                borderRadius: BorderRadius.circular(AppSizes.r12),
-              ),
-            ),
-          );
-        }
-
         return ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.focusedBorderColor,
@@ -55,14 +38,22 @@ class SubmitButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppSizes.r12),
             ),
           ),
-          onPressed: () async {
-            FocusScope.of(context).unfocus(); 
-            await cubit.postMaterial();
+          onPressed: () {
+            if (formKey.currentState!.validate()) {
+              context.read<PostMaterialCubit>().postMaterial();
+            }
           },
-          child: Text(
-            AppStrings.submit,
-            style: TextStyle(fontSize: AppSizes.sp16, color: AppColors.whiteColor),
-          ),
+
+          child:
+              state.status == PostMaterialStatus.loading
+                  ? CircularProgressIndicator(color: AppColors.whiteColor)
+                  : Text(
+                    AppStrings.submit,
+                    style: TextStyle(
+                      fontSize: AppSizes.sp16,
+                      color: AppColors.whiteColor,
+                    ),
+                  ),
         );
       },
     );

@@ -11,46 +11,45 @@ class DescriptionField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<PostMaterialCubit>();
-    final formKey = GlobalKey<FormState>();
 
-    return Form(
-      key: formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-           Text(
-            AppStrings.description,
-            style: TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.w400, color: AppColors.textPrimary),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          AppStrings.description,
+          style: TextStyle(
+            fontSize: AppSizes.sp16,
+            fontWeight: FontWeight.w400,
+            color: AppColors.textPrimary,
           ),
-           SizedBox(height: AppSizes.h8),
-
-          TextFormField(
-            maxLines: 5,
-            cursorColor: AppColors.success,
-            decoration: InputDecoration(
-              hintText: AppStrings.describeYourMaterialCase,
-              hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
-              filled: true,
-              fillColor: AppColors.whiteColor,
-              border: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(AppSizes.r12),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.primary),
-                borderRadius: BorderRadius.circular(AppSizes.r12),
-              ),
+        ),
+        SizedBox(height: AppSizes.h8),
+        TextFormField(
+          maxLines: 5,
+          cursorColor: AppColors.success,
+          decoration: InputDecoration(
+            hintText: AppStrings.describeYourMaterialCase,
+            hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
+            filled: true,
+            fillColor: AppColors.whiteColor,
+            border: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(AppSizes.r12),
             ),
-            validator: (value) {
-              if (value == null || value.trim().isEmpty) {
-                return AppStrings.pleaseDescribeYourMaterialCase;
-              }
-              return null;
-            },
-            onChanged: (val) => cubit.setDescription(val.trim()),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: AppColors.primary),
+              borderRadius: BorderRadius.circular(AppSizes.r12),
+            ),
           ),
-        ],
-      ),
+          validator: (value) {
+            if (value == null || value.trim().isEmpty) {
+              return AppStrings.pleaseDescribeYourMaterialCase;
+            }
+            return null;
+          },
+          onChanged: (val) => cubit.setDescription(val.trim()),
+        ),
+      ],
     );
   }
 }
