@@ -42,7 +42,7 @@ class WhatsappNumber extends StatelessWidget {
               ),
 
               onChanged: (value) {
-                context.read<PostMaterialCubit>().setPhoneNumber(value);
+                context.read<PostMaterialCubit>().setWhatsAppNumber(value);
               },
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
