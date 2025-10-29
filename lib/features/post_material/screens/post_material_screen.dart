@@ -12,6 +12,7 @@ import 'package:nha_228/features/post_material/widgets/location_field.dart';
 import 'package:nha_228/features/post_material/widgets/material_grid.dart';
 import 'package:nha_228/features/post_material/widgets/quantity_selector.dart';
 import 'package:nha_228/features/post_material/widgets/submit_button.dart';
+import 'package:nha_228/features/post_material/widgets/whatsApp_number.dart';
 
 class PostMaterialScreen extends StatelessWidget {
   const PostMaterialScreen({super.key});
@@ -38,6 +39,8 @@ class PostMaterialScreen extends StatelessWidget {
               LocationField(),
               SizedBox(height: AppSizes.h24),
               DateAndTime(),
+              SizedBox(height: AppSizes.h24),
+              WhatsappNumber(),
               SizedBox(height: AppSizes.h24),
               SubmitButton(),
             ],

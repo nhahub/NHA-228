@@ -153,4 +153,6 @@ static const String chooseAMaterialType = "Choose a material type:";
 static const String somethingWentWrong = 'Something went wrong';
 static const String materialPostedSuccessfully = "Material posted successfully!";
 static const String startedPostingMaterial = "Started posting material...";
+static const String whatsAppNumber = "WhatsApp Number";
+static const String hintWhatsAppNumber = "Enter your whatsApp number";
 }
