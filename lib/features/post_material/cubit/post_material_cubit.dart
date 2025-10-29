@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+//import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
 
 part 'post_material_state.dart';
@@ -35,53 +35,47 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
     emit(state.copyWith(whatsAppNamber: val));
   }
 
-  bool _validate(BuildContext context) {
-    if (state.materialType == null) {
-      _showError(context, "Please select the material type");
+  void setImage(File file) {
+    imageFile = file;
+  }
+
+  void resetState() {
+    emit(PostMaterialState.initial());
+    imageFile = null;
+  }
+
+  bool _validateFields() {
+    if (state.materialType == null ||
+        state.quantity == null ||
+        state.location == null ||
+        state.description == null ||
+        state.whatsAppNamber == null ||
+        state.materialType!.isEmpty ||
+        state.location!.isEmpty ||
+        state.description!.isEmpty ||
+        state.whatsAppNamber!.isEmpty) {
+      emit(state.copyWith(
+        status: PostMaterialStatus.error,
+        errorMessage: AppStrings.pleaseFillAllRequiredFields,
+      ));
       return false;
     }
 
-    if (state.quantity == null || state.quantity! <= 0) {
-      _showError(context, "Please enter a valid quantity");
-      return false;
-    }
-
-    if (state.location == null || state.location!.isEmpty) {
-      _showError(context, "Please enter a location");
-      return false;
-    }
-
-    if (state.description == null || state.description!.isEmpty) {
-      _showError(context, "Please add a description");
-      return false;
-    }
-
-    if (state.whatsAppNamber == null || state.whatsAppNamber!.isEmpty) {
-      _showError(context, "Please enter your WhatsApp number");
-      return false;
-    }
-
-    // Regex للتحقق من رقم الواتساب
+    // WhatsApp Number Validation
     final phoneRegex = RegExp(r'^\+?[0-9]{10,15}$');
     if (!phoneRegex.hasMatch(state.whatsAppNamber!)) {
-      _showError(context, "Invalid WhatsApp number");
+      emit(state.copyWith(
+        status: PostMaterialStatus.error,
+        errorMessage: "Invalid WhatsApp Number",
+      ));
       return false;
     }
 
     return true;
   }
 
-  void _showError(BuildContext context, String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: Colors.red,
-      ),
-    );
-  }
-
-  Future<void> postMaterial(BuildContext context) async {
-    if (!_validate(context)) return;
+  Future<void> postMaterial() async {
+    if (!_validateFields()) return;
 
     try {
       emit(state.copyWith(status: PostMaterialStatus.loading));
@@ -103,8 +97,8 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
       // final ref = FirebaseStorage.instance.ref().child(fileName);
       // final uploadTask = await ref.putFile(imageFile!);
       // final imageUrl = await uploadTask.ref.getDownloadURL();
-      
-      // Placeholder image بدل التخزين الحقيقي مؤقتًا
+
+      // Placeholder image بدل الرفع الحقيقي مؤقتًا
       String imageUrl = "https://via.placeholder.com/200";
 
       final data = {
@@ -126,10 +120,5 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
     } catch (e) {
       emit(state.copyWith(status: PostMaterialStatus.error, errorMessage: e.toString()));
     }
-  }
-
-  void resetState() {
-    emit(PostMaterialState.initial());
-    imageFile = null;
   }
 }
