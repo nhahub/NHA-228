@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nha_228/core/core.dart';
+import 'package:nha_228/features/home/utils/search_service.dart';
 import 'package:nha_228/features/home/widgets/custom_search_field.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -19,6 +20,8 @@ class _SearchScreenState extends State<SearchScreen> {
     super.initState();
     searchController = TextEditingController(text: widget.searchWord);
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +53,7 @@ class _SearchScreenState extends State<SearchScreen> {
           padding: EdgeInsets.symmetric(horizontal: AppSizes.w16),
           child: Column(
             children: [
+              
               SizedBox(height: AppSizes.h10),
               Align(
                 alignment: Alignment.topLeft,
