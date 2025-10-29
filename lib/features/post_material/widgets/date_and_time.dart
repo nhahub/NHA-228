@@ -39,6 +39,20 @@ class _DateAndTimeState extends State<DateAndTime> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              AppStrings.scheduleDelivery,
+              style: TextStyle(
+                fontSize: AppSizes.sp16,
+                fontWeight: FontWeight.w400,
+                color: AppColors.textPrimary,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: AppSizes.h8),
         GestureDetector(
           onTap: _pickDate,
           child: Container(
@@ -67,9 +81,9 @@ class _DateAndTimeState extends State<DateAndTime> {
             ),
           ),
         ),
-        
+
         SizedBox(height: AppSizes.h16),
-        
+
         GestureDetector(
           onTap: _pickTime,
           child: Container(
