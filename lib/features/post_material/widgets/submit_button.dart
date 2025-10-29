@@ -7,7 +7,9 @@ import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 
 class SubmitButton extends StatelessWidget {
-  const SubmitButton({super.key});
+  final GlobalKey<FormState> formKey;
+
+  const SubmitButton({super.key, required this.formKey});
 
   @override
   Widget build(BuildContext context) {

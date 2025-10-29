@@ -27,7 +27,6 @@ class PostMaterialScreen extends StatelessWidget {
         appBar: CustomAppBar(title: AppStrings.postingMaterials),
         body: Padding(
           padding: const EdgeInsets.all(16),
-<<<<<<< HEAD
           child: Form(
             key: formKey,
             child: ListView(
@@ -49,26 +48,6 @@ class PostMaterialScreen extends StatelessWidget {
                 SubmitButton(formKey: formKey),
               ],
             ),
-=======
-          child: ListView(
-            children: [
-              MaterialGrid(),
-              SizedBox(height: AppSizes.h24),
-              QuantitySelector(),
-              SizedBox(height: AppSizes.h24),
-              ImagePickerField(),
-              SizedBox(height: AppSizes.h24),
-              DescriptionField(),
-              SizedBox(height: AppSizes.h30),
-              LocationField(),
-              SizedBox(height: AppSizes.h24),
-              DateAndTime(),
-              SizedBox(height: AppSizes.h24),
-              WhatsappNumber(),
-              SizedBox(height: AppSizes.h24),
-              SubmitButton(),
-            ],
->>>>>>> 4c0f587 (whatsApp number is now active and fully decorated well)
           ),
         ),
       ),
