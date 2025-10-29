@@ -154,5 +154,8 @@ static const String somethingWentWrong = 'Something went wrong';
 static const String materialPostedSuccessfully = "Material posted successfully!";
 static const String startedPostingMaterial = "Started posting material...";
 static const String whatsAppNumber = "WhatsApp Number";
-static const String hintWhatsAppNumber = "Enter your whatsApp number";
+static const String hintWhatsAppNumber = "EX: +20 123456789";
+static const String invalidWhatsAppNumber = "Enter a valid WhatsApp Number";
+static const String pleaseEnterAWhatsAppNumber = "Please Enter a WhatsApp Number";
+
 }

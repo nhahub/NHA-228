@@ -13,11 +13,9 @@ class WhatsappNumber extends StatelessWidget {
     return BlocBuilder<PostMaterialCubit, PostMaterialState>(
       builder: (context, state) {
         return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
+            Text(
               AppStrings.whatsAppNumber,
               style: TextStyle(
                 fontSize: AppSizes.sp16,
@@ -25,24 +23,37 @@ class WhatsappNumber extends StatelessWidget {
                 color: AppColors.textPrimary,
               ),
             ),
-              ],
-            ),
             SizedBox(height: AppSizes.h8),
+
             TextFormField(
               keyboardType: TextInputType.phone,
               cursorColor: AppColors.success,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+
               decoration: InputDecoration(
-            hintText: AppStrings.hintWhatsAppNumber,
-            hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
-            filled: true,
-            fillColor: AppColors.whiteColor,
-            border: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(AppSizes.r12),
-            ),
-          ),
-          onChanged: (value) {
+                hintText: AppStrings.hintWhatsAppNumber,
+                hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
+                filled: true,
+                fillColor: AppColors.whiteColor,
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(AppSizes.r12),
+                ),
+              ),
+
+              onChanged: (value) {
                 context.read<PostMaterialCubit>().setPhoneNumber(value);
+              },
+              validator: (value) {
+                if (value == null || value.trim().isEmpty) {
+                  return AppStrings.pleaseEnterAWhatsAppNumber;
+                }
+                final phone = value.trim();
+                if (!RegExp(r'^\+?\d{10,15}$').hasMatch(phone)) {
+                  return AppStrings.invalidWhatsAppNumber;
+                }
+
+                return null;
               },
             ),
           ],
