@@ -8,9 +8,7 @@ import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 import 'package:shimmer/shimmer.dart';
 
 class SubmitButton extends StatelessWidget {
-  final GlobalKey<FormState> formKey;
-
-  const SubmitButton({super.key, required this.formKey});
+  const SubmitButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +20,8 @@ class SubmitButton extends StatelessWidget {
             AppStrings.materialPostedSuccessfully,
             backgroundColor: AppColors.success,
           );
-          Navigator.pop(context); 
-        } else if (state.status == PostMaterialStatus.error) {
+        } 
+        else if (state.status == PostMaterialStatus.error) {
           CustomSnackBar.show(
             context,
             state.errorMessage ?? AppStrings.somethingWentWrong,
@@ -58,15 +56,8 @@ class SubmitButton extends StatelessWidget {
             ),
           ),
           onPressed: () async {
-            if (formKey.currentState!.validate()) {
-              await cubit.postMaterial();
-            } else {
-              CustomSnackBar.show(
-                context,
-                "Please fill all required fields",
-                backgroundColor: AppColors.error,
-              );
-            }
+            FocusScope.of(context).unfocus(); 
+            await cubit.postMaterial();
           },
           child: Text(
             AppStrings.submit,
