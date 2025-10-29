@@ -7,9 +7,7 @@ import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 
 class SubmitButton extends StatelessWidget {
-  final GlobalKey<FormState> formKey;
-
-  const SubmitButton({super.key, required this.formKey});
+  const SubmitButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +36,9 @@ class SubmitButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppSizes.r12),
             ),
           ),
-          onPressed: () {
-            if (formKey.currentState!.validate()) {
-              context.read<PostMaterialCubit>().postMaterial();
-            }
+          onPressed: () async {
+            FocusScope.of(context).unfocus(); 
+            await PostMaterialCubit();
           },
 
           child:
