@@ -9,6 +9,7 @@ class PostMaterialState {
   final double? totalPrice;
   final String? location;
   final String? description;
+  final String? whatsAppNamber;
   final PostMaterialStatus status;
   final String? errorMessage;
 
@@ -19,6 +20,7 @@ class PostMaterialState {
     this.totalPrice,
     this.location,
     this.description,
+    this.whatsAppNamber,
     this.status = PostMaterialStatus.initial,
     this.errorMessage,
   });
@@ -30,6 +32,7 @@ class PostMaterialState {
   totalPrice: null,
   location: null,
   description: null,
+  whatsAppNamber : null,
   status: PostMaterialStatus.initial,
   errorMessage: null,
 );
@@ -42,6 +45,7 @@ class PostMaterialState {
     double? totalPrice,
     String? location,
     String? description,
+    String? whatsAppNamber,
     PostMaterialStatus? status,
     String? errorMessage,
   }) {
@@ -52,6 +56,7 @@ class PostMaterialState {
       totalPrice: totalPrice ?? this.totalPrice,
       location: location ?? this.location,
       description: description ?? this.description,
+      whatsAppNamber: whatsAppNamber ?? this.whatsAppNamber,
       status: status ?? this.status,
       errorMessage: errorMessage ?? this.errorMessage,
     );
