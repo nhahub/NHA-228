@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nha_228/core/services/firestor_user.dart';
-import 'package:nha_228/core/services/hive_service.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/auth/models/user_model.dart';
 
 part 'register_state.dart';
@@ -29,8 +28,8 @@ class RegisterCubit extends Cubit<RegisterState> {
         email: email,
         phone: phone,
       );
-      await HiveManager().saveUser(userModel);
       await FirestorUser().addUser(userModel);
+      await HiveManager().saveUser(userModel);
 
       emit(RegisterSuccess(userCredential.user));
     } on FirebaseAuthException catch (e) {

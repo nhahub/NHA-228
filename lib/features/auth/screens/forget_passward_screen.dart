@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
-import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/utils/validators.dart';
-import 'package:nha_228/core/widgets/custom_app_bar.dart';
-import 'package:nha_228/core/widgets/custom_botton.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/auth/cubit/forget_passward_cubit/forget_passward_cubit.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';

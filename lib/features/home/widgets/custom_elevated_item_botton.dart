@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/home/models/waste_item_model.dart';
 
 class CustomElevatedItemBotton extends StatelessWidget {

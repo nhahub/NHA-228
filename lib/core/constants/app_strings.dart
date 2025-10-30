@@ -125,9 +125,6 @@ class AppStrings {
   static const String camera = 'Camera';
   static const String gallery = "Gallery";
 
-  static const String seenOnboarding = 'seenOnboarding';
-  static const String isLoggedIn = 'isLoggedIn';
-
   static const String phoneVerificationFailed = "Phone verification failed";
   static const String failedToSendOTPTryAgain = "Failed to send OTP. Try again.";
   static const String noVerificationIDPleaseRequestANewCode =
@@ -159,4 +156,23 @@ class AppStrings {
   static const String changePasswordSuccess = "Password changed successfully!";
   static const String phoneEmpty = "Please enter your phone number";
   static const String phoneInvalid = "Invalid phone number";
+  static const failedToSaveLocal = 'Failed to save user data locally';
+  static const userNotFound = 'User not found';
+  static const wrongPassword = 'Wrong password';
+  static const userDataNotFound = 'User data not found in Firestore';
+  static const emailOrPasswordWrong = 'Email or password may be wrong';
+  static const emptyPhoneError = 'Please enter your phone number';
+  static const verificationSent = 'Verification code sent successfully';
+  static const verificationFailed = 'Error occurred while sending verification code';
+  static const unexpectedError = 'Unexpected error occurred';
+  static const autoVerified = 'Phone number auto verified';
+  static const registerFailed = 'Oops! Something went wrong during registration';
+  static const passwordUpdated = 'Password updated successfully';
+  static const noAuthenticatedUser = 'No authenticated user found';
+  static const passwordUpdateError = 'Error occurred while updating password';
+  static const creatingAccount = 'Creating your account...';
+  static const registerSuccess = 'Account created successfully!';
+  static const failedToFetchUserData = 'Failed to fetch user data';
+  static const noResults ='No results found';
 }
+

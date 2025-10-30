@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nha_228/core/constants/app_assets.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
-import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/utils/app_routers.dart';
-import 'package:nha_228/core/utils/validators.dart';
-import 'package:nha_228/core/widgets/custom_botton.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/auth/cubit/register_cubit/register_cubit.dart';
 import 'package:nha_228/features/auth/widgets/auth_redirect_text.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
@@ -48,10 +41,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
       create: (_) => RegisterCubit(),
       child: BlocConsumer<RegisterCubit, RegisterState>(
         listener: (context, state) {
-          if (state is RegisterSuccess) {
+          if (state is RegisterLoading) {
             CustomSnackBar.show(
               context,
-              "createdAccountSuccessfully",
+              AppStrings.creatingAccount,
+              backgroundColor: AppColors.primary,
+            );
+          } else if (state is RegisterSuccess) {
+            CustomSnackBar.show(
+              context,
+              AppStrings.registerSuccess,
               backgroundColor: AppColors.success,
             );
             context.go(AppRouter.loginScreen);
@@ -75,13 +74,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(height: AppSizes.h10),
-                      Image.asset(AppAssets.logo, height: 100.h),
+                      SizedBox(height: AppSizes.h20),
+                      Image.asset(AppAssets.logo, height: AppSizes.h100),
+                      SizedBox(height: AppSizes.h20),
                       Text(
                         AppStrings.signUpTitle,
-                        style: Theme.of(
-                          context,
-                        ).textTheme.titleLarge?.copyWith(fontSize: AppSizes.sp38),
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge
+                            ?.copyWith(fontSize: AppSizes.sp38),
                       ),
                       SizedBox(height: AppSizes.h20),
 
@@ -127,31 +128,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         controller: confirmPasswordController,
                         hintText: AppStrings.confirmPassword,
                         isPassword: true,
-                        validator:
-                            (value) =>
-                                value.validateConfirmPassword(passwordController.text),
+                        validator: (value) => value.validateConfirmPassword(
+                          passwordController.text,
+                        ),
                       ),
                       SizedBox(height: AppSizes.h20),
 
                       CustomButton(
-                        title:
-                            isLoading
-                                ? "Creating your account..."
-                                : AppStrings.signUpButton,
+                        title: isLoading
+                            ? "Creating your account..."
+                            : AppStrings.signUpButton,
                         isLoading: isLoading,
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             context.read<RegisterCubit>().registerUser(
-                              email: emailController.text.trim(),
-                              password: passwordController.text.trim(),
-                              firstName: firstNameController.text.trim(),
-                              lastName: lastNameController.text.trim(),
-                              phone: phoneController.text.trim(),
-                            );
+                                  email: emailController.text.trim(),
+                                  password: passwordController.text.trim(),
+                                  firstName: firstNameController.text.trim(),
+                                  lastName: lastNameController.text.trim(),
+                                  phone: phoneController.text.trim(),
+                                );
                           }
                         },
                       ),
-
                       SizedBox(height: AppSizes.h20),
 
                       AuthRedirectText(

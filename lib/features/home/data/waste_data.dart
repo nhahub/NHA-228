@@ -1,4 +1,4 @@
-import 'package:nha_228/core/constants/app_assets.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/home/models/waste_item_model.dart';
 
 class CategoryValues {

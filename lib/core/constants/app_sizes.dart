@@ -22,10 +22,12 @@ class AppSizes {
   static double h54 = 54.h;
   static double h56 = 56.h;
   static double h70 = 70.h;
+  static double h100 = 100.h;
   static double h150 = 150.h;
   static double h200 = 200.h;
 
   // Font Size
+  static double sp12 = 12.sp;
   static double sp14 = 14.sp;
   static double sp16 = 16.sp;
   static double sp18 = 18.sp;
@@ -35,9 +37,12 @@ class AppSizes {
   static double sp22 = 22.sp;
   static double sp32 = 32.sp;
   static double sp38 = 38.sp;
+  static double sp40 = 40.sp;
 
   // Width
   static double w2 = 2.w;
+  static double w4 = 4.w;
+  static double w6 = 6.w;
   static double w8 = 8.w;
   static double w12 = 12.w;
   static double w16 = 16.w;
@@ -50,6 +55,7 @@ class AppSizes {
   static double w48 = 48.w;
   static double w54 = 54.w;
   static double w60 = 60.w;
+  static double w100 = 100.w;
   static double w148 = 148.w;
 
   // Radius
@@ -63,4 +69,6 @@ class AppSizes {
   static double r18 = 18.r;
   static double r40 = 40.r;
   static double r50 = 50.r;
+  static double r100 = 100.r;
+  static double r120 = 120.r;
 }

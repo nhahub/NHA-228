@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nha_228/core/services/firestor_user.dart';
-import 'package:nha_228/core/services/hive_service.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/auth/models/user_model.dart';
 part 'profile_state.dart';
 
@@ -14,7 +13,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     if (userModel != null) {
       emit(ProfileLoaded(userModel: userModel!));
     } else {
-      emit(ProfileError(error: "Failed to load user data"));
+      emit(ProfileError(error: AppStrings.failedToFetchUserData));
     }
   }
 
@@ -36,7 +35,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     try {
       await FirebaseAuth.instance.signOut();
       await HiveManager().clearUser();
-      await HiveManager().setBool('isLoggedIn', false);
+      await HiveManager().setBool(AppConstants.isLoggedIn, false);
       userModel = null;
       emit(ProfileLoggedOut());
     } catch (e) {

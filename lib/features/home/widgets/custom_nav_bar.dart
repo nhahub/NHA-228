@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
-import 'package:nha_228/core/utils/app_routers.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/home/screens/home_screen.dart';
 import 'package:nha_228/features/profile/screens/profile_screen.dart';
 

@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nha_228/core/constants/app_strings.dart';
-
+import 'package:nha_228/core/core.dart';
 part 'otp_state.dart';
 
 class PhoneOtpCubit extends Cubit<PhoneOtpState> {

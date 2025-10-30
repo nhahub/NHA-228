@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nha_228/core/constants/app_assets.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
-import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/services/hive_service.dart';
-import 'package:nha_228/core/utils/app_routers.dart';
+import 'package:nha_228/core/core.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -42,9 +37,8 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     _controller.forward();
     Future.delayed(const Duration(seconds: 3), () {
-      final hive = HiveManager();
-      final bool seenOnboarding = hive.getBool(AppStrings.seenOnboarding);
-      final bool isLoggedIn = hive.getBool(AppStrings.isLoggedIn);
+      final bool seenOnboarding = HiveManager().getBool(AppConstants.seenOnboarding);
+      final bool isLoggedIn = HiveManager().getBool(AppConstants.isLoggedIn);
       if (!seenOnboarding) {
         context.go(AppRouter.onboardScreen);
       } else {
