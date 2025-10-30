@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/core.dart';
 
 class AuthRedirectText extends StatelessWidget {
   const AuthRedirectText({
@@ -19,7 +19,7 @@ class AuthRedirectText extends StatelessWidget {
     return Row(
       mainAxisAlignment: alignment,
       children: [
-        Text(message ?? '', style: TextStyle(color: Color(0xff828282))),
+        Text(message ?? '', style: TextStyle(color: AppColors.authRedirectText)),
         TextButton(
           onPressed: onTap,
           child: Text(actionText, style: TextStyle(color: AppColors.secondary)),

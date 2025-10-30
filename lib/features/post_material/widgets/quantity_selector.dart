@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 
 class QuantitySelector extends StatelessWidget {
@@ -41,7 +40,7 @@ class QuantitySelector extends StatelessWidget {
                     "Total: ${totalPrice.toStringAsFixed(1)} EGP",
                     style: TextStyle(
                       fontSize: AppSizes.sp14,
-                      color: AppColors.totalColor,
+                      color: AppColors.grey,
                     ),
                   ),
                 ],

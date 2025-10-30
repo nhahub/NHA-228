@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
-import '../models/material_model.dart';
+import 'package:nha_228/features/home/models/material_model.dart';
 
 class CustomMaterialList extends StatelessWidget {
   const CustomMaterialList({super.key});

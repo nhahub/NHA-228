@@ -5,6 +5,7 @@ import 'package:nha_228/features/auth/screens/register_screen.dart';
 import 'package:nha_228/features/home/screens/search_screen.dart';
 import 'package:nha_228/features/home/widgets/custom_nav_bar.dart';
 import 'package:nha_228/features/post_material/screens/post_material_screen.dart';
+import 'package:nha_228/features/profile/cubit/profile_cubit.dart';
 import 'package:nha_228/features/profile/screens/edit_profile_screen.dart';
 import 'package:nha_228/features/splash/screens/onboard_screen.dart';
 import 'package:nha_228/features/splash/screens/splash_screen.dart';
@@ -45,7 +46,7 @@ abstract class AppRouter {
       GoRoute(
         path: editProfileScreen,
         builder:
-            (context, state) => EditProfileScreen(profileCubit: state.extra as dynamic),
+            (context, state) => EditProfileScreen(profileCubit: state.extra as ProfileCubit),
       ),
       GoRoute(
         path: forgetPasswordScreen,

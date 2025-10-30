@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/services/hive_service.dart';
-import 'package:nha_228/core/utils/app_routers.dart';
+import 'package:nha_228/core/core.dart';
+
 
 class OnboardingFooter extends StatelessWidget {
   const OnboardingFooter({super.key, required this.controller, required this.index});
@@ -12,14 +10,14 @@ class OnboardingFooter extends StatelessWidget {
   final int index;
 
   onboardingSeen(BuildContext context) async {
-    await HiveManager().setBool(AppStrings.seenOnboarding, true);
+    await HiveManager().setBool(AppConstants .seenOnboarding, true);
     context.go(AppRouter.loginScreen);
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
+      padding:  EdgeInsets.symmetric(horizontal: AppSizes.w30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -44,11 +42,11 @@ class OnboardingFooter extends StatelessWidget {
                     : InkWell(
                       onTap: () => onboardingSeen(context),
                       child: Container(
-                        padding: EdgeInsets.all(15),
+                        padding: EdgeInsets.all(AppSizes.w16),
 
                         decoration: BoxDecoration(
                           color: AppColors.secondary,
-                          borderRadius: BorderRadius.circular(120),
+                          borderRadius: BorderRadius.circular(AppSizes.r120),
                         ),
                         child: Text(
                           AppStrings.getStarted,

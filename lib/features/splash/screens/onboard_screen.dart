@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/features/splash/widgets/custom_indicator.dart';
 import 'package:nha_228/features/splash/widgets/first_onboard_widget.dart';
 import 'package:nha_228/features/splash/widgets/onboarding_footer.dart';
@@ -41,9 +42,9 @@ class _OnboardScreenState extends State<OnboardScreen> {
                 CustomIndicator(active: index == 2),
               ],
             ),
-            SizedBox(height: 40),
+            SizedBox(height: AppSizes.h40),
             OnboardingFooter(controller: _controller, index: index),
-            SizedBox(height: 20),
+            SizedBox(height:AppSizes.h20 ),
           ],
         ),
       ),
