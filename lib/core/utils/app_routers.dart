@@ -15,6 +15,7 @@ abstract class AppRouter {
   static const homeScreen = '/HomeScreen';
   static const searchScreen = '/SearchScreen';
   static const loginScreen = '/LoginScreen';
+  static const otpScreen = '/OtpScreen';
   static const registerScreen = '/RegisterScreen';
   static const onboardScreen = '/OnboardScreen';
   static const postMaterialScreen = '/PostMaterialScreen';

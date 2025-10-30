@@ -99,7 +99,7 @@ class AppStrings {
   static const gender = "Gender";
   static const dateOfBirth = "Date of Birth";
   static const save = "save";
-
+  static const codeTimeout = "codeTimeout";
   static const String fieldRequired = "This field is required";
 
   static const String emailEmpty = "Please enter your email";
@@ -154,6 +154,8 @@ class AppStrings {
   static const String logout = "Logout";
   static const String materialsPosted = "Materials posted";
   static const String changePasswordSuccess = "Password changed successfully!";
+  static const String phoneEmpty = "Please enter your phone number";
+  static const String phoneInvalid = "Invalid phone number";
   static const failedToSaveLocal = 'Failed to save user data locally';
   static const userNotFound = 'User not found';
   static const wrongPassword = 'Wrong password';

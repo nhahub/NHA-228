@@ -5,12 +5,14 @@ class CustomButton extends StatelessWidget {
   final String title;
   final VoidCallback? onPressed;
   final double? height;
+  final bool isLoading;
 
   const CustomButton({
     super.key,
     required this.title,
     required this.onPressed,
     this.height,
+    this.isLoading = false,
   });
 
   @override

@@ -16,8 +16,10 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
     emit(ForgetPasswordLoading());
 
     try {
+      String formattedPhone = _formatPhoneNumber(phoneNumber);
+
       await FirebaseAuth.instance.verifyPhoneNumber(
-        phoneNumber: '+20$phoneNumber',
+        phoneNumber: formattedPhone,
         verificationCompleted: (PhoneAuthCredential credential) {
           emit(ForgetPasswordSuccess(autoVerified: true));
         },
@@ -27,10 +29,23 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
         codeSent: (String verificationId, int? resendToken) {
           emit(ForgetPasswordCodeSent(verificationId));
         },
-        codeAutoRetrievalTimeout: (String verificationId) {},
+        codeAutoRetrievalTimeout: (String verificationId) {
+          emit(ForgetPasswordError(AppStrings.codeTimeout));
+        },
       );
     } catch (e) {
       emit(ForgetPasswordError("${AppStrings.unexpectedError}: $e"));
+    }
+  }
+
+  String _formatPhoneNumber(String phoneNumber) {
+    String formatted = phoneNumber.trim();
+    if (formatted.startsWith('+')) {
+      return formatted;
+    } else if (formatted.startsWith('0')) {
+      return '+20${formatted.substring(1)}';
+    } else {
+      return '+20$formatted';
     }
   }
 }
