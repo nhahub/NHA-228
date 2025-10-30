@@ -34,4 +34,7 @@ class AppColors {
   static final chooseMaterialIsNotSelected = Colors.black87;
   static final grey = Colors.grey;
   static final authRedirectText = Color(0xff828282);
+  static final grey300=Colors.grey.shade300;
+  static final lightGreyTransparent = Color(0x339E9E9E);
+
 }
