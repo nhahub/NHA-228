@@ -37,6 +37,7 @@ class AppSizes {
   static double sp22 = 22.sp;
   static double sp32 = 32.sp;
   static double sp38 = 38.sp;
+  static double sp40 = 40.sp;
 
   // Width
   static double w2 = 2.w;
@@ -54,6 +55,7 @@ class AppSizes {
   static double w48 = 48.w;
   static double w54 = 54.w;
   static double w60 = 60.w;
+  static double w100 = 100.w;
   static double w148 = 148.w;
 
   // Radius
