@@ -14,26 +14,43 @@ class RegisterCubit extends Cubit<RegisterState> {
     required String password,
     required String firstName,
     required String lastName,
+    required String phone,
   }) async {
     emit(RegisterLoading());
 
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
+      await userCredential.user!.updateDisplayName("$firstName $lastName");
       UserModel userModel = UserModel(
         uid: userCredential.user!.uid,
         firstName: firstName,
         lastName: lastName,
         email: email,
+        phone: phone,
       );
       await HiveManager().saveUser(userModel);
       await FirestorUser().addUser(userModel);
 
       emit(RegisterSuccess(userCredential.user));
     } on FirebaseAuthException catch (e) {
-      emit(RegisterFailure(e.message ?? "opps! something went wrong"));
+      String errorMessage;
+      switch (e.code) {
+        case 'email-already-in-use':
+          errorMessage = "email-already-in-use";
+          break;
+        case 'weak-password':
+          errorMessage = "weak-password";
+          break;
+        case 'invalid-email':
+          errorMessage = "invalid-email";
+          break;
+        default:
+          errorMessage = "unexpected-error";
+      }
+      emit(RegisterFailure(errorMessage));
     } catch (e) {
-      emit(RegisterFailure(e.toString()));
+      emit(RegisterFailure("unexpected-error: ${e.toString()}"));
     }
   }
 }

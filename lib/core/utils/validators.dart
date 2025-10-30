@@ -57,4 +57,14 @@ extension AppValidators on String? {
     }
     return null;
   }
+
+  String? validatePhone() {
+    if (this == null || this!.isEmpty) {
+      return AppStrings.phoneEmpty;
+    }
+    if (!RegExp(r'^01[0125][0-9]{8}$').hasMatch(this!)) {
+      return AppStrings.phoneInvalid;
+    }
+    return null;
+  }
 }

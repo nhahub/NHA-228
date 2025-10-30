@@ -14,6 +14,7 @@ abstract class AppRouter {
   static const homeScreen = '/HomeScreen';
   static const searchScreen = '/SearchScreen';
   static const loginScreen = '/LoginScreen';
+  static const otpScreen = '/OtpScreen';
   static const registerScreen = '/RegisterScreen';
   static const onboardScreen = '/OnboardScreen';
   static const postMaterialScreen = '/PostMaterialScreen';
@@ -47,7 +48,6 @@ abstract class AppRouter {
         builder:
             (context, state) => EditProfileScreen(profileCubit: state.extra as dynamic),
       ),
-      GoRoute(path: editProfileScreen, builder: (context, state) => EditProfileScreen()),
       GoRoute(
         path: forgetPasswordScreen,
         builder: (context, state) => ForgetPasswordScreen(),

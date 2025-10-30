@@ -157,4 +157,6 @@ class AppStrings {
   static const String logout = "Logout";
   static const String materialsPosted = "Materials posted";
   static const String changePasswordSuccess = "Password changed successfully!";
+  static const String phoneEmpty = "Please enter your phone number";
+  static const String phoneInvalid = "Invalid phone number";
 }

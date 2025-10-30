@@ -14,7 +14,11 @@ import '../widgets/otp_input_fields.dart';
 class PhoneOtpScreen extends StatefulWidget {
   final String phoneNumber;
 
-  const PhoneOtpScreen({super.key, required this.phoneNumber});
+  const PhoneOtpScreen({
+    super.key,
+    required this.phoneNumber,
+    required String verificationId,
+  });
 
   @override
   State<PhoneOtpScreen> createState() => _PhoneOtpScreenState();
