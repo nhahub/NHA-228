@@ -99,7 +99,7 @@ class AppStrings {
   static const gender = "Gender";
   static const dateOfBirth = "Date of Birth";
   static const save = "save";
-
+  static const codeTimeout = "codeTimeout";
   static const String fieldRequired = "This field is required";
 
   static const String emailEmpty = "Please enter your email";

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nha_228/core/core.dart';
+import 'package:go_router/go_router.dart';
+
 import 'package:nha_228/features/auth/cubit/forget_passward_cubit/forget_passward_cubit.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';
@@ -21,7 +23,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
     super.dispose();
   }
 
-  @override
+  @override 
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => ForgetPasswordCubit(),
@@ -41,7 +43,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
               AppStrings.codeSent,
               backgroundColor: AppColors.success,
             );
-            // context.push(AppRouter.otpScreen, extra: state.verificationId);
+            context.push(AppRouter.otpScreen, extra: state.verificationId);
           } else if (state is ForgetPasswordError) {
             if (Navigator.canPop(context)) Navigator.pop(context);
             CustomSnackBar.show(context, state.message, backgroundColor: AppColors.error);
