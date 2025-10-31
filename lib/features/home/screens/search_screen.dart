@@ -26,7 +26,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => SearchCubit()..search(widget.searchWord),
-      child: BlocBuilder<SearchCubit,SearchState>(
+      child: BlocBuilder<SearchCubit, SearchState>(
         builder: (context, state) {
           return Scaffold(
             appBar: PreferredSize(
@@ -66,7 +66,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     SizedBox(height: AppSizes.h10),
                     Text(
                       AppStrings.results,
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: Theme.of(context).textTheme.displayLarge,
                     ),
                     SizedBox(height: AppSizes.h10),
 
@@ -97,7 +97,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                     borderRadius: BorderRadius.circular(AppSizes.r16),
                                     boxShadow: [
                                       BoxShadow(
-                                        color:AppColors.lightGreyTransparent,
+                                        color: AppColors.lightGreyTransparent,
                                         blurRadius: AppSizes.r6,
                                         offset: const Offset(0, 3),
                                       ),

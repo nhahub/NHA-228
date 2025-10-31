@@ -44,7 +44,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
             ),
             SizedBox(height: AppSizes.h40),
             OnboardingFooter(controller: _controller, index: index),
-            SizedBox(height:AppSizes.h20 ),
+            SizedBox(height: AppSizes.h20),
           ],
         ),
       ),

@@ -5,10 +5,10 @@ import 'package:nha_228/core/constants/app_sizes.dart';
 ThemeData appTheme() {
   return ThemeData(
     scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
-     primaryColor: AppColors.primary,
+    primaryColor: AppColors.primary,
     textTheme: TextTheme(
       titleLarge: TextStyle(
-        fontSize: AppSizes.sp38 ,
+        fontSize: AppSizes.sp38,
         fontWeight: FontWeight.w400,
         color: AppColors.textPrimary,
       ),
@@ -52,10 +52,7 @@ ThemeData appTheme() {
         color: AppColors.textPrimary,
         fontWeight: FontWeight.w600,
       ),
-      displayMedium: TextStyle(
-        fontSize: AppSizes.sp18,
-        fontWeight: FontWeight.bold
-      ),
+      displayMedium: TextStyle(fontSize: AppSizes.sp18, fontWeight: FontWeight.bold),
       headlineSmall: TextStyle(
         fontSize: AppSizes.sp24,
         color: AppColors.appBar,
@@ -66,6 +63,11 @@ ThemeData appTheme() {
         fontSize: AppSizes.sp14,
         color: AppColors.otpVerificationScreenTextColor,
         fontWeight: FontWeight.w400,
+      ),
+      displayLarge: TextStyle(
+        fontSize: AppSizes.sp16,
+         fontWeight: FontWeight.bold,
+         color: AppColors.skipButtonColor,
       ),
     ),
     appBarTheme: AppBarTheme(

@@ -10,4 +10,4 @@ export 'package:nha_228/core/constants/app_assets.dart';
 export 'package:nha_228/core/services/app_initialize.dart';
 export 'package:nha_228/core/widgets/custom_app_bar.dart';
 export 'package:nha_228/core/widgets/custom_button.dart';
-export  'package:nha_228/core/services/firestor_user.dart';
+export 'package:nha_228/core/services/firestor_user.dart';

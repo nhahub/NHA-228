@@ -38,10 +38,7 @@ class QuantitySelector extends StatelessWidget {
                   SizedBox(height: AppSizes.h4),
                   Text(
                     "Total: ${totalPrice.toStringAsFixed(1)} EGP",
-                    style: TextStyle(
-                      fontSize: AppSizes.sp14,
-                      color: AppColors.grey,
-                    ),
+                    style: TextStyle(fontSize: AppSizes.sp14, color: AppColors.grey),
                   ),
                 ],
               ),

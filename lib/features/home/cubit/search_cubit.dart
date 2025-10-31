@@ -11,8 +11,7 @@ class SearchCubit extends Cubit<SearchState> {
   Future<void> search(String query) async {
     emit(SearchLoading());
     try {
-    
-      final results = await SearchService().searchMaterialsByType(query);  
+      final results = await SearchService().searchMaterialsByType(query);
       if (results.isEmpty) {
         emit(SearchError(error: AppStrings.noResults));
         return;

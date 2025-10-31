@@ -46,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
                     width: AppSizes.w30,
                     height: AppSizes.h30,
                     decoration: BoxDecoration(
-                      color: AppColors.secondary,
+                      color: AppColors.navBarColor,
                       shape: BoxShape.circle,
                     ),
                     child: IconButton(

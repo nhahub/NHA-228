@@ -23,7 +23,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
     super.dispose();
   }
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => ForgetPasswordCubit(),

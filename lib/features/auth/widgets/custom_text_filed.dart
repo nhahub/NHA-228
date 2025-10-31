@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nha_228/core/core.dart';
 
-
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
     super.key,
@@ -36,13 +35,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.all(AppSizes.w8),
+      padding: EdgeInsets.all(AppSizes.w8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (widget.hintText != null)
             Text(widget.hintText!, style: Theme.of(context).textTheme.labelMedium),
-           SizedBox(height:AppSizes.h6),
+          SizedBox(height: AppSizes.h6),
           TextFormField(
             readOnly: widget.readOnly,
             controller: widget.controller,

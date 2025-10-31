@@ -47,7 +47,8 @@ abstract class AppRouter {
       GoRoute(
         path: editProfileScreen,
         builder:
-            (context, state) => EditProfileScreen(profileCubit: state.extra as ProfileCubit),
+            (context, state) =>
+                EditProfileScreen(profileCubit: state.extra as ProfileCubit),
       ),
       GoRoute(
         path: forgetPasswordScreen,

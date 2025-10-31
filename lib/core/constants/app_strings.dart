@@ -173,6 +173,6 @@ class AppStrings {
   static const creatingAccount = 'Creating your account...';
   static const registerSuccess = 'Account created successfully!';
   static const failedToFetchUserData = 'Failed to fetch user data';
-  static const noResults ='No results found';
+  static const noResults = 'No results found';
+  static const creatingYourAccount = "Creating your account...";
 }
-
