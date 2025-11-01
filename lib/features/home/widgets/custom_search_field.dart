@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nha_228/core/core.dart';
 
 class CustomSearchfield extends StatelessWidget {
   final String hintText;
@@ -20,23 +19,7 @@ class CustomSearchfield extends StatelessWidget {
       onSubmitted: onSubmitted,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: Theme.of(context).textTheme.bodySmall,
-        fillColor: AppColors.whiteColor,
-        filled: true,
         prefixIcon: const Icon(Icons.search),
-        prefixIconColor: AppColors.secondary,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSizes.r10),
-          borderSide: BorderSide(color: AppColors.boarderColor),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSizes.r10),
-          borderSide: BorderSide(color: AppColors.boarderColor),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSizes.r10),
-          borderSide: BorderSide(color: AppColors.focusedBorderColor),
-        ),
       ),
     );
   }

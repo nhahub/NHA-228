@@ -10,9 +10,10 @@ class CustomWasteItemFiels extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.categoryBackground,
+        color: isDark ? AppDarkColors.categoryBackground : AppColors.categoryBackground,
         borderRadius: BorderRadius.circular(AppSizes.r18),
       ),
       child: Column(

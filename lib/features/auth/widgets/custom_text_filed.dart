@@ -51,21 +51,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
             style: Theme.of(context).textTheme.bodySmall,
             decoration: InputDecoration(
               hintText: widget.hintText,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppSizes.r8),
-                borderSide: BorderSide(color: AppColors.boarderColor),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppSizes.r8),
-                borderSide: BorderSide(color: AppColors.boarderColor),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppSizes.r8),
-                borderSide: BorderSide(color: AppColors.focusedBorderColor),
-              ),
-
-              fillColor: AppColors.textFieldFillColor,
-              filled: true,
               suffixIcon:
                   widget.isPassword
                       ? IconButton(

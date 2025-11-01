@@ -29,6 +29,7 @@ class _ImagePickerFieldState extends State<ImagePickerField> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: () => _pickImage(context),
       child: Container(
@@ -36,7 +37,7 @@ class _ImagePickerFieldState extends State<ImagePickerField> {
         decoration: BoxDecoration(
           border: Border.all(color: AppColors.borderSide),
           borderRadius: BorderRadius.circular(AppSizes.r12),
-          color: Colors.grey.shade100,
+          color: isDark ? AppDarkColors.textFieldFillColor : AppColors.textFieldFillColor,
         ),
         child: Column(
           children: [
@@ -56,7 +57,7 @@ class _ImagePickerFieldState extends State<ImagePickerField> {
                     SizedBox(height: AppSizes.h8),
                     Text(
                       AppStrings.tapToUploadImage,
-                      style: TextStyle(color: AppColors.addAPhotoOutlined),
+                      style: Theme.of(context).textTheme.labelMedium,
                     ),
                   ],
                 ),

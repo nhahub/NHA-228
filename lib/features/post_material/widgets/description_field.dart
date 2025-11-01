@@ -16,14 +16,7 @@ class DescriptionField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            AppStrings.description,
-            style: TextStyle(
-              fontSize: AppSizes.sp16,
-              fontWeight: FontWeight.w400,
-              color: AppColors.textPrimary,
-            ),
-          ),
+          Text(AppStrings.description, style: Theme.of(context).textTheme.labelMedium),
           SizedBox(height: AppSizes.h8),
 
           TextFormField(
@@ -31,16 +24,6 @@ class DescriptionField extends StatelessWidget {
             decoration: InputDecoration(
               hintText: AppStrings.describeYourMaterialCase,
               hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
-              filled: true,
-              fillColor: AppColors.whiteColor,
-              border: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(AppSizes.r12),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.primary),
-                borderRadius: BorderRadius.circular(AppSizes.r12),
-              ),
             ),
             validator: (value) {
               if (value == null || value.trim().isEmpty) {

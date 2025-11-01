@@ -24,6 +24,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return BlocProvider(
       create: (_) => SearchCubit()..search(widget.searchWord),
       child: BlocBuilder<SearchCubit, SearchState>(
@@ -87,10 +88,16 @@ class _SearchScreenState extends State<SearchScreen> {
                                   padding: EdgeInsets.all(AppSizes.h12),
                                   decoration: BoxDecoration(
                                     gradient: LinearGradient(
-                                      colors: [
-                                        AppColors.navBarColor,
-                                        AppColors.categoryFoot,
-                                      ],
+                                      colors:
+                                          isDark
+                                              ? [
+                                                AppDarkColors.categoryBackground,
+                                                AppDarkColors.cardDarkColor,
+                                              ]
+                                              : [
+                                                AppColors.navBarColor,
+                                                AppColors.categoryFoot,
+                                              ],
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
                                     ),

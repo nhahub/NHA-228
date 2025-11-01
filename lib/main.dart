@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nha_228/core/core.dart';
+import 'package:nha_228/core/theme/dark_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +22,7 @@ class Krakibak extends StatelessWidget {
         return MaterialApp.router(
           routerConfig: AppRouter.router,
           debugShowCheckedModeBanner: false,
-          theme: appTheme(),
+          theme: darkTheme(),
         );
       },
     );

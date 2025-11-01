@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/home/data/waste_data.dart';
@@ -13,6 +14,30 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(AppStrings.homeTitle),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: AppSizes.w16),
+            child: Container(
+              width: AppSizes.w30,
+              height: AppSizes.h30,
+              decoration: BoxDecoration(
+                color: AppColors.navBarColor,
+                shape: BoxShape.circle,
+              ),
+              child: IconButton(
+                icon: SvgPicture.asset(
+                  AppAssets.edit,
+                  width: AppSizes.w20,
+                  height: AppSizes.h20,
+                ),
+                onPressed: () {},
+              ),
+            ),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(AppSizes.h16),

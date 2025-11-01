@@ -1,96 +1,70 @@
 import 'package:flutter/material.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_dark_colors.dart';
 import 'package:nha_228/core/constants/app_sizes.dart';
 
-ThemeData appTheme() {
+ThemeData darkTheme() {
   return ThemeData(
-    brightness: Brightness.light,
-    scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
-    primaryColor: AppColors.primary,
+    brightness: Brightness.dark,
+    scaffoldBackgroundColor: AppDarkColors.darkBackground,
+    primaryColor: AppDarkColors.primary,
     textTheme: TextTheme(
       titleLarge: TextStyle(
         fontSize: AppSizes.sp38,
         fontWeight: FontWeight.w400,
-        color: AppColors.textPrimary,
+        color: AppDarkColors.whiteColor,
       ),
       titleMedium: TextStyle(
         fontSize: AppSizes.sp24,
         fontWeight: FontWeight.w400,
-        color: AppColors.whiteColor,
+        color: Colors.white70,
       ),
       labelMedium: TextStyle(
         fontSize: AppSizes.sp16,
         fontWeight: FontWeight.w400,
-        color: AppColors.labelMediumColor,
+        color: Colors.white60,
       ),
       bodySmall: TextStyle(
         fontSize: AppSizes.sp12,
         fontWeight: FontWeight.w400,
-        color: AppColors.hintTextColor,
-      ),
-      headlineMedium: TextStyle(
-        fontSize: AppSizes.sp16,
-        fontWeight: FontWeight.w500,
-        color: AppColors.whiteColor,
-      ),
-      titleSmall: TextStyle(
-        fontSize: AppSizes.sp14,
-        fontWeight: FontWeight.w400,
-        color: AppColors.onboardTextColor,
-      ),
-      labelSmall: TextStyle(
-        fontSize: AppSizes.sp16,
-        fontWeight: FontWeight.w500,
-        color: AppColors.skipButtonColor,
-      ),
-      bodyMedium: TextStyle(
-        fontSize: AppSizes.sp12,
-        fontWeight: FontWeight.w600,
-        color: AppColors.skipButtonColor,
+        color: Colors.grey[400],
       ),
       displaySmall: TextStyle(
         fontSize: AppSizes.sp12,
-        color: AppColors.textPrimary,
+        color: AppDarkColors.whiteColor,
         fontWeight: FontWeight.w600,
       ),
       displayMedium: TextStyle(fontSize: AppSizes.sp18, fontWeight: FontWeight.bold),
       headlineSmall: TextStyle(
         fontSize: AppSizes.sp24,
-        color: AppColors.appBar,
+        color: AppDarkColors.whiteColor,
         fontFamily: 'otama.ep',
         fontWeight: FontWeight.bold,
       ),
       headlineLarge: TextStyle(
         fontSize: AppSizes.sp14,
-        color: AppColors.otpVerificationScreenTextColor,
+        color: AppDarkColors.otpVerificationScreenTextColor,
         fontWeight: FontWeight.w400,
       ),
       displayLarge: TextStyle(
         fontSize: AppSizes.sp16,
         fontWeight: FontWeight.bold,
-        color: AppColors.skipButtonColor,
+        color: AppDarkColors.skipButtonColor,
       ),
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppDarkColors.darkBackground,
       elevation: 0,
-      iconTheme: IconThemeData(color: AppColors.appBar),
+      iconTheme: IconThemeData(color: Colors.white),
       titleTextStyle: TextStyle(
-        color: AppColors.appBar,
+        color: Colors.white,
         fontSize: AppSizes.sp24,
         fontWeight: FontWeight.w600,
       ),
     ),
-
-    progressIndicatorTheme: ProgressIndicatorThemeData(
-      color: AppColors.whiteColor,
-      circularTrackColor: Colors.transparent,
-    ),
-
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        backgroundColor: WidgetStatePropertyAll(AppColors.focusedBorderColor),
-        foregroundColor: WidgetStatePropertyAll(AppColors.whiteColor),
+        backgroundColor: WidgetStatePropertyAll(AppDarkColors.focusedBorderColor),
+        foregroundColor: WidgetStatePropertyAll(Colors.white),
         shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSizes.r4)),
         ),
@@ -98,36 +72,32 @@ ThemeData appTheme() {
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: AppColors.textFieldFillColor,
-      prefixIconColor: AppColors.secondary,
+      fillColor: AppDarkColors.darkTextFieldFill,
+      prefixIconColor: Colors.white70,
       hintStyle: TextStyle(
         fontSize: AppSizes.sp14,
         fontWeight: FontWeight.w400,
-        color: AppColors.hintTextColor,
+        color: Colors.grey[500],
       ),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppSizes.r10),
-        borderSide: BorderSide(color: AppColors.boarderColor),
+        borderSide: BorderSide(color: AppDarkColors.cameraBackground),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppSizes.r10),
-        borderSide: BorderSide(color: AppColors.boarderColor),
+        borderSide: BorderSide(color: AppDarkColors.boarderColor),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppSizes.r10),
-        borderSide: BorderSide(color: AppColors.focusedBorderColor),
+        borderSide: BorderSide(color: AppDarkColors.cameraBackground),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppSizes.r10),
-        borderSide: BorderSide(color: AppColors.errorBorderColor),
+        borderSide: BorderSide(color: AppDarkColors.errorBorderColor),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppSizes.r10),
-        borderSide: BorderSide(color: AppColors.errorBorderColor),
-      ),
-      contentPadding: EdgeInsets.symmetric(
-        horizontal: AppSizes.w12,
-        vertical: AppSizes.h12,
+        borderSide: BorderSide(color: AppDarkColors.errorBorderColor),
       ),
     ),
   );

@@ -6,11 +6,12 @@ class DataInfoFiled extends StatelessWidget {
   final String? data;
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Container(
       height: AppSizes.h56,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: AppColors.textFieldFillColor,
+        color: isDark ? AppDarkColors.textFieldFillColor : AppColors.textFieldFillColor,
         borderRadius: BorderRadius.circular(AppSizes.r10),
       ),
       child: Align(

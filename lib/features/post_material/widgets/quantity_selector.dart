@@ -8,6 +8,7 @@ class QuantitySelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return BlocBuilder<PostMaterialCubit, PostMaterialState>(
       builder: (context, state) {
         final cubit = context.read<PostMaterialCubit>();
@@ -17,7 +18,7 @@ class QuantitySelector extends StatelessWidget {
         return Container(
           padding: EdgeInsets.symmetric(horizontal: AppSizes.w16, vertical: AppSizes.h14),
           decoration: BoxDecoration(
-            color: AppColors.whiteColor,
+            color: isDark ? AppDarkColors.textFieldFillColor : AppColors.whiteColor,
             borderRadius: BorderRadius.circular(AppSizes.r12),
             border: Border.all(color: AppColors.borderSide),
           ),

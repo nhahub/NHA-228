@@ -71,10 +71,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     children: [
                       Text(
                         AppStrings.forgotPasswordTitle,
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontFamily: 'otama.ep',
+                        style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                           fontSize: AppSizes.sp32,
-                          color: AppColors.appBar,
                           fontWeight: FontWeight.w400,
                         ),
                       ),

@@ -9,13 +9,14 @@ class CustomElevatedItemBotton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return InkWell(
       onTap: () {},
       child: Container(
         height: AppSizes.h32,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: AppColors.categoryFoot,
+          color: isDark ? AppDarkColors.textFieldFillColor : AppColors.categoryFoot,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(AppSizes.r18),
             bottomRight: Radius.circular(AppSizes.r18),
