@@ -4,14 +4,14 @@ import 'package:intl/intl.dart';
 import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 
-class DeliveryScheduleSection extends StatefulWidget {
-  const DeliveryScheduleSection({super.key});
+class DateAndTime extends StatefulWidget {
+  const DateAndTime({super.key});
 
   @override
-  State<DeliveryScheduleSection> createState() => _DeliveryScheduleSectionState();
+  State<DateAndTime> createState() => _DateAndTimeState();
 }
 
-class _DeliveryScheduleSectionState extends State<DeliveryScheduleSection> {
+class _DateAndTimeState extends State<DateAndTime> {
   bool scheduleEnabled = false;
   DateTime? selectedDate;
   TimeOfDay? selectedTime;
