@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
-import 'package:nha_228/core/constants/app_strings.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 
 class DescriptionField extends StatelessWidget {
@@ -12,33 +10,36 @@ class DescriptionField extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = context.read<PostMaterialCubit>();
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          AppStrings.description,
-          style: TextStyle(
-            fontSize: AppSizes.sp16,
-            fontWeight: FontWeight.w400,
-            color: AppColors.textPrimary,
-          ),
-        ),
-        SizedBox(height: AppSizes.h8),
-        TextFormField(
-          maxLines: 5,
-          cursorColor: AppColors.success,
-          decoration: InputDecoration(
-            hintText: AppStrings.describeYourMaterialCase,
-            hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
-            filled: true,
-            fillColor: AppColors.whiteColor,
-            border: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(AppSizes.r12),
+    return Form(
+      key: formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            AppStrings.description,
+            style: TextStyle(
+              fontSize: AppSizes.sp16,
+              fontWeight: FontWeight.w400,
+              color: AppColors.textPrimary,
             ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.primary),
-              borderRadius: BorderRadius.circular(AppSizes.r12),
+          ),
+          SizedBox(height: AppSizes.h8),
+
+          TextFormField(
+            maxLines: 5,
+            decoration: InputDecoration(
+              hintText: AppStrings.describeYourMaterialCase,
+              hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
+              filled: true,
+              fillColor: AppColors.whiteColor,
+              border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(AppSizes.r12),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: AppColors.primary),
+                borderRadius: BorderRadius.circular(AppSizes.r12),
+              ),
             ),
           ),
           validator: (value) {

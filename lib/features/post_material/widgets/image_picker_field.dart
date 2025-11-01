@@ -2,9 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
-import 'package:nha_228/core/constants/app_strings.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 
 class ImagePickerField extends StatefulWidget {
@@ -44,24 +42,24 @@ class _ImagePickerFieldState extends State<ImagePickerField> {
           children: [
             _selectedImage != null
                 ? ClipRRect(
-                    borderRadius: BorderRadius.circular(AppSizes.r8),
-                    child: Image.file(
-                      _selectedImage!,
-                      height: AppSizes.h150,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
-                  )
-                : Column(
-                    children: [
-                      const Icon(Icons.add_a_photo_outlined, size: 40),
-                      SizedBox(height: AppSizes.h8),
-                      Text(
-                        AppStrings.tapToUploadImage,
-                        style: TextStyle(color: AppColors.addAPhotoOutlined),
-                      ),
-                    ],
+                  borderRadius: BorderRadius.circular(AppSizes.r8),
+                  child: Image.file(
+                    _selectedImage!,
+                    height: AppSizes.h150,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
                   ),
+                )
+                : Column(
+                  children: [
+                    const Icon(Icons.add_a_photo_outlined, size: 40),
+                    SizedBox(height: AppSizes.h8),
+                    Text(
+                      AppStrings.tapToUploadImage,
+                      style: TextStyle(color: AppColors.addAPhotoOutlined),
+                    ),
+                  ],
+                ),
           ],
         ),
       ),

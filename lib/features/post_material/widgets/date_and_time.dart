@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
-import 'package:nha_228/core/constants/app_strings.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 
 class DateAndTime extends StatefulWidget {
@@ -14,6 +12,7 @@ class DateAndTime extends StatefulWidget {
 }
 
 class _DateAndTimeState extends State<DateAndTime> {
+  bool scheduleEnabled = false;
   DateTime? selectedDate;
   TimeOfDay? selectedTime;
 
@@ -36,16 +35,17 @@ class _DateAndTimeState extends State<DateAndTime> {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<PostMaterialCubit>();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               AppStrings.scheduleDelivery,
               style: TextStyle(
-                fontSize: AppSizes.sp16,
+                fontSize: AppSizes.sp18,
                 fontWeight: FontWeight.w400,
                 color: AppColors.textPrimary,
               ),

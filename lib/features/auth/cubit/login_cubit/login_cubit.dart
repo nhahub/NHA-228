@@ -1,0 +1,47 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:meta/meta.dart';
+import 'package:nha_228/core/core.dart';
+
+part 'login_state.dart';
+
+class LoginCubit extends Cubit<LoginState> {
+  LoginCubit() : super(LoginInitial());
+
+  Future<void> loginUser({required String email, required String password}) async {
+    emit(LoginLoading());
+    try {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      final user = credential.user;
+      if (user != null) {
+        final userModel = await FirestorUser().getUser(user.uid);
+        if (userModel != null) {
+          try {
+            await HiveManager().saveUser(userModel);
+            emit(LoginSuccess(user: credential.user));
+          } catch (e) {
+            emit(LoginFailure(error: AppStrings.failedToSaveLocal));
+          }
+        } else {
+          emit(LoginFailure(error: AppStrings.userDataNotFound));
+        }
+      } else {
+        emit(LoginFailure(error: AppStrings.userNotFound));
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        emit(LoginFailure(error: AppStrings.userNotFound));
+      } else if (e.code == 'wrong-password') {
+        emit(LoginFailure(error: AppStrings.wrongPassword));
+      } else {
+        emit(LoginFailure(error: AppStrings.emailOrPasswordWrong));
+      }
+    } catch (e) {
+      emit(LoginFailure(error: e.toString()));
+    }
+  }
+}

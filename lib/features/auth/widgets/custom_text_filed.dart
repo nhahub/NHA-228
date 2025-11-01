@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
+import 'package:nha_228/core/core.dart';
+
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
@@ -10,6 +10,7 @@ class CustomTextField extends StatefulWidget {
     this.validator,
     this.keyboardType,
     this.isPassword = false,
+    this.readOnly = false,
   });
 
   final String? hintText;
@@ -17,6 +18,7 @@ class CustomTextField extends StatefulWidget {
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final bool isPassword;
+  final bool readOnly;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -34,14 +36,15 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding:  EdgeInsets.all(AppSizes.w8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (widget.hintText != null)
             Text(widget.hintText!, style: Theme.of(context).textTheme.labelMedium),
-          const SizedBox(height: 6),
+           SizedBox(height:AppSizes.h6),
           TextFormField(
+            readOnly: widget.readOnly,
             controller: widget.controller,
             validator: widget.validator,
             keyboardType: widget.keyboardType,
@@ -69,7 +72,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       ? IconButton(
                         icon: Icon(
                           _obscure ? Icons.visibility_off : Icons.visibility,
-                          color: Colors.grey,
+                          color: AppColors.grey,
                         ),
                         onPressed: () {
                           setState(() {

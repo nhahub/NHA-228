@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/home/models/waste_item_model.dart';
 
 class CustomElevatedItemBotton extends StatelessWidget {
@@ -28,14 +27,17 @@ class CustomElevatedItemBotton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
-                child: Text(
-                  item.title,
-                  maxLines: 2,
-                  style: Theme.of(context).textTheme.displaySmall,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    item.title,
+                    maxLines: 2,
+                    style: Theme.of(context).textTheme.displaySmall,
+                  ),
                 ),
               ),
 
-              Icon(Icons.arrow_forward_ios, color: Colors.white),
+              //Icon(Icons.arrow_forward_ios, color: Colors.white),
             ],
           ),
         ),

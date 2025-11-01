@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
-import 'package:nha_228/core/constants/app_strings.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/home/home_constants/category_values.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 
@@ -18,9 +16,13 @@ class MaterialGrid extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-         Text(
+        Text(
           AppStrings.chooseAMaterialType,
-          style: TextStyle(fontSize: AppSizes.sp18, fontWeight: FontWeight.w400, color: AppColors.textPrimary),
+          style: TextStyle(
+            fontSize: AppSizes.sp18,
+            fontWeight: FontWeight.w400,
+            color: AppColors.textPrimary,
+          ),
         ),
         SizedBox(height: AppSizes.h12),
 
@@ -80,7 +82,10 @@ class MaterialGrid extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
-                        color: isSelected ? AppColors.whiteColor : AppColors.chooseMaterialIsNotSelected,
+                        color:
+                            isSelected
+                                ? AppColors.whiteColor
+                                : AppColors.chooseMaterialIsNotSelected,
                       ),
                     ),
                   ],

@@ -1,30 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:nha_228/core/core.dart';
 
 class AuthRedirectText extends StatelessWidget {
   const AuthRedirectText({
     super.key,
-    required this.message,
+    this.message,
     required this.actionText,
     required this.onTap,
+    this.alignment = MainAxisAlignment.center,
   });
 
-  final String message;
+  final String? message;
   final String actionText;
   final VoidCallback onTap;
-
+  final MainAxisAlignment alignment;
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: alignment,
       children: [
-        Text(
-          message,
-          // "Already have an account?",
-          style: TextStyle(color: Color(0xff828282)),
-        ),
+        Text(message ?? '', style: TextStyle(color: AppColors.authRedirectText)),
         TextButton(
           onPressed: onTap,
-          child: Text(actionText, style: TextStyle(color: Color(0xff04332D))),
+          child: Text(actionText, style: TextStyle(color: AppColors.secondary)),
         ),
       ],
     );

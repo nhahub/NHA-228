@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
+import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 
 class QuantitySelector extends StatelessWidget {
@@ -30,12 +29,19 @@ class QuantitySelector extends StatelessWidget {
                 children: [
                   Text(
                     "Quantity (${quantity.toStringAsFixed(0)} kg)",
-                    style: TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.w600, color: AppColors.labelColor),
+                    style: TextStyle(
+                      fontSize: AppSizes.sp16,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.labelColor,
+                    ),
                   ),
                   SizedBox(height: AppSizes.h4),
                   Text(
                     "Total: ${totalPrice.toStringAsFixed(1)} EGP",
-                    style: TextStyle(fontSize: AppSizes.sp14, color: AppColors.totalColor),
+                    style: TextStyle(
+                      fontSize: AppSizes.sp14,
+                      color: AppColors.grey,
+                    ),
                   ),
                 ],
               ),

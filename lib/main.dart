@@ -1,16 +1,10 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nha_228/core/services/hive_service.dart';
-import 'package:nha_228/core/theme/app_theme.dart';
-import 'package:nha_228/core/utils/app_routers.dart';
-import 'package:nha_228/firebase_options.dart';
-
+import 'package:nha_228/core/core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await HiveManager().init();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  AppInitialize().intializrStings();
   runApp(const Krakibak());
 }
 
