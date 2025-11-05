@@ -4,9 +4,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:nha_228/core/core.dart';
+import 'package:nha_228/core/cubit/theme_cubit.dart';
 import 'package:nha_228/features/profile/cubit/profile_cubit.dart';
 import 'package:nha_228/features/profile/utils/image_helper.dart';
-import 'package:nha_228/features/profile/widgets/custom_elevated_button.dart';
 import 'package:nha_228/features/profile/widgets/data_info_filed.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -75,12 +75,17 @@ class ProfileScreen extends StatelessWidget {
                       radius: AppSizes.r50,
                       backgroundImage: getUserImage(userModel.photoUrl),
                     ),
-
-                    SizedBox(height: AppSizes.h60),
-
-                    DataInfoFiled(
-                      data: '${userModel.firstName ?? ''} ${userModel.lastName ?? ''}',
+                    SizedBox(height: AppSizes.h10),
+                    Text(
+                      '${userModel.firstName ?? ''} ${userModel.lastName ?? ''}',
+                      style: Theme.of(context).textTheme.labelMedium,
                     ),
+
+                    // SizedBox(height: AppSizes.h60),
+
+                    // DataInfoFiled(
+                    //   data: '${userModel.firstName ?? ''} ${userModel.lastName ?? ''}',
+                    // ),
                     SizedBox(height: AppSizes.h20),
                     DataInfoFiled(data: userModel.email ?? ''),
                     SizedBox(height: AppSizes.h20),
@@ -94,12 +99,50 @@ class ProfileScreen extends StatelessWidget {
                               ? DateFormat('dd/MM/yyyy').format(userModel.dateOfBirth!)
                               : '',
                     ),
+                    SizedBox(height: AppSizes.h20),
+                    ListTile(
+                      onTap: () => context.read<ProfileCubit>().logout(),
+                      leading: SvgPicture.asset(
+                        AppAssets.logout,
+                        colorFilter: ColorFilter.mode(
+                          AppColors.navBarColor,
+                          BlendMode.srcIn,
+                        ),
+                      ),
+
+                      title: Text(
+                        AppStrings.logout,
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
+                    ),
+                    BlocBuilder<ThemeCubit, ThemeMode>(
+                      builder: (context, state) {
+                        return ListTile(
+                          leading: SvgPicture.asset(
+                            AppAssets.moon,
+                            colorFilter: ColorFilter.mode(
+                              AppColors.navBarColor,
+                              BlendMode.srcIn,
+                            ),
+                            width: AppSizes.w24,
+                            height: AppSizes.h24,
+                          ),
+                          title: Text(
+                            AppStrings.darkMode,
+                            style: Theme.of(context).textTheme.labelMedium,
+                          ),
+                          trailing: Switch(
+                            activeColor: AppColors.primary,
+                            value: state == ThemeMode.dark,
+                            onChanged:
+                                (valu) => context.read<ThemeCubit>().selectedTheme(),
+                            thumbColor: WidgetStatePropertyAll(AppColors.navBarColor),
+                          ),
+                        );
+                      },
+                    ),
 
                     SizedBox(height: AppSizes.h40),
-                    CustomElevatedButton(
-                      title: AppStrings.logout,
-                      onPressed: () => context.read<ProfileCubit>().logout(),
-                    ),
                   ],
                 ),
               ),

@@ -5,7 +5,7 @@ import 'package:nha_228/core/constants/app_sizes.dart';
 ThemeData darkTheme() {
   return ThemeData(
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: AppDarkColors.darkBackground,
+    scaffoldBackgroundColor: AppDarkColors.scaffoldBackgroundColor,
     primaryColor: AppDarkColors.primary,
     textTheme: TextTheme(
       titleLarge: TextStyle(
@@ -16,17 +16,22 @@ ThemeData darkTheme() {
       titleMedium: TextStyle(
         fontSize: AppSizes.sp24,
         fontWeight: FontWeight.w400,
-        color: Colors.white70,
+        color: AppDarkColors.whiteColor,
+      ),
+      titleSmall: TextStyle(
+        fontSize: AppSizes.sp14,
+        fontWeight: FontWeight.w400,
+        color: AppDarkColors.whiteColor,
       ),
       labelMedium: TextStyle(
         fontSize: AppSizes.sp16,
         fontWeight: FontWeight.w400,
-        color: Colors.white60,
+        color: AppDarkColors.whiteColor,
       ),
       bodySmall: TextStyle(
         fontSize: AppSizes.sp12,
         fontWeight: FontWeight.w400,
-        color: Colors.grey[400],
+        color: AppDarkColors.grey300,
       ),
       displaySmall: TextStyle(
         fontSize: AppSizes.sp12,
@@ -50,13 +55,23 @@ ThemeData darkTheme() {
         fontWeight: FontWeight.bold,
         color: AppDarkColors.skipButtonColor,
       ),
+      headlineMedium: TextStyle(
+        fontSize: AppSizes.sp16,
+        fontWeight: FontWeight.w500,
+        color: AppDarkColors.whiteColor,
+      ),
+      labelSmall: TextStyle(
+        fontSize: AppSizes.sp16,
+        fontWeight: FontWeight.w500,
+        color: AppDarkColors.whiteColor,
+      ),
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: AppDarkColors.darkBackground,
+      backgroundColor: AppDarkColors.scaffoldBackgroundColor,
       elevation: 0,
-      iconTheme: IconThemeData(color: Colors.white),
+      iconTheme: IconThemeData(color: AppDarkColors.whiteColor),
       titleTextStyle: TextStyle(
-        color: Colors.white,
+        color: AppDarkColors.whiteColor,
         fontSize: AppSizes.sp24,
         fontWeight: FontWeight.w600,
       ),
@@ -64,7 +79,7 @@ ThemeData darkTheme() {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         backgroundColor: WidgetStatePropertyAll(AppDarkColors.focusedBorderColor),
-        foregroundColor: WidgetStatePropertyAll(Colors.white),
+        foregroundColor: WidgetStatePropertyAll(AppDarkColors.whiteColor),
         shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSizes.r4)),
         ),
@@ -73,11 +88,11 @@ ThemeData darkTheme() {
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppDarkColors.darkTextFieldFill,
-      prefixIconColor: Colors.white70,
+      prefixIconColor: AppDarkColors.whiteColor,
       hintStyle: TextStyle(
         fontSize: AppSizes.sp14,
         fontWeight: FontWeight.w400,
-        color: Colors.grey[500],
+        color: AppDarkColors.grey500,
       ),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(AppSizes.r10),
@@ -100,5 +115,12 @@ ThemeData darkTheme() {
         borderSide: BorderSide(color: AppDarkColors.errorBorderColor),
       ),
     ),
+    cardTheme: CardTheme(color: AppDarkColors.textFieldFillColor),
+    bottomAppBarTheme: BottomAppBarTheme(
+      shape: CircularNotchedRectangle(),
+      height: AppSizes.h60,
+      color: AppDarkColors.navBarColor,
+    ),
+    cardColor: AppDarkColors.categoryBackground,
   );
 }

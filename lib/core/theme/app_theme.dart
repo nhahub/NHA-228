@@ -18,25 +18,15 @@ ThemeData appTheme() {
         fontWeight: FontWeight.w400,
         color: AppColors.whiteColor,
       ),
-      labelMedium: TextStyle(
-        fontSize: AppSizes.sp16,
-        fontWeight: FontWeight.w400,
-        color: AppColors.labelMediumColor,
-      ),
-      bodySmall: TextStyle(
-        fontSize: AppSizes.sp12,
-        fontWeight: FontWeight.w400,
-        color: AppColors.hintTextColor,
-      ),
-      headlineMedium: TextStyle(
-        fontSize: AppSizes.sp16,
-        fontWeight: FontWeight.w500,
-        color: AppColors.whiteColor,
-      ),
       titleSmall: TextStyle(
         fontSize: AppSizes.sp14,
         fontWeight: FontWeight.w400,
         color: AppColors.onboardTextColor,
+      ),
+      labelMedium: TextStyle(
+        fontSize: AppSizes.sp16,
+        fontWeight: FontWeight.w400,
+        color: AppColors.labelMediumColor,
       ),
       labelSmall: TextStyle(
         fontSize: AppSizes.sp16,
@@ -48,27 +38,37 @@ ThemeData appTheme() {
         fontWeight: FontWeight.w600,
         color: AppColors.skipButtonColor,
       ),
-      displaySmall: TextStyle(
+      bodySmall: TextStyle(
         fontSize: AppSizes.sp12,
-        color: AppColors.textPrimary,
-        fontWeight: FontWeight.w600,
-      ),
-      displayMedium: TextStyle(fontSize: AppSizes.sp18, fontWeight: FontWeight.bold),
-      headlineSmall: TextStyle(
-        fontSize: AppSizes.sp24,
-        color: AppColors.appBar,
-        fontFamily: 'otama.ep',
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w400,
+        color: AppColors.hintTextColor,
       ),
       headlineLarge: TextStyle(
         fontSize: AppSizes.sp14,
         color: AppColors.otpVerificationScreenTextColor,
         fontWeight: FontWeight.w400,
       ),
+      headlineMedium: TextStyle(
+        fontSize: AppSizes.sp16,
+        fontWeight: FontWeight.w500,
+        color: AppColors.whiteColor,
+      ),
       displayLarge: TextStyle(
         fontSize: AppSizes.sp16,
         fontWeight: FontWeight.bold,
         color: AppColors.skipButtonColor,
+      ),
+      displayMedium: TextStyle(fontSize: AppSizes.sp18, fontWeight: FontWeight.bold),
+      displaySmall: TextStyle(
+        fontSize: AppSizes.sp12,
+        color: AppColors.textPrimary,
+        fontWeight: FontWeight.w600,
+      ),
+      headlineSmall: TextStyle(
+        fontSize: AppSizes.sp24,
+        color: AppColors.appBar,
+        fontFamily: 'otama.ep',
+        fontWeight: FontWeight.bold,
       ),
     ),
     appBarTheme: AppBarTheme(
@@ -130,5 +130,12 @@ ThemeData appTheme() {
         vertical: AppSizes.h12,
       ),
     ),
+    cardTheme: CardTheme(color: AppColors.textFieldFillColor),
+    bottomAppBarTheme: BottomAppBarTheme(
+      shape: CircularNotchedRectangle(),
+      height: AppSizes.h60,
+      color: AppColors.navBarColor,
+    ),
+    cardColor: AppColors.categoryBackground,
   );
 }

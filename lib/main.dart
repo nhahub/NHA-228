@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nha_228/core/core.dart';
+import 'package:nha_228/core/cubit/theme_cubit.dart';
 import 'package:nha_228/core/theme/dark_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  AppInitialize().intializrStings();
-  runApp(const Krakibak());
+  await AppInitialize().intializrStings();
+  runApp(BlocProvider(create: (context) => ThemeCubit(), child: const Krakibak()));
 }
 
 class Krakibak extends StatelessWidget {
@@ -19,10 +21,16 @@ class Krakibak extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp.router(
-          routerConfig: AppRouter.router,
-          debugShowCheckedModeBanner: false,
-          theme: darkTheme(),
+        return BlocBuilder<ThemeCubit, ThemeMode>(
+          builder: (context, state) {
+            return MaterialApp.router(
+              routerConfig: AppRouter.router,
+              debugShowCheckedModeBanner: false,
+              themeMode: state,
+              theme: appTheme(),
+              darkTheme: darkTheme(),
+            );
+          },
         );
       },
     );

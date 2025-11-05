@@ -36,7 +36,4 @@ class AppColors {
   static final authRedirectText = Color(0xff828282);
   static final grey300 = Colors.grey.shade300;
   static final lightGreyTransparent = Color(0x339E9E9E);
-
-  static const Color darkBackground = Color(0xFF121212);
-  static const Color darkTextFieldFill = Color(0xFF1E1E1E);
 }

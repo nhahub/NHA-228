@@ -25,7 +25,6 @@ class _CustomNavBarState extends State<CustomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       body: AnimatedSwitcher(
         duration: const Duration(milliseconds: 350),
@@ -63,7 +62,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
         shape: const CircularNotchedRectangle(),
         notchMargin: AppSizes.h8,
         height: AppSizes.h60,
-        color: isDark ? AppDarkColors.navBarColor : AppColors.navBarColor,
+        color: Theme.of(context).bottomAppBarTheme.color,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

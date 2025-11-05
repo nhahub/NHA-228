@@ -21,7 +21,6 @@ class _GenderDropdownFieldState extends State<GenderDropdownField> {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -50,10 +49,7 @@ class _GenderDropdownFieldState extends State<GenderDropdownField> {
             buttonStyleData: ButtonStyleData(
               padding: EdgeInsets.symmetric(horizontal: AppSizes.w8),
               decoration: BoxDecoration(
-                color:
-                    isDark
-                        ? AppDarkColors.textFieldFillColor
-                        : AppColors.textFieldFillColor,
+                color: Theme.of(context).inputDecorationTheme.fillColor,
                 borderRadius: BorderRadius.circular(AppSizes.r10),
                 border: Border.all(color: AppColors.boarderColor),
               ),
@@ -61,7 +57,7 @@ class _GenderDropdownFieldState extends State<GenderDropdownField> {
 
             dropdownStyleData: DropdownStyleData(
               decoration: BoxDecoration(
-                color: AppColors.primary,
+                color: Theme.of(context).inputDecorationTheme.fillColor,
                 borderRadius: BorderRadius.circular(AppSizes.sp14),
               ),
             ),
