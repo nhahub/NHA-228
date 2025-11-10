@@ -36,7 +36,7 @@ class _ImagePickerFieldState extends State<ImagePickerField> {
         decoration: BoxDecoration(
           border: Border.all(color: AppColors.borderSide),
           borderRadius: BorderRadius.circular(AppSizes.r12),
-          color: Colors.grey.shade100,
+          color: Theme.of(context).cardTheme.color,
         ),
         child: Column(
           children: [
@@ -56,7 +56,7 @@ class _ImagePickerFieldState extends State<ImagePickerField> {
                     SizedBox(height: AppSizes.h8),
                     Text(
                       AppStrings.tapToUploadImage,
-                      style: TextStyle(color: AppColors.addAPhotoOutlined),
+                      style: Theme.of(context).textTheme.labelMedium,
                     ),
                   ],
                 ),

@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
 
               Text(
                 AppStrings.materialsPosted,
-                style: TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.displayLarge,
               ),
 
               SizedBox(height: AppSizes.h16),

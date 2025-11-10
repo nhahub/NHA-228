@@ -36,6 +36,15 @@ class HiveManager {
     return _userBox.get('user');
   }
 
+  loadTheme() {
+    return getBool('isDark');
+  }
+
+  selectTheme() async {
+    final isDark = loadTheme();
+    await setBool('isDark', !isDark);
+  }
+
   void updateUser({
     String? firstName,
     String? lastName,

@@ -12,17 +12,14 @@ class MaterialGrid extends StatelessWidget {
     final cubit = context.watch<PostMaterialCubit>();
     final state = cubit.state;
     final wasteItems = CategoryValues.wasteItems;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           AppStrings.chooseAMaterialType,
-          style: TextStyle(
-            fontSize: AppSizes.sp18,
-            fontWeight: FontWeight.w400,
-            color: AppColors.textPrimary,
-          ),
+          style: Theme.of(context).textTheme.labelMedium,
         ),
         SizedBox(height: AppSizes.h12),
 
@@ -52,6 +49,8 @@ class MaterialGrid extends StatelessWidget {
                   color:
                       isSelected
                           ? AppColors.primary.withValues(alpha: 0.15)
+                          : isDark
+                          ? AppDarkColors.grey
                           : AppColors.whiteColor,
                   borderRadius: BorderRadius.circular(AppSizes.r16),
                   border: Border.all(

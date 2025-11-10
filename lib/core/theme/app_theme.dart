@@ -4,11 +4,12 @@ import 'package:nha_228/core/constants/app_sizes.dart';
 
 ThemeData appTheme() {
   return ThemeData(
+    brightness: Brightness.light,
     scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
-     primaryColor: AppColors.primary,
+    primaryColor: AppColors.primary,
     textTheme: TextTheme(
       titleLarge: TextStyle(
-        fontSize: AppSizes.sp38 ,
+        fontSize: AppSizes.sp38,
         fontWeight: FontWeight.w400,
         color: AppColors.textPrimary,
       ),
@@ -17,25 +18,15 @@ ThemeData appTheme() {
         fontWeight: FontWeight.w400,
         color: AppColors.whiteColor,
       ),
-      labelMedium: TextStyle(
-        fontSize: AppSizes.sp16,
-        fontWeight: FontWeight.w400,
-        color: AppColors.labelMediumColor,
-      ),
-      bodySmall: TextStyle(
-        fontSize: AppSizes.sp12,
-        fontWeight: FontWeight.w400,
-        color: AppColors.hintTextColor,
-      ),
-      headlineMedium: TextStyle(
-        fontSize: AppSizes.sp16,
-        fontWeight: FontWeight.w500,
-        color: AppColors.whiteColor,
-      ),
       titleSmall: TextStyle(
         fontSize: AppSizes.sp14,
         fontWeight: FontWeight.w400,
         color: AppColors.onboardTextColor,
+      ),
+      labelMedium: TextStyle(
+        fontSize: AppSizes.sp16,
+        fontWeight: FontWeight.w400,
+        color: AppColors.labelMediumColor,
       ),
       labelSmall: TextStyle(
         fontSize: AppSizes.sp16,
@@ -47,25 +38,37 @@ ThemeData appTheme() {
         fontWeight: FontWeight.w600,
         color: AppColors.skipButtonColor,
       ),
+      bodySmall: TextStyle(
+        fontSize: AppSizes.sp12,
+        fontWeight: FontWeight.w400,
+        color: AppColors.hintTextColor,
+      ),
+      headlineLarge: TextStyle(
+        fontSize: AppSizes.sp14,
+        color: AppColors.otpVerificationScreenTextColor,
+        fontWeight: FontWeight.w400,
+      ),
+      headlineMedium: TextStyle(
+        fontSize: AppSizes.sp16,
+        fontWeight: FontWeight.w500,
+        color: AppColors.whiteColor,
+      ),
+      displayLarge: TextStyle(
+        fontSize: AppSizes.sp16,
+        fontWeight: FontWeight.bold,
+        color: AppColors.skipButtonColor,
+      ),
+      displayMedium: TextStyle(fontSize: AppSizes.sp18, fontWeight: FontWeight.bold),
       displaySmall: TextStyle(
         fontSize: AppSizes.sp12,
         color: AppColors.textPrimary,
         fontWeight: FontWeight.w600,
-      ),
-      displayMedium: TextStyle(
-        fontSize: AppSizes.sp18,
-        fontWeight: FontWeight.bold
       ),
       headlineSmall: TextStyle(
         fontSize: AppSizes.sp24,
         color: AppColors.appBar,
         fontFamily: 'otama.ep',
         fontWeight: FontWeight.bold,
-      ),
-      headlineLarge: TextStyle(
-        fontSize: AppSizes.sp14,
-        color: AppColors.otpVerificationScreenTextColor,
-        fontWeight: FontWeight.w400,
       ),
     ),
     appBarTheme: AppBarTheme(
@@ -93,5 +96,46 @@ ThemeData appTheme() {
         ),
       ),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: AppColors.textFieldFillColor,
+      prefixIconColor: AppColors.secondary,
+      hintStyle: TextStyle(
+        fontSize: AppSizes.sp14,
+        fontWeight: FontWeight.w400,
+        color: AppColors.hintTextColor,
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppSizes.r10),
+        borderSide: BorderSide(color: AppColors.boarderColor),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppSizes.r10),
+        borderSide: BorderSide(color: AppColors.boarderColor),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppSizes.r10),
+        borderSide: BorderSide(color: AppColors.focusedBorderColor),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppSizes.r10),
+        borderSide: BorderSide(color: AppColors.errorBorderColor),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppSizes.r10),
+        borderSide: BorderSide(color: AppColors.errorBorderColor),
+      ),
+      contentPadding: EdgeInsets.symmetric(
+        horizontal: AppSizes.w12,
+        vertical: AppSizes.h12,
+      ),
+    ),
+    cardTheme: CardTheme(color: AppColors.textFieldFillColor),
+    bottomAppBarTheme: BottomAppBarTheme(
+      shape: CircularNotchedRectangle(),
+      height: AppSizes.h60,
+      color: AppColors.navBarColor,
+    ),
+    cardColor: AppColors.categoryBackground,
   );
 }

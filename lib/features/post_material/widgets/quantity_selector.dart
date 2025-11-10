@@ -17,7 +17,7 @@ class QuantitySelector extends StatelessWidget {
         return Container(
           padding: EdgeInsets.symmetric(horizontal: AppSizes.w16, vertical: AppSizes.h14),
           decoration: BoxDecoration(
-            color: AppColors.whiteColor,
+            color: Theme.of(context).inputDecorationTheme.fillColor,
             borderRadius: BorderRadius.circular(AppSizes.r12),
             border: Border.all(color: AppColors.borderSide),
           ),
@@ -38,10 +38,7 @@ class QuantitySelector extends StatelessWidget {
                   SizedBox(height: AppSizes.h4),
                   Text(
                     "Total: ${totalPrice.toStringAsFixed(1)} EGP",
-                    style: TextStyle(
-                      fontSize: AppSizes.sp14,
-                      color: AppColors.grey,
-                    ),
+                    style: TextStyle(fontSize: AppSizes.sp14, color: AppColors.grey),
                   ),
                 ],
               ),
