@@ -20,7 +20,6 @@ class PostMaterialScreen extends StatelessWidget {
     return BlocProvider(
       create: (_) => PostMaterialCubit(),
       child: Scaffold(
-        backgroundColor: AppColors.primary,
         appBar: CustomAppBar(title: AppStrings.postingMaterials),
         body: Padding(
           padding: const EdgeInsets.all(16),

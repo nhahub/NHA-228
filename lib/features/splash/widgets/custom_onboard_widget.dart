@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nha_228/core/core.dart';
+
 class CustomOnboardingWidget extends StatelessWidget {
   final String imagePath;
   final String text;
@@ -14,7 +15,7 @@ class CustomOnboardingWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset(imagePath),
-           SizedBox(height: AppSizes.h40),
+          SizedBox(height: AppSizes.h40),
           Text(
             text,
             textAlign: TextAlign.center,

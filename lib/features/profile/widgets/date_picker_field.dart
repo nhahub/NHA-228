@@ -55,23 +55,12 @@ class _DatePickerFieldState extends State<DatePickerField> {
             readOnly: true,
             decoration: InputDecoration(
               hintText: AppStrings.dateOfBirth,
-              filled: true,
-              fillColor: AppColors.textFieldFillColor,
+
               suffixIcon: IconButton(
                 onPressed: () {
                   selectDate();
                 },
                 icon: Icon(Icons.calendar_month),
-              ),
-
-              border: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(AppSizes.r10),
-              ),
-
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(AppSizes.r10),
               ),
             ),
           ),

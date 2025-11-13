@@ -12,33 +12,19 @@ class DescriptionField extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = context.read<PostMaterialCubit>();
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          AppStrings.description,
-          style: TextStyle(
-            fontSize: AppSizes.sp16,
-            fontWeight: FontWeight.w400,
-            color: AppColors.textPrimary,
-          ),
-        ),
-        SizedBox(height: AppSizes.h8),
-        TextFormField(
-          maxLines: 5,
-          cursorColor: AppColors.success,
-          decoration: InputDecoration(
-            hintText: AppStrings.describeYourMaterialCase,
-            hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
-            filled: true,
-            fillColor: AppColors.whiteColor,
-            border: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(AppSizes.r12),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.primary),
-              borderRadius: BorderRadius.circular(AppSizes.r12),
+    return Form(
+      key: formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(AppStrings.description, style: Theme.of(context).textTheme.labelMedium),
+          SizedBox(height: AppSizes.h8),
+
+          TextFormField(
+            maxLines: 5,
+            decoration: InputDecoration(
+              hintText: AppStrings.describeYourMaterialCase,
+              hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
             ),
           ),
           validator: (value) {

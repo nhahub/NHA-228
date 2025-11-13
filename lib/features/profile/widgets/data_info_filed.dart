@@ -10,7 +10,7 @@ class DataInfoFiled extends StatelessWidget {
       height: AppSizes.h56,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: AppColors.textFieldFillColor,
+        color: Theme.of(context).inputDecorationTheme.fillColor,
         borderRadius: BorderRadius.circular(AppSizes.r10),
       ),
       child: Align(

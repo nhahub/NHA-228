@@ -60,7 +60,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
                         await user.updatePassword(newPasswordController.text.trim());
                         CustomSnackBar.show(
                           context,
-                           AppStrings.passwordUpdated,
+                          AppStrings.passwordUpdated,
                           backgroundColor: AppColors.secondary,
                         );
                         context.go(AppRouter.loginScreen);

@@ -9,6 +9,7 @@ class CustomMaterialList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return StreamBuilder<QuerySnapshot>(
       stream:
           FirebaseFirestore.instance
@@ -41,7 +42,13 @@ class CustomMaterialList extends StatelessWidget {
               padding: EdgeInsets.all(AppSizes.h12),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [AppColors.navBarColor, AppColors.categoryFoot],
+                  colors:
+                      isDark
+                          ? [
+                            AppDarkColors.categoryBackground,
+                            AppDarkColors.cardDarkColor,
+                          ]
+                          : [AppColors.navBarColor, AppColors.categoryFoot],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
@@ -105,7 +112,10 @@ class CustomMaterialList extends StatelessWidget {
                           style: TextStyle(
                             fontSize: AppSizes.sp16,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.skipButtonColor,
+                            color:
+                                isDark
+                                    ? AppDarkColors.categoryFoot
+                                    : AppColors.skipButtonColor,
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),

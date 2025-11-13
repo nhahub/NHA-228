@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:nha_228/features/auth/models/user_model.dart';
 import 'package:nha_228/features/auth/widgets/custom_text_filed.dart';
 import 'package:nha_228/features/profile/cubit/profile_cubit.dart';
+import 'package:nha_228/features/profile/widgets/custom_elevated_button.dart';
 import 'package:nha_228/features/profile/widgets/date_picker_field.dart';
 import 'package:nha_228/features/profile/widgets/gender_drop_down_field.dart';
 
@@ -112,7 +113,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         onDateSelected: (value) => selectedDate = value,
                       ),
                       SizedBox(height: AppSizes.h20),
-                      CustomButton(
+                      CustomElevatedButton(
                         title: AppStrings.save,
                         onPressed: () async {
                           UserModel updatedUser = UserModel(

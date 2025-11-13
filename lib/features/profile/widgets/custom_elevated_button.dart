@@ -12,6 +12,7 @@ class CustomElevatedButton extends StatelessWidget {
     return ElevatedButton.icon(
       label: Text(title),
       style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.navBarColor,
         minimumSize: Size(MediaQuery.of(context).size.width, AppSizes.h54),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSizes.r14)),
       ),
