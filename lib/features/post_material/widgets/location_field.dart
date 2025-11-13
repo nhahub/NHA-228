@@ -15,12 +15,30 @@ class LocationField extends StatelessWidget {
       children: [
         Text(AppStrings.yourLocation, style: Theme.of(context).textTheme.labelMedium),
         SizedBox(height: AppSizes.h8),
-        TextField(
+        TextFormField(
+          maxLines: 3,
+          cursorColor: AppColors.success,
           decoration: InputDecoration(
             hintText: AppStrings.enterYourLocation,
             hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
+            filled: true,
+            fillColor: AppColors.whiteColor,
+            border: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(AppSizes.r12),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: AppColors.primary),
+              borderRadius: BorderRadius.circular(AppSizes.r12),
+            ),
           ),
-          onChanged: (val) => cubit.setLocation(val),
+          validator: (value) {
+            if (value == null || value.trim().isEmpty) {
+              return "Please enter your location";
+            }
+            return null;
+          },
+          onChanged: (val) => cubit.setLocation(val.trim()),
         ),
       ],
     );

@@ -88,7 +88,6 @@ class AppStrings {
   static const String selectDate = "Select date";
   static const String preferredTime = "Preferred time";
   static const String selectTime = "Select time";
-  static const String location = "location";
   static const String address = "address";
   static const String enterYourAddress = "Enter Your Address";
   static const String postRequest = "Post the request";
@@ -131,8 +130,8 @@ class AppStrings {
       "No verification ID. Please request a new code.";
   static const String incorrectCode = "Incorrect code";
   static const String codeSuccessfullyVerified = "Code successfully verified!";
+
   static const String chooseADate = "Choose a date";
-  static const String deliveryLocation = "Delivery location (optional)";
   static const String chooseTime = "Choose a time";
   static const String scheduleDelivery = "Schedule Delivery";
   static const String description = "Description";
@@ -144,11 +143,20 @@ class AppStrings {
   static const String pleaseFillAllRequiredFields = "Please fill all required fields.";
   static const String tapToUploadImage = "Tap to upload image";
   static const String enterYourLocation = "Enter your location";
-  static const String yourLocation = "Your Location";
+  static const String location = "Location";
   static const String chooseAMaterialType = "Choose a material type:";
   static const String somethingWentWrong = 'Something went wrong';
   static const String materialPostedSuccessfully = "Material posted successfully!";
   static const String startedPostingMaterial = "Started posting material...";
+  static const String whatsAppNumber = "WhatsApp Number";
+  static const String hintWhatsAppNumber = "EX: 0123456789";
+  static const String invalidWhatsAppNumber = "Enter a valid WhatsApp Number";
+  static const String pleaseEnterAWhatsAppNumber = "Please Enter a WhatsApp";
+
+  static const String deliveryLocation = "Delivery location (optional)";
+
+  static const String yourLocation = "Your Location";
+
   static const String profile = "Profile";
   static const String forgetPasswordRedirect = "Forgot password?";
   static const String logout = "Logout";

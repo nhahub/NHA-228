@@ -50,95 +50,68 @@ class _DateAndTimeState extends State<DateAndTime> {
                 color: AppColors.textPrimary,
               ),
             ),
-            Switch(
-              value: scheduleEnabled,
-              onChanged: (val) {
-                setState(() => scheduleEnabled = val);
-              },
-              activeTrackColor: AppColors.success,
-            ),
           ],
         ),
-
-        if (scheduleEnabled) ...[
-          SizedBox(height: AppSizes.h16),
-
-          GestureDetector(
-            onTap: _pickDate,
-            child: Container(
-              padding: EdgeInsets.all(AppSizes.r14),
-              decoration: BoxDecoration(
-                color: AppColors.whiteColor,
-                borderRadius: BorderRadius.circular(AppSizes.r12),
-                border: Border.all(color: AppColors.borderSide),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    selectedDate != null
-                        ? DateFormat.yMMMd().format(selectedDate!)
-                        : AppStrings.chooseADate,
-                    style: TextStyle(
-                      color:
-                          selectedDate != null
-                              ? AppColors.addAPhotoOutlined
-                              : AppColors.shadow,
-                    ),
+        SizedBox(height: AppSizes.h8),
+        GestureDetector(
+          onTap: _pickDate,
+          child: Container(
+            padding: EdgeInsets.all(AppSizes.r14),
+            decoration: BoxDecoration(
+              color: AppColors.whiteColor,
+              borderRadius: BorderRadius.circular(AppSizes.r12),
+              border: Border.all(color: AppColors.borderSide),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  selectedDate != null
+                      ? DateFormat.yMMMd().format(selectedDate!)
+                      : AppStrings.chooseADate,
+                  style: TextStyle(
+                    color:
+                        selectedDate != null
+                            ? AppColors.addAPhotoOutlined
+                            : AppColors.shadow,
                   ),
-                  Icon(Icons.calendar_today_outlined, color: AppColors.shadow),
-                ],
-              ),
+                ),
+                Icon(Icons.calendar_today_outlined, color: AppColors.shadow),
+              ],
             ),
           ),
+        ),
 
-          SizedBox(height: AppSizes.h16),
+        SizedBox(height: AppSizes.h16),
 
-          GestureDetector(
-            onTap: _pickTime,
-            child: Container(
-              padding: EdgeInsets.all(AppSizes.r14),
-              decoration: BoxDecoration(
-                color: AppColors.whiteColor,
-                borderRadius: BorderRadius.circular(AppSizes.r12),
-                border: Border.all(color: AppColors.borderSide),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    selectedTime != null
-                        ? selectedTime!.format(context)
-                        : AppStrings.chooseTime,
-                    style: TextStyle(
-                      color:
-                          selectedTime != null
-                              ? AppColors.addAPhotoOutlined
-                              : AppColors.shadow,
-                    ),
+        GestureDetector(
+          onTap: _pickTime,
+          child: Container(
+            padding: EdgeInsets.all(AppSizes.r14),
+            decoration: BoxDecoration(
+              color: AppColors.whiteColor,
+              borderRadius: BorderRadius.circular(AppSizes.r12),
+              border: Border.all(color: AppColors.borderSide),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  selectedTime != null
+                      ? selectedTime!.format(context)
+                      : AppStrings.chooseTime,
+                  style: TextStyle(
+                    color:
+                        selectedTime != null
+                            ? AppColors.addAPhotoOutlined
+                            : AppColors.shadow,
                   ),
-                  Icon(Icons.access_time_outlined, color: AppColors.shadow),
-                ],
-              ),
+                ),
+                Icon(Icons.access_time_outlined, color: AppColors.shadow),
+              ],
             ),
           ),
-
-          SizedBox(height: AppSizes.h16),
-
-          TextField(
-            decoration: InputDecoration(
-              hintText: AppStrings.deliveryLocation,
-              hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
-              filled: true,
-              fillColor: AppColors.whiteColor,
-              border: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(AppSizes.r12),
-              ),
-            ),
-            onChanged: (val) => cubit.setLocation(val),
-          ),
-        ],
+        ),
       ],
     );
   }
