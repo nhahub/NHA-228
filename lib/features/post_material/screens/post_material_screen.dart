@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nha_228/core/core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
-import 'package:nha_228/features/post_material/widgets/delivery_schedule_section.dart';
+import 'package:nha_228/features/post_material/widgets/date_and_time.dart';
 import 'package:nha_228/features/post_material/widgets/description_field.dart';
 import 'package:nha_228/features/post_material/widgets/image_picker_field.dart';
 import 'package:nha_228/features/post_material/widgets/location_field.dart';
@@ -34,7 +34,7 @@ class PostMaterialScreen extends StatelessWidget {
               SizedBox(height: AppSizes.h30),
               LocationField(),
               SizedBox(height: AppSizes.h24),
-              DeliveryScheduleSection(),
+              DateAndTime(),
               SizedBox(height: AppSizes.h24),
               SubmitButton(),
             ],
