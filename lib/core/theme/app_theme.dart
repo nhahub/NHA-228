@@ -86,7 +86,6 @@ ThemeData appTheme() {
       color: AppColors.whiteColor,
       circularTrackColor: Colors.transparent,
     ),
-
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         backgroundColor: WidgetStatePropertyAll(AppColors.focusedBorderColor),
@@ -130,12 +129,12 @@ ThemeData appTheme() {
         vertical: AppSizes.h12,
       ),
     ),
-    cardTheme: CardTheme(color: AppColors.textFieldFillColor),
-    bottomAppBarTheme: BottomAppBarTheme(
-      shape: CircularNotchedRectangle(),
-      height: AppSizes.h60,
-      color: AppColors.navBarColor,
-    ),
-    cardColor: AppColors.categoryBackground,
+    // cardTheme: CardTheme(color: AppColors.textFieldFillColor),
+    // bottomAppBarTheme: BottomAppBarTheme(
+    //   shape: CircularNotchedRectangle(),
+    //   height: AppSizes.h60,
+    //   color: AppColors.navBarColor,
+    // ),
+    // cardColor: AppColors.categoryBackground,
   );
 }

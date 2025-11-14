@@ -114,13 +114,13 @@ ThemeData darkTheme() {
         borderRadius: BorderRadius.circular(AppSizes.r10),
         borderSide: BorderSide(color: AppDarkColors.errorBorderColor),
       ),
-    ),
-    cardTheme: CardTheme(color: AppDarkColors.textFieldFillColor),
-    bottomAppBarTheme: BottomAppBarTheme(
-      shape: CircularNotchedRectangle(),
-      height: AppSizes.h60,
-      color: AppDarkColors.navBarColor,
-    ),
-    cardColor: AppDarkColors.categoryBackground,
+      ),
+    // cardTheme: CardTheme(color: AppDarkColors.textFieldFillColor),
+    // bottomAppBarTheme: BottomAppBarTheme(
+    //   shape: CircularNotchedRectangle(),
+    //   height: AppSizes.h60,
+    //   color: AppDarkColors.navBarColor,
+    // ),
+    // cardColor: AppDarkColors.categoryBackground,
   );
 }
