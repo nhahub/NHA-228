@@ -50,10 +50,7 @@ class SubmitButton extends StatelessWidget {
                   : Text(
                     AppStrings.submit,
                     style: Theme.of(context).textTheme.headlineMedium,
-                    // TextStyle(
-                    //   fontSize: AppSizes.sp16,
-                    //   color: AppColors.whiteColor,
-                    // ),
+                   
                   ),
         );
       },
