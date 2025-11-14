@@ -115,7 +115,7 @@ ThemeData darkTheme() {
         borderSide: BorderSide(color: AppDarkColors.errorBorderColor),
       ),
     ),
-    cardTheme: CardTheme(color: AppDarkColors.textFieldFillColor),
+    cardTheme: CardThemeData(color: AppDarkColors.textFieldFillColor),
     bottomAppBarTheme: BottomAppBarTheme(
       shape: CircularNotchedRectangle(),
       height: AppSizes.h60,

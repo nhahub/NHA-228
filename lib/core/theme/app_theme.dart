@@ -130,7 +130,7 @@ ThemeData appTheme() {
         vertical: AppSizes.h12,
       ),
     ),
-    cardTheme: CardTheme(color: AppColors.textFieldFillColor),
+    cardTheme: CardThemeData(color: AppColors.textFieldFillColor),
     bottomAppBarTheme: BottomAppBarTheme(
       shape: CircularNotchedRectangle(),
       height: AppSizes.h60,
