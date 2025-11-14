@@ -25,7 +25,7 @@ abstract class AppRouter {
   static final router = GoRouter(
     initialLocation: root,
     routes: [
-      GoRoute(path: '/', builder: (context, state) => const SplashScreen()),
+      GoRoute(path: '/', builder: (context, state) => PostMaterialScreen()),
       GoRoute(path: loginScreen, builder: (context, state) => LoginScreen()),
       GoRoute(path: onboardScreen, builder: (context, state) => OnboardScreen()),
       GoRoute(path: registerScreen, builder: (context, state) => RegisterScreen()),

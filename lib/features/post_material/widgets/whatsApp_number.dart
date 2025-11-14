@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nha_228/core/constants/app_colors.dart';
 import 'package:nha_228/core/constants/app_sizes.dart';
 import 'package:nha_228/core/constants/app_strings.dart';
+import 'package:nha_228/core/utils/validators.dart';
 import '../cubit/post_material_cubit.dart';
 
 class WhatsappNumber extends StatelessWidget {
@@ -35,15 +36,7 @@ class WhatsappNumber extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppSizes.r12),
             ),
           ),
-          validator: (value) {
-            if (value == null || value.trim().isEmpty) {
-              return "WhatsApp number is required";
-            }
-            if (!RegExp(r'^[0-9]{11}$').hasMatch(value)) {
-              return "Enter a valid 11-digit number";
-            }
-            return null;
-          },
+          validator: (value) => value.whatsAppNumberValidator(value),
           onChanged: (value) {
             context.read<PostMaterialCubit>().setWhatsAppNumber(value);
           },

@@ -49,10 +49,11 @@ class SubmitButton extends StatelessWidget {
                   ? CircularProgressIndicator(color: AppColors.whiteColor)
                   : Text(
                     AppStrings.submit,
-                    style: TextStyle(
-                      fontSize: AppSizes.sp16,
-                      color: AppColors.whiteColor,
-                    ),
+                    style: Theme.of(context).textTheme.headlineMedium,
+                    // TextStyle(
+                    //   fontSize: AppSizes.sp16,
+                    //   color: AppColors.whiteColor,
+                    // ),
                   ),
         );
       },

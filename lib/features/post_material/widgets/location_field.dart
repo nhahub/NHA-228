@@ -13,7 +13,9 @@ class LocationField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(AppStrings.yourLocation, style: Theme.of(context).textTheme.labelMedium),
+        Text(AppStrings.yourLocation, style: Theme.of(context).textTheme.labelMedium?.copyWith(
+        color: AppColors.textPrimary,
+      ),),
         SizedBox(height: AppSizes.h8),
         TextFormField(
           maxLines: 3,
@@ -32,12 +34,7 @@ class LocationField extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppSizes.r12),
             ),
           ),
-          validator: (value) {
-            if (value == null || value.trim().isEmpty) {
-              return "Please enter your location";
-            }
-            return null;
-          },
+          validator: (value) => value.locationValidator(value),
           onChanged: (val) => cubit.setLocation(val.trim()),
         ),
       ],
