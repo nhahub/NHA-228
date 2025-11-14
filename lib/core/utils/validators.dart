@@ -67,4 +67,27 @@ extension AppValidators on String? {
     }
     return null;
   }
+
+  String? descriptionValidator(value) {
+    if (value == null || value.trim().isEmpty) {
+      return AppStrings.pleaseDescribeYourMaterialCase;
+    }
+    return null;
+  }
+
+  String? whatsAppNumberValidator(value) {
+    if (value == null || value.trim().isEmpty) {
+      return "WhatsApp number is required";
+    }
+    if (!RegExp(r'^[0-9]{11}$').hasMatch(value)) {
+      return "Enter a valid 11-digit number";
+    }
+    return null;
+  }
+  String? locationValidator (value){
+            if (value == null || value.trim().isEmpty) {
+              return "Please enter your location";
+            }
+            return null;
+          }
 }

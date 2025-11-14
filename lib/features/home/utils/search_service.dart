@@ -8,18 +8,17 @@ class SearchService {
     QuerySnapshot materialSnapshot =
         await materials.where('materialType', isGreaterThanOrEqualTo: search).get();
     QuerySnapshot descriptionSnapshot =
-        await materials.where('description', isEqualTo: search).get();
-     QuerySnapshot locationSnapshot =
-        await materials.where('location', isEqualTo: search).get();    
-        final searchResults={
-          for(var doc in [
-            ...materialSnapshot.docs,
-            ...descriptionSnapshot.docs,
-            ...locationSnapshot.docs
-
-          ])
-          doc.id:doc.data()
-        };
+        await materials.where('description', isGreaterThanOrEqualTo: search).get();
+    QuerySnapshot locationSnapshot =
+        await materials.where('location', isEqualTo: search).get();
+    final searchResults = {
+      for (var doc in [
+        ...materialSnapshot.docs,
+        ...descriptionSnapshot.docs,
+        ...locationSnapshot.docs,
+      ])
+        doc.id: doc.data(),
+    };
     return searchResults.values
         .map((doc) => MaterialModel.fromMap(doc as Map<String, dynamic>))
         .toList();

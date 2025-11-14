@@ -88,7 +88,6 @@ class AppStrings {
   static const String selectDate = "Select date";
   static const String preferredTime = "Preferred time";
   static const String selectTime = "Select time";
-  static const String location = "location";
   static const String address = "address";
   static const String enterYourAddress = "Enter Your Address";
   static const String postRequest = "Post the request";
@@ -131,8 +130,8 @@ class AppStrings {
       "No verification ID. Please request a new code.";
   static const String incorrectCode = "Incorrect code";
   static const String codeSuccessfullyVerified = "Code successfully verified!";
+
   static const String chooseADate = "Choose a date";
-  static const String deliveryLocation = "Delivery location (optional)";
   static const String chooseTime = "Choose a time";
   static const String scheduleDelivery = "Schedule Delivery";
   static const String description = "Description";
@@ -144,11 +143,20 @@ class AppStrings {
   static const String pleaseFillAllRequiredFields = "Please fill all required fields.";
   static const String tapToUploadImage = "Tap to upload image";
   static const String enterYourLocation = "Enter your location";
-  static const String yourLocation = "Your Location";
+  static const String location = "Location";
   static const String chooseAMaterialType = "Choose a material type:";
   static const String somethingWentWrong = 'Something went wrong';
   static const String materialPostedSuccessfully = "Material posted successfully!";
   static const String startedPostingMaterial = "Started posting material...";
+  static const String whatsAppNumber = "WhatsApp Number";
+  static const String hintWhatsAppNumber = "EX: 0123456789";
+  static const String invalidWhatsAppNumber = "Enter a valid WhatsApp Number";
+  static const String pleaseEnterAWhatsAppNumber = "Please Enter a WhatsApp";
+
+  static const String deliveryLocation = "Delivery location (optional)";
+
+  static const String yourLocation = "Your Location";
+
   static const String profile = "Profile";
   static const String forgetPasswordRedirect = "Forgot password?";
   static const String logout = "Logout";
@@ -156,23 +164,25 @@ class AppStrings {
   static const String changePasswordSuccess = "Password changed successfully!";
   static const String phoneEmpty = "Please enter your phone number";
   static const String phoneInvalid = "Invalid phone number";
-  static const failedToSaveLocal = 'Failed to save user data locally';
-  static const userNotFound = 'User not found';
-  static const wrongPassword = 'Wrong password';
-  static const userDataNotFound = 'User data not found in Firestore';
-  static const emailOrPasswordWrong = 'Email or password may be wrong';
-  static const emptyPhoneError = 'Please enter your phone number';
-  static const verificationSent = 'Verification code sent successfully';
-  static const verificationFailed = 'Error occurred while sending verification code';
-  static const unexpectedError = 'Unexpected error occurred';
-  static const autoVerified = 'Phone number auto verified';
-  static const registerFailed = 'Oops! Something went wrong during registration';
-  static const passwordUpdated = 'Password updated successfully';
-  static const noAuthenticatedUser = 'No authenticated user found';
-  static const passwordUpdateError = 'Error occurred while updating password';
-  static const creatingAccount = 'Creating your account...';
-  static const registerSuccess = 'Account created successfully!';
-  static const failedToFetchUserData = 'Failed to fetch user data';
-  static const noResults ='No results found';
+  static const String failedToSaveLocal = 'Failed to save user data locally';
+  static const String userNotFound = 'User not found';
+  static const String wrongPassword = 'Wrong password';
+  static const String userDataNotFound = 'User data not found in Firestore';
+  static const String emailOrPasswordWrong = 'Email or password may be wrong';
+  static const String emptyPhoneError = 'Please enter your phone number';
+  static const String verificationSent = 'Verification code sent successfully';
+  static const String verificationFailed =
+      'Error occurred while sending verification code';
+  static const String unexpectedError = 'Unexpected error occurred';
+  static const String autoVerified = 'Phone number auto verified';
+  static const String registerFailed = 'Oops! Something went wrong during registration';
+  static const String passwordUpdated = 'Password updated successfully';
+  static const String noAuthenticatedUser = 'No authenticated user found';
+  static const String passwordUpdateError = 'Error occurred while updating password';
+  static const String creatingAccount = 'Creating your account...';
+  static const String registerSuccess = 'Account created successfully!';
+  static const String failedToFetchUserData = 'Failed to fetch user data';
+  static const String noResults = 'No results found';
+  static const String creatingYourAccount = "Creating your account...";
+  static const String darkMode = "Dark Mode";
 }
-

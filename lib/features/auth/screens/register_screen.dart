@@ -79,10 +79,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       SizedBox(height: AppSizes.h20),
                       Text(
                         AppStrings.signUpTitle,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleLarge
-                            ?.copyWith(fontSize: AppSizes.sp38),
+                        style: Theme.of(
+                          context,
+                        ).textTheme.titleLarge?.copyWith(fontSize: AppSizes.sp38),
                       ),
                       SizedBox(height: AppSizes.h20),
 
@@ -128,26 +127,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         controller: confirmPasswordController,
                         hintText: AppStrings.confirmPassword,
                         isPassword: true,
-                        validator: (value) => value.validateConfirmPassword(
-                          passwordController.text,
-                        ),
+                        validator:
+                            (value) =>
+                                value.validateConfirmPassword(passwordController.text),
                       ),
                       SizedBox(height: AppSizes.h20),
 
                       CustomButton(
-                        title: isLoading
-                            ? "Creating your account..."
-                            : AppStrings.signUpButton,
+                        title:
+                            isLoading
+                                ? "Creating your account..."
+                                : AppStrings.signUpButton,
                         isLoading: isLoading,
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             context.read<RegisterCubit>().registerUser(
-                                  email: emailController.text.trim(),
-                                  password: passwordController.text.trim(),
-                                  firstName: firstNameController.text.trim(),
-                                  lastName: lastNameController.text.trim(),
-                                  phone: phoneController.text.trim(),
-                                );
+                              email: emailController.text.trim(),
+                              password: passwordController.text.trim(),
+                              firstName: firstNameController.text.trim(),
+                              lastName: lastNameController.text.trim(),
+                              phone: phoneController.text.trim(),
+                            );
                           }
                         },
                       ),

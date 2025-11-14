@@ -9,9 +9,9 @@ class CustomIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      height:AppSizes.h4,
+      height: AppSizes.h4,
       width: active ? AppSizes.w24 : AppSizes.w4,
-      margin: EdgeInsets.symmetric(horizontal:AppSizes.w4),
+      margin: EdgeInsets.symmetric(horizontal: AppSizes.w4),
       duration: const Duration(milliseconds: 250),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppSizes.r100),

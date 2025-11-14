@@ -7,7 +7,6 @@ import 'package:nha_228/features/auth/cubit/otp_cubit/otp_cubit.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
 import 'package:nha_228/features/auth/widgets/otp_input_fields.dart';
 
-
 class PhoneOtpScreen extends StatefulWidget {
   final String phoneNumber;
 

@@ -13,16 +13,13 @@ class LocationField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          AppStrings.yourLocation,
-          style: TextStyle(
-            fontSize: AppSizes.sp16,
-            fontWeight: FontWeight.w400,
-            color: AppColors.textPrimary,
-          ),
-        ),
+        Text(AppStrings.yourLocation, style: Theme.of(context).textTheme.labelMedium?.copyWith(
+        color: AppColors.textPrimary,
+      ),),
         SizedBox(height: AppSizes.h8),
-        TextField(
+        TextFormField(
+          maxLines: 3,
+          cursorColor: AppColors.success,
           decoration: InputDecoration(
             hintText: AppStrings.enterYourLocation,
             hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
@@ -32,8 +29,13 @@ class LocationField extends StatelessWidget {
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(AppSizes.r12),
             ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: AppColors.primary),
+              borderRadius: BorderRadius.circular(AppSizes.r12),
+            ),
           ),
-          onChanged: (val) => cubit.setLocation(val),
+          validator: (value) => value.locationValidator(value),
+          onChanged: (val) => cubit.setLocation(val.trim()),
         ),
       ],
     );
