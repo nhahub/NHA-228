@@ -14,6 +14,7 @@ class PostMaterialState {
   final String? errorMessage;
   final String? date;
   final String? time;
+  final String? imagePath;
 
   PostMaterialState({
     this.materialType,
@@ -27,21 +28,23 @@ class PostMaterialState {
     this.errorMessage,
     this.date,
     this.time,
+    this.imagePath,
   });
 
   factory PostMaterialState.initial() => PostMaterialState(
-    materialType: null,
-    materialPrice: null,
-    quantity: null,
-    totalPrice: null,
-    location: null,
-    description: null,
-    whatsAppNamber: null,
-    status: PostMaterialStatus.initial,
-    errorMessage: null,
-    date: null,
-    time: null,
-  );
+        materialType: null,
+        materialPrice: null,
+        quantity: null,
+        totalPrice: null,
+        location: null,
+        description: null,
+        whatsAppNamber: null,
+        status: PostMaterialStatus.initial,
+        errorMessage: null,
+        date: null,
+        time: null,
+        imagePath: null,
+      );
 
   PostMaterialState copyWith({
     String? materialType,
@@ -55,6 +58,7 @@ class PostMaterialState {
     String? errorMessage,
     String? date,
     String? time,
+    String? imagePath,
   }) {
     return PostMaterialState(
       materialType: materialType ?? this.materialType,
@@ -68,6 +72,7 @@ class PostMaterialState {
       errorMessage: errorMessage ?? this.errorMessage,
       date: date ?? this.date,
       time: time ?? this.time,
+      imagePath: imagePath ?? this.imagePath,
     );
   }
 }

@@ -12,6 +12,7 @@ class DateAndTime extends StatefulWidget {
 }
 
 class _DateAndTimeState extends State<DateAndTime> {
+  bool scheduleEnabled = false;
   DateTime? selectedDate;
   TimeOfDay? selectedTime;
 
@@ -23,43 +24,35 @@ class _DateAndTimeState extends State<DateAndTime> {
       firstDate: now,
       lastDate: now.add(const Duration(days: 30)),
     );
-
-    if (date != null) {
-      setState(() => selectedDate = date);
-
-      final formattedDate = DateFormat('yyyy-MM-dd').format(date);
-      context.read<PostMaterialCubit>().setDate(formattedDate);
-    }
+    if (date != null) setState(() => selectedDate = date);
   }
 
   Future<void> _pickTime() async {
     final time = await showTimePicker(context: context, initialTime: TimeOfDay.now());
-
-    if (time != null) {
-      setState(() => selectedTime = time);
-
-      final formattedTime = time.format(context);
-      context.read<PostMaterialCubit>().setTime(formattedTime);
-    }
+    if (time != null) setState(() => selectedTime = time);
   }
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<PostMaterialCubit>();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          AppStrings.scheduleDelivery,
-          style: TextStyle(
-            fontSize: AppSizes.sp18,
-            fontWeight: FontWeight.w400,
-            color: AppColors.textPrimary,
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              AppStrings.scheduleDelivery,
+              style: TextStyle(
+                fontSize: AppSizes.sp18,
+                fontWeight: FontWeight.w400,
+                color: AppColors.textPrimary,
+              ),
+            ),
+          ],
         ),
-
         SizedBox(height: AppSizes.h8),
-
-        /// DATE FIELD
         GestureDetector(
           onTap: _pickDate,
           child: Container(
@@ -91,7 +84,6 @@ class _DateAndTimeState extends State<DateAndTime> {
 
         SizedBox(height: AppSizes.h16),
 
-        /// TIME FIELD
         GestureDetector(
           onTap: _pickTime,
           child: Container(

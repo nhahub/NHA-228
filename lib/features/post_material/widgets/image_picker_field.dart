@@ -31,37 +31,45 @@ class _ImagePickerFieldState extends State<ImagePickerField> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => _pickImage(context),
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          border: Border.all(color: AppColors.borderSide),
-          borderRadius: BorderRadius.circular(AppSizes.r12),
-          color: Theme.of(context).cardTheme.color,
-        ),
-        child: Column(
-          children: [
-            _selectedImage != null
+      child: BlocBuilder<PostMaterialCubit, PostMaterialState>(
+        builder: (context, state) {
+          String? displayImage;
+
+          if (_selectedImage != null) {
+            displayImage = _selectedImage!.path;
+          } else if (state.imagePath != null) {
+            displayImage = state.imagePath;
+          }
+
+          return Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              border: Border.all(color: AppColors.borderSide),
+              borderRadius: BorderRadius.circular(AppSizes.r12),
+              color: Theme.of(context).cardTheme.color,
+            ),
+            child: displayImage != null
                 ? ClipRRect(
-                  borderRadius: BorderRadius.circular(AppSizes.r8),
-                  child: Image.file(
-                    _selectedImage!,
-                    height: AppSizes.h150,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                )
-                : Column(
-                  children: [
-                    const Icon(Icons.add_a_photo_outlined, size: 40),
-                    SizedBox(height: AppSizes.h8),
-                    Text(
-                      AppStrings.tapToUploadImage,
-                      style: Theme.of(context).textTheme.labelMedium,
+                    borderRadius: BorderRadius.circular(AppSizes.r8),
+                    child: Image.asset(
+                      displayImage,
+                      height: AppSizes.h150,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
                     ),
-                  ],
-                ),
-          ],
-        ),
+                  )
+                : Column(
+                    children: [
+                      const Icon(Icons.add_a_photo_outlined, size: 40),
+                      SizedBox(height: AppSizes.h8),
+                      Text(
+                        AppStrings.tapToUploadImage,
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
+                    ],
+                  ),
+          );
+        },
       ),
     );
   }

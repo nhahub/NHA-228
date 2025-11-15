@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
-//import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nha_228/core/core.dart';
+import 'package:nha_228/features/home/home_constants/category_values.dart';
 part 'post_material_state.dart';
 
 class PostMaterialCubit extends Cubit<PostMaterialState> {
@@ -10,8 +10,22 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
 
   File? imageFile;
 
+  void setImage(File file) {
+    imageFile = file;
+    emit(state.copyWith(imagePath: file.path));
+  }
+
   void selectMaterial(String type, String priceText) {
-    emit(state.copyWith(materialType: type, materialPrice: priceText));
+    final wasteItem = CategoryValues.wasteItems.firstWhere(
+      (item) => item.title.toLowerCase() == type.toLowerCase(),
+      orElse: () => CategoryValues.wasteItems.first,
+    );
+
+    emit(state.copyWith(
+      materialType: type,
+      materialPrice: priceText,
+      imagePath: wasteItem.imagePath,
+    ));
   }
 
   void setQuantity(double q) {
@@ -23,45 +37,23 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
     emit(state.copyWith(quantity: q, totalPrice: total));
   }
 
-  void setLocation(String val) {
-    emit(state.copyWith(location: val));
-  }
-
-  void setDescription(String val) {
-    emit(state.copyWith(description: val));
-  }
-  void setWhatsAppNumber(String val) {
-    emit(state.copyWith(whatsAppNamber: val));
-  }
-
-  void setWhatsAppNumber(String val) {
-    emit(state.copyWith(whatsAppNamber: val));
-  }
-
-  void setDate(String val) {
-    emit(state.copyWith(date: val));
-  }
-
-  void setTime(String val) {
-    emit(state.copyWith(time: val));
-  }
-
-  void setImage(File file) {
-    imageFile = file;
-  }
+  void setLocation(String val) => emit(state.copyWith(location: val));
+  void setDescription(String val) => emit(state.copyWith(description: val));
+  void setWhatsAppNumber(String val) => emit(state.copyWith(whatsAppNamber: val));
 
   void resetState() {
     emit(PostMaterialState.initial());
-    imageFile = null;
   }
 
   Future<void> postMaterial() async {
     try {
       emit(state.copyWith(status: PostMaterialStatus.loading));
 
+      // Validation
       if (state.materialType == null ||
           state.location == null ||
-          state.description == null) {
+          state.description == null ||
+          state.whatsAppNamber == null) {
         emit(
           state.copyWith(
             status: PostMaterialStatus.error,
@@ -71,15 +63,6 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
         return;
       }
 
-      //  الصورة متعطلة مؤقتًا لأن Firebase Storage مش مفعّل
-      // final fileName = 'materials_images/${DateTime.now().millisecondsSinceEpoch}.jpg';
-      // final ref = FirebaseStorage.instance.ref().child(fileName);
-      // final uploadTask = await ref.putFile(imageFile!);
-      // final imageUrl = await uploadTask.ref.getDownloadURL();
-
-      // Placeholder image بدل الرفع الحقيقي مؤقتًا
-      String imageUrl = "https://via.placeholder.com/200";
-
       final data = {
         'materialType': state.materialType,
         'materialPrice': state.materialPrice,
@@ -87,11 +70,9 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
         'totalPrice': state.totalPrice,
         'location': state.location,
         'description': state.description,
-        'imageUrl': imageUrl,
+        'whatsAppNumber': state.whatsAppNamber,
+        'imageUrl': state.imagePath,
         'createdAt': Timestamp.now(),
-        'whatsappNumber': state.whatsAppNamber,
-        'date': state.date,
-        'time': state.time,
       };
 
       await FirebaseFirestore.instance.collection('materials').add(data);
@@ -99,7 +80,10 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
       emit(state.copyWith(status: PostMaterialStatus.success));
       resetState();
     } catch (e) {
-      emit(state.copyWith(status: PostMaterialStatus.error, errorMessage: e.toString()));
+      emit(state.copyWith(
+        status: PostMaterialStatus.error,
+        errorMessage: e.toString(),
+      ));
     }
   }
 }
