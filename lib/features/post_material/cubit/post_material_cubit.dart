@@ -30,6 +30,9 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
   void setDescription(String val) {
     emit(state.copyWith(description: val));
   }
+  void setWhatsAppNumber(String val) {
+    emit(state.copyWith(whatsAppNamber: val));
+  }
 
   void setWhatsAppNumber(String val) {
     emit(state.copyWith(whatsAppNamber: val));
