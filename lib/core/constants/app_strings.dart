@@ -34,8 +34,8 @@ class AppStrings {
 
   static const String forgotPasswordTitle = 'Forget Your Password ?';
   static const String forgotPasswordSubtitle =
-      "Please enter the phone number associated with your account, and we'll send you OTP to reset your password.";
-  static const String sendCodeButton = 'Send Code';
+      "Please enter your email associated with your account, and we'll send you OTP to reset your password.";
+  static const String sendCodeButton = 'Send email';
 
   static const String cancel = 'Cancel';
   static const String otpVerification = 'OTP Verification';

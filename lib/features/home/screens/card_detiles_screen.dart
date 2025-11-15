@@ -87,6 +87,7 @@ class CardDetilesScreen extends StatelessWidget {
             SizedBox(height: AppSizes.h20),
 
             _buildInfoCard(
+              isDark: isDark,
               children: [
                 MaterialInfoItem(icon: Icons.location_on, value: material.location),
                 MaterialInfoItem(
@@ -98,6 +99,7 @@ class CardDetilesScreen extends StatelessWidget {
             ),
 
             _buildInfoCard(
+              isDark: isDark,
               children: [
                 MaterialInfoItem(icon: Icons.calendar_month, value: material.date),
                 MaterialInfoItem(icon: Icons.access_time, value: material.time),
@@ -123,17 +125,19 @@ class CardDetilesScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoCard({required List<Widget> children}) {
+  Widget _buildInfoCard({required bool isDark, required List<Widget> children}) {
     return Container(
       margin: EdgeInsets.only(bottom: AppSizes.h16),
       padding: EdgeInsets.all(AppSizes.w16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppSizes.r16),
         gradient: LinearGradient(
-          colors: [
-            AppColors.navBarColor.withOpacity(.85),
-            AppColors.categoryFoot.withOpacity(.85),
-          ],
+          colors:
+              isDark
+                  ? [AppDarkColors.categoryBackground, AppDarkColors.cardDarkColor]
+                  : [AppColors.navBarColor, AppColors.categoryFoot],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
         ),
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: children),

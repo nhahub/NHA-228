@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nha_228/core/core.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:nha_228/features/auth/cubit/forget_passward_cubit/forget_passward_cubit.dart';
 import 'package:nha_228/features/auth/widgets/custom_snack_bar.dart';
@@ -15,11 +14,11 @@ class ForgetPasswordScreen extends StatefulWidget {
 }
 
 class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
-  final phoneController = TextEditingController();
+  final emailController = TextEditingController();
 
   @override
   void dispose() {
-    phoneController.dispose();
+    emailController.dispose();
     super.dispose();
   }
 
@@ -33,24 +32,27 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
             showDialog(
               context: context,
               barrierDismissible: false,
-              useRootNavigator: true,
               builder: (_) => const Center(child: CircularProgressIndicator()),
             );
-          } else if (state is ForgetPasswordCodeSent) {
-            if (Navigator.canPop(context)) Navigator.pop(context);
+          }
+
+          if (state is ForgetPasswordSuccess) {
+            Navigator.pop(context);
             CustomSnackBar.show(
               context,
-              AppStrings.codeSent,
+              "Check your email to reset password",
               backgroundColor: AppColors.success,
             );
-            context.push(AppRouter.otpScreen, extra: state.verificationId);
-          } else if (state is ForgetPasswordError) {
-            if (Navigator.canPop(context)) Navigator.pop(context);
+          }
+
+          if (state is ForgetPasswordError) {
+            Navigator.pop(context);
             CustomSnackBar.show(context, state.message, backgroundColor: AppColors.error);
           }
         },
         builder: (context, state) {
           final cubit = context.read<ForgetPasswordCubit>();
+
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.transparent,
@@ -76,7 +78,9 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           fontWeight: FontWeight.w400,
                         ),
                       ),
+
                       SizedBox(height: AppSizes.h10),
+
                       Text(
                         AppStrings.forgotPasswordSubtitle,
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
@@ -84,14 +88,17 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           color: AppColors.subtitle,
                         ),
                       ),
+
                       SizedBox(height: AppSizes.h50),
+
                       CustomTextField(
-                        controller: phoneController,
-                        hintText: AppStrings.number,
-                        keyboardType: TextInputType.phone,
-                        validator: (value) => value?.validatePhone(),
+                        controller: emailController,
+                        hintText: AppStrings.email,
+                        validator: (value) => value?.validateEmail(),
                       ),
+
                       SizedBox(height: AppSizes.h30),
+
                       Center(
                         child: CustomButton(
                           title:
@@ -103,7 +110,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                                   ? null
                                   : () {
                                     FocusScope.of(context).unfocus();
-                                    cubit.sendCode(phoneController.text.trim());
+                                    cubit.sendResetEmail(emailController.text.trim());
                                   },
                         ),
                       ),

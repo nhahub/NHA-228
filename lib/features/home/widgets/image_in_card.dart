@@ -4,12 +4,13 @@ import 'package:nha_228/features/home/models/material_model.dart';
 import 'package:nha_228/core/core.dart';
 
 class ImageInCard extends StatelessWidget {
-  const ImageInCard({super.key, required this.m});
+  ImageInCard({super.key, required this.m});
 
   final MaterialModel m;
 
   @override
   Widget build(BuildContext context) {
+    final fallbackImage = categoryImages[m.materialType] ?? AppAssets.profile;
     return ClipRRect(
       borderRadius: BorderRadius.circular(12.r),
       child:
@@ -20,15 +21,11 @@ class ImageInCard extends StatelessWidget {
                 height: AppSizes.h100,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
-                  return Container(
+                  return Image.asset(
+                    fallbackImage,
                     width: AppSizes.w100,
                     height: AppSizes.h100,
-                    color: AppColors.borderSide,
-                    child: Icon(
-                      Icons.image_not_supported,
-                      color: AppColors.skipButtonColor,
-                      size: AppSizes.sp35,
-                    ),
+                    fit: BoxFit.cover,
                   );
                 },
               )
@@ -44,4 +41,13 @@ class ImageInCard extends StatelessWidget {
               ),
     );
   }
+
+  final Map<String, String> categoryImages = {
+    "metal waste": AppAssets.metal,
+    "plastic waste": AppAssets.plastic,
+    "oil waste": AppAssets.oil,
+    "electronic waste": AppAssets.electronic,
+    "paper waste": AppAssets.paper,
+    "carton waste": AppAssets.carton,
+  };
 }
