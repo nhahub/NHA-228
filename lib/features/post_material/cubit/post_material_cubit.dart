@@ -34,6 +34,18 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
     emit(state.copyWith(whatsAppNamber: val));
   }
 
+  void setWhatsAppNumber(String val) {
+    emit(state.copyWith(whatsAppNamber: val));
+  }
+
+  void setDate(String val) {
+    emit(state.copyWith(date: val));
+  }
+
+  void setTime(String val) {
+    emit(state.copyWith(time: val));
+  }
+
   void setImage(File file) {
     imageFile = file;
   }
@@ -77,6 +89,9 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
         'description': state.description,
         'imageUrl': imageUrl,
         'createdAt': Timestamp.now(),
+        'whatsappNumber': state.whatsAppNamber,
+        'date': state.date,
+        'time': state.time,
       };
 
       await FirebaseFirestore.instance.collection('materials').add(data);

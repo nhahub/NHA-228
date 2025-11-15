@@ -30,12 +30,14 @@ class AppSizes {
   static double sp12 = 12.sp;
   static double sp14 = 14.sp;
   static double sp16 = 16.sp;
+  static double sp17 = 17.sp;
   static double sp18 = 18.sp;
   static double sp20 = 20.sp;
   static double sp24 = 24.sp;
   static double sp26 = 26.sp;
   static double sp22 = 22.sp;
   static double sp32 = 32.sp;
+  static double sp35 = 35.sp;
   static double sp38 = 38.sp;
   static double sp40 = 40.sp;
 
@@ -45,6 +47,7 @@ class AppSizes {
   static double w6 = 6.w;
   static double w8 = 8.w;
   static double w12 = 12.w;
+  static double w14 = 14.w;
   static double w16 = 16.w;
   static double w18 = 18.w;
   static double w20 = 20.w;
@@ -71,4 +74,10 @@ class AppSizes {
   static double r50 = 50.r;
   static double r100 = 100.r;
   static double r120 = 120.r;
+
+  static var sp15;
+
+  static var w10;
+
+  static var h28;
 }

@@ -185,4 +185,6 @@ class AppStrings {
   static const String noResults = 'No results found';
   static const String creatingYourAccount = "Creating your account...";
   static const String darkMode = "Dark Mode";
+  static const String noPublishedMaterialYet = "No published material yet 🔄";
+  static const String cardDetails = "Card Details";
 }

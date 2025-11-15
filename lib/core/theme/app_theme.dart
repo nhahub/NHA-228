@@ -129,12 +129,12 @@ ThemeData appTheme() {
         vertical: AppSizes.h12,
       ),
     ),
-    // cardTheme: CardTheme(color: AppColors.textFieldFillColor),
-    // bottomAppBarTheme: BottomAppBarTheme(
-    //   shape: CircularNotchedRectangle(),
-    //   height: AppSizes.h60,
-    //   color: AppColors.navBarColor,
-    // ),
-    // cardColor: AppColors.categoryBackground,
+    cardTheme: CardThemeData(color: AppColors.textFieldFillColor),
+    bottomAppBarTheme: BottomAppBarTheme(
+      shape: CircularNotchedRectangle(),
+      height: AppSizes.h60,
+      color: AppColors.navBarColor,
+    ),
+    cardColor: AppColors.categoryBackground,
   );
 }

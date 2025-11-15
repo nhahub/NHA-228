@@ -1,8 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
 import 'package:nha_228/core/core.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nha_228/features/home/models/material_model.dart';
+import 'package:nha_228/features/home/widgets/image_in_card.dart';
+import 'package:nha_228/features/home/widgets/material_info_item.dart';
 
 class CustomMaterialList extends StatelessWidget {
   const CustomMaterialList({super.key});
@@ -10,6 +13,7 @@ class CustomMaterialList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return StreamBuilder<QuerySnapshot>(
       stream:
           FirebaseFirestore.instance
@@ -22,7 +26,7 @@ class CustomMaterialList extends StatelessWidget {
         }
 
         if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-          return const Center(child: Text('لا توجد مواد منشورة بعد 🔄'));
+          return const Center(child: Text(AppStrings.noPublishedMaterialYet));
         }
 
         final materials =
@@ -35,128 +39,132 @@ class CustomMaterialList extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           itemCount: materials.length,
           itemBuilder: (context, index) {
-            final material = materials[index];
+            final m = materials[index];
 
-            return Container(
-              margin: EdgeInsets.only(bottom: AppSizes.h16),
-              padding: EdgeInsets.all(AppSizes.h12),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors:
-                      isDark
-                          ? [
-                            AppDarkColors.categoryBackground,
-                            AppDarkColors.cardDarkColor,
-                          ]
-                          : [AppColors.navBarColor, AppColors.categoryFoot],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                borderRadius: BorderRadius.circular(AppSizes.r16),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    blurRadius: 6,
-                    offset: const Offset(0, 3),
+            return GestureDetector(
+              onTap: () => context.push(AppRouter.cardDetilesScreen, extra: m),
+              child: Container(
+                margin: EdgeInsets.only(bottom: AppSizes.h16),
+                padding: EdgeInsets.all(AppSizes.w12),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors:
+                        isDark
+                            ? [
+                              AppDarkColors.categoryBackground,
+                              AppDarkColors.cardDarkColor,
+                            ]
+                            : [AppColors.navBarColor, AppColors.categoryFoot],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
                   ),
-                ],
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Flexible(
-                    flex: 0,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(AppSizes.r12),
-                      child:
-                          material.imageUrl != null && material.imageUrl!.isNotEmpty
-                              ? Image.network(
-                                material.imageUrl!,
-                                width: 100.w,
-                                height: 100.h,
-                                fit: BoxFit.cover,
-                                errorBuilder:
-                                    (context, error, stackTrace) => Container(
-                                      width: 100.w,
-                                      height: 100.h,
-                                      color: Colors.grey.shade300,
-                                      child: Icon(
-                                        Icons.image_not_supported,
-                                        size: 40.sp,
-                                        color: Colors.grey,
-                                      ),
-                                    ),
-                              )
-                              : Container(
-                                width: 100.w,
-                                height: 100.h,
-                                decoration: BoxDecoration(
-                                  color: AppColors.whiteColor,
-                                  borderRadius: BorderRadius.circular(AppSizes.r12),
-                                ),
-                                child: Icon(
-                                  Icons.image_not_supported,
-                                  size: 40.sp,
-                                  color: AppColors.skipButtonColor,
-                                ),
-                              ),
+                  borderRadius: BorderRadius.circular(AppSizes.r14),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.textPrimary.withOpacity(.15),
+                      blurRadius: 8,
+                      offset: const Offset(0, 4),
                     ),
-                  ),
-                  SizedBox(width: AppSizes.w12),
-                  Expanded(
-                    child: Column(
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          material.materialType,
-                          style: TextStyle(
-                            fontSize: AppSizes.sp16,
-                            fontWeight: FontWeight.bold,
-                            color:
-                                isDark
-                                    ? AppDarkColors.categoryFoot
-                                    : AppColors.skipButtonColor,
-                          ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        SizedBox(height: AppSizes.h4),
-                        Text(
-                          material.description,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: AppSizes.sp14,
-                            color: AppColors.whiteColor,
-                          ),
-                        ),
-                        SizedBox(height: AppSizes.h4),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Text(
-                                "📍 ${material.location}",
-                                style: TextStyle(color: AppColors.whiteColor),
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                            Flexible(
-                              child: Text(
-                                "💰 ${material.totalPrice} EG",
+                        ImageInCard(m: m),
+
+                        SizedBox(width: AppSizes.w12),
+
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                m.materialType,
                                 style: TextStyle(
+                                  fontSize: AppSizes.sp17,
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.whiteColor,
                                 ),
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.end,
                               ),
-                            ),
-                          ],
+
+                              SizedBox(height: AppSizes.h4),
+                              Text(
+                                m.description,
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: AppSizes.sp14,
+                                  color: AppColors.whiteColor.withOpacity(.9),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
-                  ),
-                ],
+
+                    SizedBox(height: AppSizes.h10),
+                    Divider(color: AppColors.whiteColor.withOpacity(.3)),
+                    SizedBox(height: AppSizes.h10),
+
+                    Row(
+                      children: [
+                        Expanded(
+                          child: MaterialInfoItem(
+                            icon: Icons.location_on,
+                            value: m.location,
+                          ),
+                        ),
+                        Expanded(
+                          child: MaterialInfoItem(
+                            icon: Icons.payments,
+
+                            value: "${m.totalPrice} EG",
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: AppSizes.h10),
+
+                    Row(
+                      children: [
+                        Expanded(
+                          child: MaterialInfoItem(
+                            icon: Icons.inventory,
+
+                            value: "${m.quantity} KG",
+                          ),
+                        ),
+                        Expanded(
+                          child: MaterialInfoItem(
+                            icon: Icons.calendar_month,
+                            value: m.date,
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: AppSizes.h10),
+
+                    Row(
+                      children: [
+                        Expanded(
+                          child: MaterialInfoItem(icon: Icons.access_time, value: m.time),
+                        ),
+                        Expanded(
+                          child: MaterialInfoItem(
+                            icon: Icons.phone,
+                            value: m.whatsappNumber,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             );
           },

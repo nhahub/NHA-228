@@ -41,6 +41,7 @@ class SubmitButton extends StatelessWidget {
           onPressed: () {
             if (formKey.currentState!.validate()) {
               context.read<PostMaterialCubit>().postMaterial();
+              Navigator.pop(context);
             }
           },
 
@@ -50,7 +51,6 @@ class SubmitButton extends StatelessWidget {
                   : Text(
                     AppStrings.submit,
                     style: Theme.of(context).textTheme.headlineMedium,
-                   
                   ),
         );
       },
