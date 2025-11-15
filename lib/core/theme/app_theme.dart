@@ -86,7 +86,6 @@ ThemeData appTheme() {
       color: AppColors.whiteColor,
       circularTrackColor: Colors.transparent,
     ),
-
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         backgroundColor: WidgetStatePropertyAll(AppColors.focusedBorderColor),

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nha_228/core/core.dart';
+import 'package:nha_228/core/constants/app_colors.dart';
+import 'package:nha_228/core/constants/app_sizes.dart';
+import 'package:nha_228/core/constants/app_strings.dart';
+import 'package:nha_228/core/utils/validators.dart';
 import 'package:nha_228/features/post_material/cubit/post_material_cubit.dart';
 
 class DescriptionField extends StatelessWidget {
@@ -9,14 +12,17 @@ class DescriptionField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<PostMaterialCubit>();
-    final formKey = GlobalKey<FormState>();
 
     return Form(
-      key: formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(AppStrings.description, style: Theme.of(context).textTheme.labelMedium),
+Text(
+  AppStrings.description,
+  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+        color: AppColors.textPrimary,
+      ),
+),
           SizedBox(height: AppSizes.h8),
 
           TextFormField(
@@ -24,17 +30,14 @@ class DescriptionField extends StatelessWidget {
             decoration: InputDecoration(
               hintText: AppStrings.describeYourMaterialCase,
               hintStyle: TextStyle(color: AppColors.addAPhotoOutlined),
+              filled: true,
+            fillColor: AppColors.whiteColor,
             ),
-            validator: (value) {
-              if (value == null || value.trim().isEmpty) {
-                return AppStrings.pleaseDescribeYourMaterialCase;
-              }
-              return null;
-            },
-            onChanged: (val) => cubit.setDescription(val.trim()),
-          ),
-        ],
-      ),
+          
+          validator: (value) => value.descriptionValidator(value),
+          onChanged: (val) => cubit.setDescription(val.trim()),
+        ),
+        ],)
     );
   }
 }

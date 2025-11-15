@@ -48,6 +48,7 @@ dependencies:
   intl: ^0.20.2
   meta: ^1.15.0
   shimmer: ^3.0.0
+  url_launcher: ^6.2.1
 
 dev_dependencies:
   build_runner: ^2.9.0

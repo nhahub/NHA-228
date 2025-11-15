@@ -8,6 +8,9 @@ class MaterialModel {
   final String location;
   final String description;
   final String? imageUrl;
+  final String whatsappNumber;
+  final String date;
+  final String time;
   final Timestamp createdAt;
 
   MaterialModel({
@@ -18,6 +21,9 @@ class MaterialModel {
     required this.location,
     required this.description,
     this.imageUrl,
+    required this.whatsappNumber,
+    required this.date,
+    required this.time,
     required this.createdAt,
   });
 
@@ -30,6 +36,9 @@ class MaterialModel {
       location: map['location'] ?? 'غير محدد',
       description: map['description'] ?? '',
       imageUrl: map['imageUrl'],
+      whatsappNumber: map['whatsappNumber'] ?? '',
+      date: map['date'] ?? '',
+      time: map['time'] ?? '',
       createdAt: map['createdAt'] ?? Timestamp.now(),
     );
   }
@@ -43,6 +52,9 @@ class MaterialModel {
       'location': location,
       'description': description,
       'imageUrl': imageUrl,
+      'whatsappNumber': whatsappNumber,
+      'date': date,
+      'time': time,
       'createdAt': createdAt,
     };
   }
