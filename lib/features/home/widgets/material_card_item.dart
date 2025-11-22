@@ -15,7 +15,7 @@ class MaterialCardItem extends StatelessWidget {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return GestureDetector(
-      onTap: () => context.push(AppRouter.cardDetilesScreen, extra: material),
+      onTap: () => context.push(AppRouter.cardDetailsScreen, extra: material),
       child: Container(
         margin: EdgeInsets.only(bottom: 16),
         padding: EdgeInsets.all(12),

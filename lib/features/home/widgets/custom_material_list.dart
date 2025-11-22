@@ -42,7 +42,7 @@ class CustomMaterialList extends StatelessWidget {
             final m = materials[index];
 
             return GestureDetector(
-              onTap: () => context.push(AppRouter.cardDetilesScreen, extra: m),
+              onTap: () => context.push(AppRouter.cardDetailsScreen, extra: m),
               child: Container(
                 margin: EdgeInsets.only(bottom: AppSizes.h16),
                 padding: EdgeInsets.all(AppSizes.w12),

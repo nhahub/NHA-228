@@ -6,10 +6,10 @@ import 'package:nha_228/features/home/widgets/material_info_item.dart';
 import 'package:nha_228/features/profile/widgets/custom_elevated_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class CardDetilesScreen extends StatelessWidget {
+class CardDetailsScreen extends StatelessWidget {
   final MaterialModel material;
 
-  const CardDetilesScreen({super.key, required this.material});
+  const CardDetailsScreen({super.key, required this.material});
 
   Future<void> openWhatsApp(BuildContext context, String number) async {
     String phone = number.replaceAll(RegExp(r'[^0-9]'), '');
