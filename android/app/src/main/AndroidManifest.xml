@@ -25,7 +25,7 @@
     </queries>
 
     <application
-        android:label="nha_228"
+        android:label="Krakebik"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 

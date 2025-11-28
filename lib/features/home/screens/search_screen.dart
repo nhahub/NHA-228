@@ -25,8 +25,6 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-
     return BlocProvider(
       create: (_) => SearchCubit()..search(widget.searchWord),
       child: BlocBuilder<SearchCubit, SearchState>(

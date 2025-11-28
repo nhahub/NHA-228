@@ -63,7 +63,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
         shape: const CircularNotchedRectangle(),
         notchMargin: AppSizes.h8,
         height: AppSizes.h60,
-        color: Theme.of(context).bottomAppBarTheme.color,
+        color: isDark ? AppDarkColors.navBarColor : AppColors.navBarColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

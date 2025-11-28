@@ -9,7 +9,12 @@ class PostMaterialState {
   final double? totalPrice;
   final String? location;
   final String? description;
-  final String? whatsAppNamber;
+
+  final String? whatsappNumber;
+
+  @Deprecated('Use whatsappNumber instead')
+  String? get whatsAppNamber => whatsappNumber;
+
   final PostMaterialStatus status;
   final String? errorMessage;
   final String? date;
@@ -23,7 +28,7 @@ class PostMaterialState {
     this.totalPrice,
     this.location,
     this.description,
-    this.whatsAppNamber,
+    this.whatsappNumber,
     this.status = PostMaterialStatus.initial,
     this.errorMessage,
     this.date,
@@ -32,19 +37,19 @@ class PostMaterialState {
   });
 
   factory PostMaterialState.initial() => PostMaterialState(
-        materialType: null,
-        materialPrice: null,
-        quantity: null,
-        totalPrice: null,
-        location: null,
-        description: null,
-        whatsAppNamber: null,
-        status: PostMaterialStatus.initial,
-        errorMessage: null,
-        date: null,
-        time: null,
-        imagePath: null,
-      );
+    materialType: null,
+    materialPrice: null,
+    quantity: null,
+    totalPrice: null,
+    location: null,
+    description: null,
+    whatsappNumber: null,
+    status: PostMaterialStatus.initial,
+    errorMessage: null,
+    date: null,
+    time: null,
+    imagePath: null,
+  );
 
   PostMaterialState copyWith({
     String? materialType,
@@ -53,6 +58,9 @@ class PostMaterialState {
     double? totalPrice,
     String? location,
     String? description,
+
+    String? whatsappNumber,
+
     String? whatsAppNamber,
     PostMaterialStatus? status,
     String? errorMessage,
@@ -60,6 +68,8 @@ class PostMaterialState {
     String? time,
     String? imagePath,
   }) {
+    final resolvedWhatsApp = whatsappNumber ?? whatsAppNamber;
+
     return PostMaterialState(
       materialType: materialType ?? this.materialType,
       materialPrice: materialPrice ?? this.materialPrice,
@@ -67,7 +77,7 @@ class PostMaterialState {
       totalPrice: totalPrice ?? this.totalPrice,
       location: location ?? this.location,
       description: description ?? this.description,
-      whatsAppNamber: whatsAppNamber ?? this.whatsAppNamber,
+      whatsappNumber: resolvedWhatsApp ?? this.whatsappNumber,
       status: status ?? this.status,
       errorMessage: errorMessage ?? this.errorMessage,
       date: date ?? this.date,
