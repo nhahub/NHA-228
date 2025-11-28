@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/usamaelgendy/**)",
+      "Bash(if [ -f ~/.gradle/gradle.properties ])",
+      "Bash(then cat ~/.gradle/gradle.properties)",
+      "Bash(fi)",
+      "Bash(ls:*)",
+      "Bash(java:*)",
+      "Bash(source ~/.zshrc)",
+      "Bash(echo:*)",
+      "Bash(/usr/libexec/java_home:*)",
+      "Bash(cat:*)",
+      "Bash(./gradlew:*)",
+      "Bash(/Users/usamaelgendy/Desktop/Desc/DEPI/team_code/NHA-228/android/gradlew:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

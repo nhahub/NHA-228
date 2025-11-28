@@ -12,7 +12,9 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
 
   void setImage(File file) {
     imageFile = file;
-    emit(state.copyWith(imagePath: file.path));
+    if (!isClosed) {
+      emit(state.copyWith(imagePath: file.path));
+    }
   }
 
   void selectMaterial(String type, String priceText) {
@@ -21,11 +23,15 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
       orElse: () => CategoryValues.wasteItems.first,
     );
 
-    emit(state.copyWith(
-      materialType: type,
-      materialPrice: priceText,
-      imagePath: wasteItem.imagePath,
-    ));
+    if (!isClosed) {
+      emit(
+        state.copyWith(
+          materialType: type,
+          materialPrice: priceText,
+          imagePath: wasteItem.imagePath,
+        ),
+      );
+    }
   }
 
   void setQuantity(double q) {
@@ -34,32 +40,65 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
       final pricePerKg = double.tryParse(state.materialPrice!.split(" ").first);
       if (pricePerKg != null) total = pricePerKg * q;
     }
-    emit(state.copyWith(quantity: q, totalPrice: total));
+    if (!isClosed) {
+      emit(state.copyWith(quantity: q, totalPrice: total));
+    }
   }
 
-  void setLocation(String val) => emit(state.copyWith(location: val));
-  void setDescription(String val) => emit(state.copyWith(description: val));
-  void setWhatsAppNumber(String val) => emit(state.copyWith(whatsAppNamber: val));
+  void setLocation(String val) {
+    if (!isClosed) {
+      emit(state.copyWith(location: val));
+    }
+  }
+
+  void setDescription(String val) {
+    if (!isClosed) {
+      emit(state.copyWith(description: val));
+    }
+  }
+
+  void setWhatsAppNumber(String val) {
+    if (!isClosed) {
+      emit(state.copyWith(whatsappNumber: val));
+    }
+  }
+
+  void setDate(String val) {
+    if (!isClosed) {
+      emit(state.copyWith(date: val));
+    }
+  }
+
+  void setTime(String val) {
+    if (!isClosed) {
+      emit(state.copyWith(time: val));
+    }
+  }
 
   void resetState() {
-    emit(PostMaterialState.initial());
+    if (!isClosed) {
+      emit(PostMaterialState.initial());
+    }
   }
 
   Future<void> postMaterial() async {
     try {
-      emit(state.copyWith(status: PostMaterialStatus.loading));
+      if (!isClosed) {
+        emit(state.copyWith(status: PostMaterialStatus.loading));
+      }
 
-      // Validation
       if (state.materialType == null ||
           state.location == null ||
           state.description == null ||
-          state.whatsAppNamber == null) {
-        emit(
-          state.copyWith(
-            status: PostMaterialStatus.error,
-            errorMessage: AppStrings.pleaseFillAllRequiredFields,
-          ),
-        );
+          (state.whatsappNumber == null || state.whatsappNumber!.trim().isEmpty)) {
+        if (!isClosed) {
+          emit(
+            state.copyWith(
+              status: PostMaterialStatus.error,
+              errorMessage: AppStrings.pleaseFillAllRequiredFields,
+            ),
+          );
+        }
         return;
       }
 
@@ -70,20 +109,26 @@ class PostMaterialCubit extends Cubit<PostMaterialState> {
         'totalPrice': state.totalPrice,
         'location': state.location,
         'description': state.description,
-        'whatsAppNumber': state.whatsAppNamber,
+        'whatsappNumber': state.whatsappNumber,
+        'date': state.date,
+        'time': state.time,
         'imageUrl': state.imagePath,
         'createdAt': Timestamp.now(),
       };
 
       await FirebaseFirestore.instance.collection('materials').add(data);
 
-      emit(state.copyWith(status: PostMaterialStatus.success));
+      if (!isClosed) {
+        emit(state.copyWith(status: PostMaterialStatus.success));
+      }
+
       resetState();
     } catch (e) {
-      emit(state.copyWith(
-        status: PostMaterialStatus.error,
-        errorMessage: e.toString(),
-      ));
+      if (!isClosed) {
+        emit(
+          state.copyWith(status: PostMaterialStatus.error, errorMessage: e.toString()),
+        );
+      }
     }
   }
 }

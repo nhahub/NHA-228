@@ -1,175 +1,159 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
 import 'package:nha_228/core/core.dart';
 import 'package:nha_228/features/home/models/material_model.dart';
-import 'package:nha_228/features/home/widgets/image_in_card.dart';
-import 'package:nha_228/features/home/widgets/material_info_item.dart';
+import 'package:nha_228/features/home/widgets/material_card.dart';
 
 class CustomMaterialList extends StatelessWidget {
   const CustomMaterialList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-
     return StreamBuilder<QuerySnapshot>(
-      stream:
-          FirebaseFirestore.instance
-              .collection('materials')
-              .orderBy('createdAt', descending: true)
-              .snapshots(),
+      stream: FirebaseFirestore.instance
+          .collection('materials')
+          .orderBy('createdAt', descending: true)
+          .snapshots(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
+          return _buildLoadingState();
+        }
+
+        if (snapshot.hasError) {
+          return _buildErrorState(context);
         }
 
         if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-          return const Center(child: Text(AppStrings.noPublishedMaterialYet));
+          return _buildEmptyState(context);
         }
 
-        final materials =
-            snapshot.data!.docs
-                .map((doc) => MaterialModel.fromMap(doc.data() as Map<String, dynamic>))
-                .toList();
+        final materials = snapshot.data!.docs
+            .map((doc) =>
+                MaterialModel.fromMap(doc.data() as Map<String, dynamic>))
+            .toList();
 
         return ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemCount: materials.length,
           itemBuilder: (context, index) {
-            final m = materials[index];
-
-            return GestureDetector(
-              onTap: () => context.push(AppRouter.cardDetailsScreen, extra: m),
-              child: Container(
-                margin: EdgeInsets.only(bottom: AppSizes.h16),
-                padding: EdgeInsets.all(AppSizes.w12),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors:
-                        isDark
-                            ? [
-                              AppDarkColors.categoryBackground,
-                              AppDarkColors.cardDarkColor,
-                            ]
-                            : [AppColors.navBarColor, AppColors.categoryFoot],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  borderRadius: BorderRadius.circular(AppSizes.r14),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.textPrimary.withOpacity(.15),
-                      blurRadius: 8,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ImageInCard(m: m),
-
-                        SizedBox(width: AppSizes.w12),
-
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                m.materialType,
-                                style: TextStyle(
-                                  fontSize: AppSizes.sp17,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.whiteColor,
-                                ),
-                              ),
-
-                              SizedBox(height: AppSizes.h4),
-                              Text(
-                                m.description,
-                                maxLines: 3,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  fontSize: AppSizes.sp14,
-                                  color: AppColors.whiteColor.withOpacity(.9),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    SizedBox(height: AppSizes.h10),
-                    Divider(color: AppColors.whiteColor.withOpacity(.3)),
-                    SizedBox(height: AppSizes.h10),
-
-                    Row(
-                      children: [
-                        Expanded(
-                          child: MaterialInfoItem(
-                            icon: Icons.location_on,
-                            value: m.location,
-                          ),
-                        ),
-                        Expanded(
-                          child: MaterialInfoItem(
-                            icon: Icons.payments,
-
-                            value: "${m.totalPrice} EG",
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    SizedBox(height: AppSizes.h10),
-
-                    Row(
-                      children: [
-                        Expanded(
-                          child: MaterialInfoItem(
-                            icon: Icons.inventory,
-
-                            value: "${m.quantity} KG",
-                          ),
-                        ),
-                        Expanded(
-                          child: MaterialInfoItem(
-                            icon: Icons.calendar_month,
-                            value: m.date,
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    SizedBox(height: AppSizes.h10),
-
-                    Row(
-                      children: [
-                        Expanded(
-                          child: MaterialInfoItem(icon: Icons.access_time, value: m.time),
-                        ),
-                        Expanded(
-                          child: MaterialInfoItem(
-                            icon: Icons.phone,
-                            value: m.whatsappNumber,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+            return MaterialCard(
+              material: materials[index],
+              index: index,
             );
           },
         );
       },
+    );
+  }
+
+  Widget _buildLoadingState() {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: AppSizes.h40),
+      child: Column(
+        children: [
+          SizedBox(
+            width: AppSizes.h40,
+            height: AppSizes.h40,
+            child: CircularProgressIndicator(
+              strokeWidth: 3,
+              valueColor: AlwaysStoppedAnimation<Color>(AppColors.secondary),
+            ),
+          ),
+          SizedBox(height: AppSizes.h16),
+          Text(
+            'Loading materials...',
+            style: TextStyle(
+              color: AppColors.subtitle,
+              fontSize: AppSizes.sp14,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildEmptyState(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    return Container(
+      padding: EdgeInsets.all(AppSizes.h32),
+      decoration: BoxDecoration(
+        color: isDark
+            ? AppDarkColors.categoryBackground
+            : AppColors.categoryBackground,
+        borderRadius: BorderRadius.circular(AppSizes.r16),
+        border: Border.all(
+          color: AppColors.secondary.withValues(alpha: 0.2),
+          width: 1,
+        ),
+      ),
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(AppSizes.h16),
+            decoration: BoxDecoration(
+              color: AppColors.secondary.withValues(alpha: 0.1),
+              shape: BoxShape.circle,
+            ),
+            child: Icon(
+              Icons.inventory_2_outlined,
+              size: AppSizes.h48,
+              color: AppColors.secondary,
+            ),
+          ),
+          SizedBox(height: AppSizes.h16),
+          Text(
+            'No materials yet',
+            style: TextStyle(
+              fontSize: AppSizes.sp18,
+              fontWeight: FontWeight.bold,
+              color: isDark ? AppColors.whiteColor : AppColors.textPrimary,
+            ),
+          ),
+          SizedBox(height: AppSizes.h8),
+          Text(
+            'Be the first to post your recyclable materials!',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: AppSizes.sp14,
+              color: isDark
+                  ? AppColors.whiteColor.withValues(alpha: 0.7)
+                  : AppColors.subtitle,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildErrorState(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    return Container(
+      padding: EdgeInsets.all(AppSizes.h32),
+      decoration: BoxDecoration(
+        color: AppColors.errorBorderColor.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(AppSizes.r16),
+      ),
+      child: Column(
+        children: [
+          Icon(
+            Icons.error_outline,
+            size: AppSizes.h48,
+            color: AppColors.errorBorderColor,
+          ),
+          SizedBox(height: AppSizes.h16),
+          Text(
+            AppStrings.somethingWentWrong,
+            style: TextStyle(
+              fontSize: AppSizes.sp16,
+              fontWeight: FontWeight.w600,
+              color: isDark ? AppColors.whiteColor : AppColors.textPrimary,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

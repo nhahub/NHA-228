@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nha_228/core/constants/app_colors.dart';
-import 'package:nha_228/core/constants/app_sizes.dart';
-import 'package:nha_228/core/constants/app_strings.dart';
-import 'package:nha_228/core/utils/validators.dart';
+import 'package:nha_228/core/core.dart';
+
 import '../cubit/post_material_cubit.dart';
 
 class WhatsappNumber extends StatelessWidget {
